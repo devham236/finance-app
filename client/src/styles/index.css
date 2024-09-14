@@ -13,15 +13,10 @@
 
     body{
         font-family: 'Poppins', sans-serif;
-        background-color: #d4d4d8;
     }
 
     body #root{
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100vw;
         height: 100vh;
-        padding: 4rem 4rem;
     }
 }
