@@ -13,5 +13,15 @@
 
     body{
         font-family: 'Poppins', sans-serif;
+        background-color: #a1a1aa;
+    }
+
+    body #root{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 4rem 4rem;
     }
 }
