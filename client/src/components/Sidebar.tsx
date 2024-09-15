@@ -7,6 +7,8 @@ const Sidebar = () => {
   const { currentPath } = useSelector((state) => state.sidebar);
   const dispatch = useDispatch();
 
+  console.log(currentPath);
+
   return (
     <div className="h-full text-center border-r-2 border-slate-50 flex flex-col p-[1.5rem] text-text_color_light">
       <Link
@@ -14,7 +16,9 @@ const Sidebar = () => {
         onClick={() => dispatch(setCurrentPath("/overview"))}
         className={`hover:bg-[#f9fafb] duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
         ${
-          currentPath === "/overview" ? "bg-[#f9fafb] shadow-md rounded-md" : ""
+          currentPath === "/overview" || currentPath === null
+            ? "bg-[#f9fafb] shadow-md rounded-md"
+            : ""
         }`}
       >
         <span className="material-symbols-rounded mr-2">grid_view</span>
