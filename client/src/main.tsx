@@ -5,6 +5,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import App from "./App.tsx";
 import "./styles/index.css";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 const store = configureStore({
   reducer: {},
@@ -12,8 +13,10 @@ const store = configureStore({
 
 createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <StrictMode>
-      <App />
-    </StrictMode>
+    <BrowserRouter>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </BrowserRouter>
   </Provider>
 );
