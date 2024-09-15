@@ -13,7 +13,9 @@ const Sidebar = () => {
         to={"/overview"}
         onClick={() => dispatch(setCurrentPath("/overview"))}
         className={`hover:bg-[#f9fafb] duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
-        ${currentPath === "/overview" && "bg-[#f9fafb] shadow-md rounded-md"}`}
+        ${
+          currentPath === "/overview" ? "bg-[#f9fafb] shadow-md rounded-md" : ""
+        }`}
       >
         <span className="material-symbols-rounded mr-2">grid_view</span>
         <p>Overview</p>
