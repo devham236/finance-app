@@ -7,8 +7,6 @@ const Sidebar = () => {
   const { currentPath } = useSelector((state) => state.sidebar);
   const dispatch = useDispatch();
 
-  console.log(currentPath);
-
   return (
     <div className="h-full text-center border-r-2 border-slate-50 flex flex-col p-[1.5rem] text-text_color_light">
       <Link
