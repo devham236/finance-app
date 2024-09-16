@@ -14,6 +14,9 @@ export default {
         text_color_light: "#4d4d4d",
         text_color_dark: "#f0f0f0",
 
+        sidebar_item_color_light: "#f9fafb",
+        sidebar_item_color_dark: "#64748b",
+
         green_color: "#3e9c35",
       },
     },
