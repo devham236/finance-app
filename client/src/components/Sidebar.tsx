@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { setCurrentPath } from "../slices/sidebarSlice";
 
 const Sidebar = () => {
-  const { currentPath } = useSelector((state) => state.sidebar);
+  const { currentPath } = useSelector((state: any) => state.sidebar);
   const dispatch = useDispatch();
 
   return (

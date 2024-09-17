@@ -5,7 +5,7 @@ import MainContent from "./components/MainContent";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  const { isDarkMode } = useSelector((state) => state.darkmode);
+  const { isDarkMode } = useSelector((state: any) => state.darkmode);
 
   return (
     <div
