@@ -12,7 +12,7 @@ const Sidebar = () => {
       <Link
         to={"/overview"}
         onClick={() => dispatch(setCurrentPath("/overview"))}
-        className={`hover:bg-sidebar_item_color_light duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
+        className={`hover:bg-sidebar_item_color_light dark:hover:bg-sidebar_item_color_dark duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
         ${
           currentPath === "/overview" || currentPath === null
             ? "bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark shadow-md rounded-md"
@@ -25,10 +25,10 @@ const Sidebar = () => {
       <Link
         to={"/settings"}
         onClick={() => dispatch(setCurrentPath("/settings"))}
-        className={`hover:bg-sidebar_item_color_light duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
+        className={`hover:bg-sidebar_item_color_light dark:hover:bg-sidebar_item_color_dark duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
         ${
           currentPath === "/settings" &&
-          "bg-sidebar_item_color_light shadow-md rounded-md"
+          "bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark shadow-md rounded-md"
         }`}
       >
         <span className="material-symbols-rounded mr-2">settings</span>
