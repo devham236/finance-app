@@ -8,10 +8,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 import sidebarReducer from "./slices/sidebarSlice.tsx";
-import darkmodeReducer from "./slices/darkmodeSlice.tsx";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import darkmodeReducer from "./slices/darkmodeSlice.tsx";
 
 const persistConfig = {
   key: "root",

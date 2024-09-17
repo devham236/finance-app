@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
 
 const Topbar = () => {
-  const { isDarkmode } = useSelector((state: any) => state.darkmode);
+  const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const dispatch = useDispatch();
+
+  console.log(isDarkMode);
 
   return (
     <div className="w-full p-8 border-b-2 border-slate-50 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
@@ -18,8 +20,8 @@ const Topbar = () => {
           <span className="material-symbols-rounded mr-1">light_mode</span>
           <span className="material-symbols-rounded">dark_mode</span>
           <span
-            className={`bg-container_color_light absolute top-1 w-6 h-6 rounded-full  ${
-              isDarkmode ? "left-1" : "right-1"
+            className={`bg-container_color_light absolute top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full ${
+              isDarkMode ? "left-1" : "right-1"
             }`}
           ></span>
         </div>
