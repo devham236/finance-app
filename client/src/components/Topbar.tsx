@@ -7,14 +7,16 @@ const Topbar = () => {
   return (
     <div className="w-full p-8 border-b-2 border-slate-50 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="">Ruune</div>
-      <div>
+      <div className="flex items-center">
         <span className="mr-20 cursor-pointer">Search</span>
-        <span
-          className="mr-20 cursor-pointer"
+        <div
+          className="mr-20 cursor-pointer bg-sidebar_item_color_light flex items-center justify-between px-1 py-1 rounded-[20px] relative"
           onClick={() => dispatch(toggleDarkMode())}
         >
-          DarkMode
-        </span>
+          <span className="material-symbols-rounded mr-2">light_mode</span>
+          <span className="material-symbols-rounded">dark_mode</span>
+          <span className="bg-container_color_light absolute top-[50%] left-1 translate-y-[-50%] w-[50%] h-[28px] rounded-[20px]"></span>
+        </div>
         <span className="cursor-pointer">Account</span>
       </div>
     </div>
