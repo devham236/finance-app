@@ -1,7 +1,11 @@
 import React from "react";
 
 const Settings = () => {
-  return <div>Settings</div>;
+  return (
+    <div className="text-text_color_light dark:text-text_color_dark">
+      Settings
+    </div>
+  );
 };
 
 export default Settings;
