@@ -9,22 +9,34 @@ import { BrowserRouter } from "react-router-dom";
 
 import sidebarReducer from "./slices/sidebarSlice.tsx";
 import darkmodeReducer from "./slices/darkmodeSlice.tsx";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedDarkmodeReducer = persistReducer(persistConfig, darkmodeReducer);
 
 const store = configureStore({
   reducer: {
     sidebar: sidebarReducer,
-    darkmode: darkmodeReducer,
+    darkmode: persistedDarkmodeReducer,
   },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+const persistor = persistStore(store);
 
 createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <BrowserRouter>
-      <StrictMode>
-        <App />
-      </StrictMode>
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <StrictMode>
+          <App />
+        </StrictMode>
+      </BrowserRouter>
+    </PersistGate>
   </Provider>
 );
