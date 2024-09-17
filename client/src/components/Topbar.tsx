@@ -5,7 +5,7 @@ import { toggleDarkMode } from "../slices/darkmodeSlice";
 const Topbar = () => {
   const dispatch = useDispatch();
   return (
-    <div className="w-full p-8 border-b-2 border-slate-50 flex items-center justify-between text-text_color_light">
+    <div className="w-full p-8 border-b-2 border-slate-50 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="">Ruune</div>
       <div>
         <span className="mr-20">Search</span>

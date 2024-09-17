@@ -8,14 +8,14 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="h-full text-center border-r-2 border-slate-50 flex flex-col p-[1.5rem] text-text_color_light">
+    <div className="h-full text-center border-r-2 border-slate-50 flex flex-col p-[1.5rem] text-text_color_light dark:text-text_color_dark">
       <Link
         to={"/overview"}
         onClick={() => dispatch(setCurrentPath("/overview"))}
         className={`hover:bg-sidebar_item_color_light duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
         ${
           currentPath === "/overview" || currentPath === null
-            ? "bg-sidebar_item_color_light shadow-md rounded-md"
+            ? "bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark shadow-md rounded-md"
             : ""
         }`}
       >
