@@ -18,14 +18,24 @@ const persistDarkmodeConfig = {
   storage,
 };
 
+const persistSidebarConfig = {
+  key: "sidebar",
+  storage,
+};
+
 const persistedDarkmodeReducer = persistReducer(
   persistDarkmodeConfig,
   darkmodeReducer
 );
 
+const persistedSidebarReducer = persistReducer(
+  persistSidebarConfig,
+  sidebarReducer
+);
+
 const store = configureStore({
   reducer: {
-    sidebar: sidebarReducer,
+    sidebar: persistedSidebarReducer,
     darkmode: persistedDarkmodeReducer,
   },
 });
