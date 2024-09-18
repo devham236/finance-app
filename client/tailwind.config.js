@@ -6,10 +6,10 @@ export default {
     extend: {
       colors: {
         body_color_light: "#d4d4d8",
-        body_color_dark: "#334155",
+        body_color_dark: "#1e293b",
 
         container_color_light: "#e4e4e7",
-        container_color_dark: "#475569",
+        container_color_dark: "#334155",
 
         text_color_light: "#4d4d4d",
         text_color_dark: "#f0f0f0",

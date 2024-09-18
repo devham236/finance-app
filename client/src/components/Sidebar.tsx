@@ -8,7 +8,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="h-full text-center border-r-2 border-slate-50 flex flex-col p-[1.5rem] text-text_color_light dark:text-text_color_dark relative">
+    <div className="h-full text-center border-r-2 border-slate-50 dark:border-opacity-20 flex flex-col p-[1.5rem] text-text_color_light dark:text-text_color_dark relative">
       <Link
         to={"/overview"}
         onClick={() => dispatch(setCurrentPath("/overview"))}

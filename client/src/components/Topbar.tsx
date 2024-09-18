@@ -7,7 +7,7 @@ const Topbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full p-8 border-b-2 border-slate-50 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
+    <div className="w-full p-8 border-b-2 border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="">Ruune</div>
       <div className="flex items-center">
         <span className="mr-20 cursor-pointer">Search</span>
