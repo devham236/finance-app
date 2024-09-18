@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
+import { Link } from "react-router-dom";
+import { setCurrentPath } from "../slices/sidebarSlice";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
@@ -23,7 +25,13 @@ const Topbar = () => {
             }`}
           ></span>
         </div>
-        <span className="cursor-pointer">Account</span>
+        <Link
+          to={"/account"}
+          className="hover:underline underline-offset-2"
+          onClick={() => dispatch(setCurrentPath("/account"))}
+        >
+          Account
+        </Link>
       </div>
     </div>
   );
