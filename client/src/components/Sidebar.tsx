@@ -8,7 +8,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="h-full text-center border-r-2 border-slate-50 flex flex-col p-[1.5rem] text-text_color_light dark:text-text_color_dark">
+    <div className="h-full text-center border-r-2 border-slate-50 flex flex-col p-[1.5rem] text-text_color_light dark:text-text_color_dark relative">
       <Link
         to={"/overview"}
         onClick={() => dispatch(setCurrentPath("/overview"))}
@@ -34,6 +34,13 @@ const Sidebar = () => {
         <span className="material-symbols-rounded mr-2">settings</span>
         <p>Settings</p>
       </Link>
+      <button
+        className={`bg-sidebar_item_color_light absolute bottom-0 left-[1.5rem] dark:bg-sidebar_item_color_dark duration-200 p-2 rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center 
+        `}
+      >
+        <span className="material-symbols-rounded mr-2">add_circle</span>
+        <p>Add</p>
+      </button>
     </div>
   );
 };
