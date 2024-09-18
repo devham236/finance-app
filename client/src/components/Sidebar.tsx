@@ -39,7 +39,7 @@ const Sidebar = () => {
         `}
       >
         <span className="material-symbols-rounded mr-2">add_circle</span>
-        <p>Add</p>
+        <p>Add Entry</p>
       </button>
     </div>
   );
