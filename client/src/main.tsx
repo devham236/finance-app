@@ -13,12 +13,15 @@ import { persistReducer, persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import darkmodeReducer from "./slices/darkmodeSlice.tsx";
 
-const persistConfig = {
-  key: "root",
+const persistDarkmodeConfig = {
+  key: "darkmode",
   storage,
 };
 
-const persistedDarkmodeReducer = persistReducer(persistConfig, darkmodeReducer);
+const persistedDarkmodeReducer = persistReducer(
+  persistDarkmodeConfig,
+  darkmodeReducer
+);
 
 const store = configureStore({
   reducer: {

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const sidebarSlice = createSlice({
   name: "sidebar",
-  initialState: { currentPath: null },
+  initialState: { currentPath: "/" },
   reducers: {
     setCurrentPath: (state, action) => {
       state.currentPath = action.payload;

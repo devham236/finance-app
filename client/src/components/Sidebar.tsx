@@ -14,7 +14,7 @@ const Sidebar = () => {
         onClick={() => dispatch(setCurrentPath("/overview"))}
         className={`hover:bg-sidebar_item_color_light dark:hover:bg-sidebar_item_color_dark duration-200 p-2 hover:rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center
         ${
-          currentPath === "/overview" || currentPath === null
+          currentPath === "/overview" || currentPath === "/"
             ? "bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark shadow-md rounded-md"
             : ""
         }`}
