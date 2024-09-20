@@ -27,10 +27,10 @@ const Topbar = () => {
         </div>
         <Link
           to={"/account"}
-          className="hover:underline underline-offset-2"
+          className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full"
           onClick={() => dispatch(setCurrentPath("/account"))}
         >
-          Account
+          <span className="material-symbols-rounded">account_circle</span>
         </Link>
       </div>
     </div>
