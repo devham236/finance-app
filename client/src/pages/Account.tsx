@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from "../axiosConfig";
 import React, { useEffect } from "react";
 
 const Account = () => {
   useEffect(() => {
     const testEndpoint = async () => {
-      const res = await axios.get("http://localhost:8000/api/v1/test");
+      const res = await axios.get("/test");
       console.log(res);
     };
 
