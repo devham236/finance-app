@@ -34,10 +34,16 @@ const Topbar = () => {
         </div>
         <Link
           to={"/account"}
-          className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full"
+          className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full mr-20"
           onClick={() => dispatch(setCurrentPath("/account"))}
         >
           <span className="material-symbols-rounded">account_circle</span>
+        </Link>
+        <Link
+          to={"/auth"}
+          className="bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark py-1 px-3 rounded-full text-text_color_light dark:text-text_color_dark"
+        >
+          Sign Up
         </Link>
       </div>
     </div>
