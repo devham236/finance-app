@@ -2,7 +2,7 @@ import React from "react";
 
 const SignupForm = () => {
   return (
-    <div className="w-[500px] bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
+    <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
       <h2 className="text-xl font-bold mb-2">Sign Up</h2>
       <p className="mb-4">
         Already have an Account?
@@ -12,12 +12,12 @@ const SignupForm = () => {
         <input
           type="text"
           placeholder="Email"
-          className="mb-2 bg-container_color_light dark:bg-container_color_dark rounded-md p-2 placeholder:text-text_color_light dark:placeholder:text-text_color_dark outline-none"
+          className="mb-2 dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-text_color_light dark:placeholder:text-text_color_dark outline-none"
         />
         <input
           type="password"
           placeholder="Password"
-          className="bg-container_color_light dark:bg-container_color_dark rounded-md p-2 placeholder:text-text_color_light dark:placeholder:text-text_color_dark outline-none"
+          className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-text_color_light dark:placeholder:text-text_color_dark outline-none"
         />
       </div>
       <button className="mb-4 hover:shadow-md bg-green_color text-text_color_dark p-2 rounded-md duration-200">
