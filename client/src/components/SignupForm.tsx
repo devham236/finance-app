@@ -12,12 +12,12 @@ const SignupForm = () => {
         <input
           type="text"
           placeholder="Email"
-          className="mb-2 dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-text_color_light dark:placeholder:text-text_color_dark outline-none"
+          className="mb-2 dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
         />
         <input
           type="password"
           placeholder="Password"
-          className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-text_color_light dark:placeholder:text-text_color_dark outline-none"
+          className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
         />
       </div>
       <button className="mb-4 hover:shadow-md bg-green_color text-text_color_dark p-2 rounded-md duration-200">
