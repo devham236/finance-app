@@ -5,8 +5,8 @@ const SignupForm = () => {
     <div className="w-[500px] bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
       <h2 className="text-xl font-bold mb-2">Sign Up</h2>
       <p className="mb-4">
-        Already have an Account?{" "}
-        <span className="text-green_color">Login here.</span>
+        Already have an Account?
+        <span className="text-green_color ml-2">Login here.</span>
       </p>
       <div className="flex flex-col mb-2">
         <input
