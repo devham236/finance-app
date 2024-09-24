@@ -1,6 +1,16 @@
 import React from "react";
+import axios from "../axiosConfig";
 
 const SignupForm = () => {
+  const signupUserWithGoogle = async () => {
+    try {
+      const res = await axios.get("/test");
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
       <h2 className="text-xl font-bold mb-2">Sign Up</h2>
@@ -27,7 +37,10 @@ const SignupForm = () => {
       </button>
       <div className="flex items-center">
         <p className="mr-2">Sign up with: </p>
-        <div className="w-[30px] h-[30px]">
+        <div
+          className="w-[30px] h-[30px]"
+          onClick={() => signupUserWithGoogle()}
+        >
           <img
             src="/assets/Google__G__logo.svg.png"
             alt=""
