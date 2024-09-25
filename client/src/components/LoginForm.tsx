@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   return (
@@ -6,9 +7,12 @@ const LoginForm = () => {
       <h2 className="text-xl font-bold mb-2">Login</h2>
       <p className="mb-4">
         New here?
-        <span className="text-green_color ml-2 hover:underline">
+        <Link
+          to={"/auth/signup"}
+          className="text-green_color ml-2 hover:underline"
+        >
           Sign up here.
-        </span>
+        </Link>
       </p>
       <div className="flex flex-col mb-2">
         <input

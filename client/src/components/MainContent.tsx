@@ -4,6 +4,8 @@ import Overview from "../pages/Overview";
 import Settings from "../pages/Settings";
 import Account from "../pages/Account";
 import Auth from "../pages/Auth";
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 
 const MainContent = () => {
   return (
@@ -13,7 +15,9 @@ const MainContent = () => {
         <Route path="/overview" element={<Overview />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth/*" element={<SignupForm />} />
+        <Route path="/auth/signup" element={<SignupForm />} />
+        <Route path="/auth/login" element={<LoginForm />} />
       </Routes>
     </div>
   );

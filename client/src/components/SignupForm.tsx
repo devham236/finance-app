@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "../axiosConfig";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
   const signupUserWithGoogle = async () => {
@@ -16,9 +17,12 @@ const SignupForm = () => {
       <h2 className="text-xl font-bold mb-2">Sign Up</h2>
       <p className="mb-4">
         Already have an Account?
-        <span className="text-green_color ml-2 hover:underline">
+        <Link
+          to={"/auth/login"}
+          className="text-green_color ml-2 hover:underline"
+        >
           Login here.
-        </span>
+        </Link>
       </p>
       <div className="flex flex-col mb-2">
         <input
