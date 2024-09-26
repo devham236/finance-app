@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
+const { auth, googleProvider } = require("./firebase/firebaseConfig");
 
 const app = express();
 const server = http.createServer(app);
