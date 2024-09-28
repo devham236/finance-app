@@ -28,11 +28,18 @@ const SignupForm = () => {
         <input
           type="text"
           placeholder="Email"
+          name="email"
           className="mb-2 dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+          onChange={(event) =>
+            dispatch(
+              setInput({ name: event.target.name, value: event.target.value })
+            )
+          }
         />
         <input
           type="password"
           placeholder="Password"
+          name="password"
           className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
         />
       </div>
