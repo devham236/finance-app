@@ -1,6 +1,7 @@
-const express = require("express");
-const cors = require("cors");
-const http = require("http");
+import express from "express";
+import cors from "cors";
+import http from "http";
+import { auth, googleProvider } from "./firebase/firebaseConfig.js";
 
 const app = express();
 const server = http.createServer(app);
