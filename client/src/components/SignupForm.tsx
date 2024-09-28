@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "../axiosConfig";
 import { Link } from "react-router-dom";
 
 const SignupForm = () => {
-  const signupUserWithGoogle = async () => {
-    try {
-      const res = await axios.get("/test");
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
+  const [formInput, setFormInput] = useState({ email: "", password: "" });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   return (
@@ -30,17 +31,14 @@ const SignupForm = () => {
           placeholder="Email"
           name="email"
           className="mb-2 dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
-          onChange={(event) =>
-            dispatch(
-              setInput({ name: event.target.name, value: event.target.value })
-            )
-          }
+          onChange={(e) => handleInputChange(e)}
         />
         <input
           type="password"
           placeholder="Password"
           name="password"
           className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+          onChange={(e) => handleInputChange(e)}
         />
       </div>
       <button className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200">
@@ -48,10 +46,7 @@ const SignupForm = () => {
       </button>
       <div className="flex items-center">
         <p className="mr-2">Sign up with: </p>
-        <div
-          className="w-[30px] h-[30px]"
-          onClick={() => signupUserWithGoogle()}
-        >
+        <div className="w-[30px] h-[30px]">
           <img
             src="/assets/Google__G__logo.svg.png"
             alt=""
