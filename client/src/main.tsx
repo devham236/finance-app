@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import sidebarReducer from "./slices/sidebarSlice.ts";
 import darkmodeReducer from "./slices/darkmodeSlice.ts";
+import userReducer from "./slices/userSlice.ts";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
@@ -37,6 +38,7 @@ const store = configureStore({
   reducer: {
     sidebar: persistedSidebarReducer,
     darkmode: persistedDarkmodeReducer,
+    user: userReducer,
   },
 });
 
