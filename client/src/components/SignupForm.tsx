@@ -9,7 +9,7 @@ const SignupForm = () => {
   const { data } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormInput((prevState) => ({
       ...prevState,
