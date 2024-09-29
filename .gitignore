@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 *.env
 *firebaseConfig.js
-*axiosConfig.ts
+*axiosConfig.js
