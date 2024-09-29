@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import http from "http";
-import { auth, googleProvider } from "./firebase/firebaseConfig.js";
+import { auth, googleProvider } from "../firebase/firebaseConfig.js";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const app = express();
