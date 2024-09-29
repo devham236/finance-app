@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "../axiosConfig";
 import { FormInput } from "../utils/types/types";
 
 export const signinUser = createAsyncThunk(
