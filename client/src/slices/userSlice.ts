@@ -1,10 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../axiosConfig";
+import { FormInput } from "../utils/types/types";
 
-export const signinUser = createAsyncThunk("user/signinUser", async () => {
-  const res = await axios.get("/test");
-  return res.data;
-});
+export const signinUser = createAsyncThunk(
+  "user/signinUser",
+  async (inputObject: FormInput) => {
+    const res = await axios.post("/test", inputObject);
+    return res.data;
+  }
+);
 
 const userSlice = createSlice({
   name: "user",

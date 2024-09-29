@@ -20,7 +20,7 @@ const SignupForm = () => {
     }));
   };
 
-  console.log(formInput);
+  console.log(data);
 
   return (
     <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
@@ -51,7 +51,7 @@ const SignupForm = () => {
         />
       </div>
       <button
-        onClick={() => dispatch(signinUser())}
+        onClick={() => dispatch(signinUser(formInput))}
         className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
       >
         Sign Up
@@ -66,6 +66,7 @@ const SignupForm = () => {
           />
         </div>
       </div>
+      <p>{data?.message}</p>
     </div>
   );
 };
