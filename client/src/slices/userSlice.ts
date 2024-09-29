@@ -5,8 +5,8 @@ import { FormInput } from "../utils/types/types";
 export const signinUser = createAsyncThunk(
   "user/signinUser",
   async (inputObject: FormInput) => {
-    const res = await axios.post("/test", inputObject);
-    return res.data;
+    //führ die sign in methoden von firebase hier direkt aus
+    //du kannst ein zweites argument übergeben um die google sign in methode zu verwenden
   }
 );
 
