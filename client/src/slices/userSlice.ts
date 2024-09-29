@@ -13,7 +13,7 @@ export const signinUser = createAsyncThunk(
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    data: {},
+    userData: {},
     loading: false,
     error: "",
   },

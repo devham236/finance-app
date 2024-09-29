@@ -9,7 +9,7 @@ const SignupForm = () => {
     email: "",
     password: "",
   });
-  const { data } = useSelector((state: any) => state.user);
+  const { userData } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,8 +19,6 @@ const SignupForm = () => {
       [name]: value,
     }));
   };
-
-  console.log(data);
 
   return (
     <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
