@@ -45,7 +45,7 @@ const Topbar = () => {
         </Link>
         <Link
           to={"/auth"}
-          className="bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark py-1 px-2 rounded-md text-text_color_light dark:text-text_color_dark"
+          className="bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark py-1 px-2 rounded-md text-text_color_light dark:text-text_color_dark mr-20"
         >
           Sign Up
         </Link>
