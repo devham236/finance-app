@@ -25,6 +25,7 @@ const userSlice = createSlice({
     userData: {},
     loading: false,
     error: "",
+    loggedIn: false,
   },
   reducers: {
     signoutUser: (state) => {
@@ -34,14 +35,17 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(signinUser.pending, (state) => {
       state.loading = true;
+      state.loggedIn = false;
     });
     builder.addCase(signinUser.fulfilled, (state, action) => {
       state.loading = false;
       state.userData = action.payload;
+      state.loggedIn = true;
       state.error = "";
     });
     builder.addCase(signinUser.rejected, (state, action) => {
       state.loading = false;
+      state.loggedIn = false;
       state.error = action.error.message;
     });
   },

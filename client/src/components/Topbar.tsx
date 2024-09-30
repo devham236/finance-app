@@ -9,6 +9,8 @@ const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const dispatch = useDispatch();
 
+  console.log(typeof {});
+
   return (
     <div className="w-full p-8 border-b-2 border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="text-green_color">Ruune</div>
