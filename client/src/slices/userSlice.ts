@@ -30,6 +30,7 @@ const userSlice = createSlice({
   reducers: {
     signoutUser: (state) => {
       console.log("user signed out");
+      localStorage.removeItem("persist:user");
     },
   },
   extraReducers: (builder) => {
