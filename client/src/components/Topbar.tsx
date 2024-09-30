@@ -8,6 +8,10 @@ const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const dispatch = useDispatch();
 
+  const unpersistReducer = async () => {
+    localStorage.removeItem("persist:user");
+  };
+
   return (
     <div className="w-full p-8 border-b-2 border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="text-green_color">Ruune</div>
@@ -45,6 +49,12 @@ const Topbar = () => {
         >
           Sign Up
         </Link>
+        <button
+          className="bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark py-1 px-2 rounded-md text-text_color_light dark:text-text_color_dark"
+          onClick={() => unpersistReducer()}
+        >
+          Log Out
+        </button>
       </div>
     </div>
   );
