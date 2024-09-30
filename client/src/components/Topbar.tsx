@@ -3,14 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
 import { Link } from "react-router-dom";
 import { setCurrentPath } from "../slices/sidebarSlice";
+import { signoutUser } from "../slices/userSlice";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const dispatch = useDispatch();
-
-  const unpersistReducer = async () => {
-    localStorage.removeItem("persist:user");
-  };
 
   return (
     <div className="w-full p-8 border-b-2 border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
@@ -51,7 +48,7 @@ const Topbar = () => {
         </Link>
         <button
           className="bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark py-1 px-2 rounded-md text-text_color_light dark:text-text_color_dark"
-          onClick={() => unpersistReducer()}
+          onClick={() => dispatch(signoutUser())}
         >
           Log Out
         </button>

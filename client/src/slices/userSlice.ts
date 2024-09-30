@@ -26,7 +26,11 @@ const userSlice = createSlice({
     loading: false,
     error: "",
   },
-  reducers: {},
+  reducers: {
+    signoutUser: (state) => {
+      console.log("user signed out");
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(signinUser.pending, (state) => {
       state.loading = true;
@@ -43,4 +47,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { signoutUser } = userSlice.actions;
 export default userSlice.reducer;
