@@ -64,7 +64,6 @@ const SignupForm = () => {
           />
         </div>
       </div>
-      <p>{data?.message}</p>
     </div>
   );
 };
