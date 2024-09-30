@@ -1,17 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { FormInput } from "../utils/types/types";
+import { FormInput, UserInitState } from "../utils/types/types";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, googleProvider } from "../configs/firebaseConfig";
 
 export const signinUser = createAsyncThunk(
   "user/signinUser",
-  async (inputObject: FormInput) => {
-    const data = await signInWithEmailAndPassword(
-      auth,
-      inputObject.email,
-      inputObject.password
-    );
-    return data;
+  async (inputObject: FormInput, { rejectWithValue }) => {
+    try {
+      const data = await signInWithEmailAndPassword(
+        auth,
+        inputObject.email,
+        inputObject.password
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
@@ -34,10 +38,10 @@ const userSlice = createSlice({
       state.error = "";
       console.log("its fulfilled");
     });
-    builder.addCase(signinUser.rejected, (state) => {
+    builder.addCase(signinUser.rejected, (state, action) => {
       state.loading = false;
-      state.error = "error";
-      console.log("its rejected");
+      state.error = action.payload || "Sign-in failed"; // Log the actual error
+      console.log("Sign-in rejected", action.payload);
     });
   },
 });
