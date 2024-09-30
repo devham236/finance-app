@@ -30,18 +30,15 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(signinUser.pending, (state) => {
       state.loading = true;
-      console.log("its pending");
     });
     builder.addCase(signinUser.fulfilled, (state, action) => {
       state.loading = false;
       state.userData = action.payload;
       state.error = "";
-      console.log("its fulfilled");
     });
     builder.addCase(signinUser.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.error.message; // Log the actual error
-      console.log("Sign-in rejected", action.payload);
+      state.error = action.error.message;
     });
   },
 });
