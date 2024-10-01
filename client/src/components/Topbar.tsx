@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
 import { Link } from "react-router-dom";
 import { setCurrentPath } from "../slices/sidebarSlice";
-import { signoutUser } from "../slices/userSlice";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
@@ -35,13 +34,12 @@ const Topbar = () => {
             }`}
           ></span>
         </div>
-        <Link
-          to={"/account"}
+        <div
           className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full"
           onClick={() => dispatch(setCurrentPath("/account"))}
         >
           <span className="material-symbols-rounded">account_circle</span>
-        </Link>
+        </div>
       </div>
     </div>
   );

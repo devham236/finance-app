@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Overview from "../pages/Overview";
 import Settings from "../pages/Settings";
 import Account from "../pages/Account";
-import Auth from "../pages/Auth";
 
 const MainContent = () => {
   return (
@@ -13,7 +12,6 @@ const MainContent = () => {
         <Route path="/overview" element={<Overview />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/auth" element={<Auth />} />
       </Routes>
     </div>
   );
