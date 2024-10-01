@@ -13,7 +13,7 @@ import userReducer from "./slices/userSlice.ts";
 import authFormReducer from "./slices/authFormSlice.ts";
 
 import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
+import { PERSIST, persistReducer, persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 
 const persistDarkmodeConfig = {
@@ -50,6 +50,13 @@ const store = configureStore({
     user: persistedUserReducer,
     authForm: authFormReducer,
   },
+  // middleware: (getDefaultMiddleware) => {
+  //   return getDefaultMiddleware({
+  //     serializableCheck: {
+  //       ignoredActions: [PERSIST],
+  //     },
+  //   });
+  // },
 });
 
 const persistor = persistStore(store);
