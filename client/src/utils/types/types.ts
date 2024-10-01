@@ -4,7 +4,7 @@ export type FormInput = {
 };
 
 export type UserInitState = {
-  userData: object;
+  userData: object | unknown;
   loading: boolean;
   error: string | undefined;
   loggedIn: boolean;
