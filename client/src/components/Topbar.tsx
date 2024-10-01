@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
-import { Link } from "react-router-dom";
 import { setCurrentPath } from "../slices/sidebarSlice";
+import AuthForm from "./AuthForm";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
@@ -35,10 +35,13 @@ const Topbar = () => {
           ></span>
         </div>
         <div
-          className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full"
+          className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full relative"
           onClick={() => dispatch(setCurrentPath("/account"))}
         >
           <span className="material-symbols-rounded">account_circle</span>
+          <div className=" absolute top-[43px] right-0">
+            <AuthForm />
+          </div>
         </div>
       </div>
     </div>

@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { signinUser } from "../slices/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { FormInput } from "../utils/types/types";
 
-const SignupForm = () => {
+const AuthForm = () => {
   const [formInput, setFormInput] = useState<FormInput>({
     email: "",
     password: "",
   });
-  const { userData } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,16 +19,16 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
+    <div className="w-[500px] bg-sidebar_item_color_light relative dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
+      <span className="material-symbols-rounded absolute top-[10px] right-[10px]">
+        close
+      </span>
       <h2 className="text-xl font-bold mb-2">Sign Up</h2>
       <p className="mb-4">
         Already have an Account?
-        <Link
-          to={"/auth/login"}
-          className="text-green_color ml-2 hover:underline"
-        >
+        <span className="text-green_color ml-2 hover:underline">
           Login here.
-        </Link>
+        </span>
       </p>
       <div className="flex flex-col mb-2">
         <input
@@ -70,4 +68,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default AuthForm;
