@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { signinUser } from "../slices/userSlice";
 import { useDispatch } from "react-redux";
 import { FormInput } from "../utils/types/types";
+import { toggleForm } from "../slices/authFormSlice";
 
 const AuthForm = () => {
   const [formInput, setFormInput] = useState<FormInput>({
@@ -19,8 +20,11 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="w-[500px] bg-sidebar_item_color_light relative dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
-      <span className="material-symbols-rounded absolute top-[10px] right-[10px]">
+    <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
+      <span
+        onClick={() => dispatch(toggleForm(false))}
+        className="material-symbols-rounded absolute top-[10px] right-[10px]"
+      >
         close
       </span>
       <h2 className="text-xl font-bold mb-2">Sign Up</h2>
