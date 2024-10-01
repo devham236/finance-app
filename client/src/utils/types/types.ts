@@ -9,3 +9,10 @@ export type UserInitState = {
   error: string | undefined;
   loggedIn: boolean;
 };
+
+export type UserData = {
+  displayName: string;
+  email: string;
+  photoUrl: string;
+  uid: string;
+};
