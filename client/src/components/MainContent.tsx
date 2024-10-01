@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Overview from "../pages/Overview";
 import Settings from "../pages/Settings";
 import Account from "../pages/Account";
-import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 
 const MainContent = () => {
@@ -15,8 +14,6 @@ const MainContent = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/account" element={<Account />} />
         <Route path="/auth/*" element={<SignupForm />} />
-        <Route path="/auth/signup" element={<SignupForm />} />
-        <Route path="/auth/login" element={<LoginForm />} />
       </Routes>
     </div>
   );
