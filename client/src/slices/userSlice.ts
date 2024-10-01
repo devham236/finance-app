@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { FormInput, UserInitState } from "../utils/types/types";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, googleProvider } from "../configs/firebaseConfig";
+import { auth } from "../configs/firebaseConfig";
 
 export const signinUser = createAsyncThunk(
   "user/signinUser",
@@ -40,7 +40,7 @@ const userSlice = createSlice({
     });
     builder.addCase(signinUser.fulfilled, (state, action) => {
       state.loading = false;
-      state.userData = action.payload;
+      state.userData = action.payload.user;
       state.loggedIn = true;
       state.error = "";
     });
