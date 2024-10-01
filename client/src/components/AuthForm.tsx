@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { signinUser } from "../slices/userSlice";
+import { googleSignIn, signinUser } from "../slices/userSlice";
 import { useDispatch } from "react-redux";
 import { FormInput } from "../utils/types/types";
 import { toggleForm } from "../slices/authFormSlice";
-import { signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../configs/firebaseConfig.js";
 
 const AuthForm = () => {
   const [formInput, setFormInput] = useState<FormInput>({
@@ -19,11 +17,6 @@ const AuthForm = () => {
       ...prevState,
       [name]: value,
     }));
-  };
-
-  const googleSignIn = async () => {
-    const res = await signInWithPopup(auth, googleProvider);
-    console.log(res);
   };
 
   return (
@@ -67,7 +60,10 @@ const AuthForm = () => {
       </button>
       <div className="flex items-center">
         <p className="mr-2">Sign up with: </p>
-        <div className="w-[30px] h-[30px]" onClick={() => googleSignIn()}>
+        <div
+          className="w-[30px] h-[30px]"
+          onClick={() => dispatch(googleSignIn())}
+        >
           <img
             src="/assets/Google__G__logo.svg.png"
             alt=""
