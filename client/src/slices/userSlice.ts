@@ -50,7 +50,7 @@ const userSlice = createSlice({
     });
     builder.addCase(signinUser.fulfilled, (state, action) => {
       state.loading = false;
-      state.userData = action.payload.user;
+      state.userData = action.payload;
       state.loggedIn = true;
       state.error = "";
     });
