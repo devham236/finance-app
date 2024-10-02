@@ -37,12 +37,25 @@ const Topbar = () => {
             }`}
           ></span>
         </div>
-        <div
-          className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full relative"
-          onClick={() => dispatch(toggleForm(true))}
-        >
-          <span className="material-symbols-rounded">account_circle</span>
-        </div>
+        {userData.photoUrl ? (
+          <div
+            className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center rounded-full relative w-[32px] h-[32px] cursor-pointer"
+            onClick={() => dispatch(toggleForm(true))}
+          >
+            <img
+              src={userData.photoUrl}
+              alt=""
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+        ) : (
+          <div
+            className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full relative w-[32px] h-[32px] cursor-pointer"
+            onClick={() => dispatch(toggleForm(true))}
+          >
+            <span className="material-symbols-rounded">account_circle</span>
+          </div>
+        )}
       </div>
       {showForm && (
         <div className=" absolute top-[78px] right-8">
