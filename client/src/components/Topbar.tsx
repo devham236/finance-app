@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
 import AuthForm from "./AuthForm";
 import { toggleForm } from "../slices/authFormSlice";
-import { signoutUser } from "../slices/userSlice";
+import { signoutUser } from "../utils/thunks/userThunks";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);

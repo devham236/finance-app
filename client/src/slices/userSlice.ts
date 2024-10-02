@@ -1,64 +1,10 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { UserInitState } from "../utils/types/types";
 import {
-  AsyncThunkAction,
-  createAsyncThunk,
-  createSlice,
-} from "@reduxjs/toolkit";
-import { FormInput, UserInitState, UserData } from "../utils/types/types";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
-import { auth, googleProvider } from "../configs/firebaseConfig";
-
-export const signinUser = createAsyncThunk(
-  "user/signinUser",
-  async (inputObject: FormInput, { rejectWithValue }) => {
-    try {
-      const data = await createUserWithEmailAndPassword(
-        auth,
-        inputObject.email,
-        inputObject.password
-      );
-      return <UserData>{
-        displayName: data.user.displayName,
-        email: data.user.email,
-        photoUrl: data.user.photoURL,
-        id: data.user.uid,
-      };
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
-);
-
-export const googleSignIn = createAsyncThunk("user/googleSignIn", async () => {
-  try {
-    const data = await signInWithPopup(auth, googleProvider);
-    return <UserData>{
-      displayName: data.user.displayName,
-      email: data.user.email,
-      photoUrl: data.user.photoURL,
-      id: data.user.uid,
-    };
-  } catch (error) {
-    return error;
-  }
-});
-
-export const signoutUser = createAsyncThunk("user/signoutUser", async () => {
-  try {
-    await signOut(auth);
-    return <UserData>{
-      displayName: "",
-      email: "",
-      photoUrl: "",
-      id: "",
-    };
-  } catch (error) {
-    return error;
-  }
-});
+  signinUser,
+  googleSignIn,
+  signoutUser,
+} from "../utils/thunks/userThunks";
 
 const userSlice = createSlice({
   name: "user",

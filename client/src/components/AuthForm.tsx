@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { googleSignIn, signinUser } from "../slices/userSlice";
+import { googleSignIn, signinUser } from "../utils/thunks/userThunks";
 import { useDispatch } from "react-redux";
 import { FormInput } from "../utils/types/types";
 import { toggleForm } from "../slices/authFormSlice";
