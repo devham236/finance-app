@@ -11,6 +11,8 @@ const Topbar = () => {
   const { showForm } = useSelector((state: any) => state.authForm);
   const dispatch = useDispatch();
 
+  console.log(userData);
+
   return (
     <div className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="text-green_color">Ruune</div>
@@ -48,10 +50,13 @@ const Topbar = () => {
           </div>
         ) : (
           <div
-            className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full relative w-[32px] h-[32px] cursor-pointer"
+            className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full w-[32px] h-[32px] cursor-pointer relative"
             onClick={() => dispatch(toggleForm(true))}
           >
             <span className={`material-symbols-rounded`}>account_circle</span>
+            {userData?.id !== "" && (
+              <div className="w-[10px] h-[10px] bg-green_color absolute top-0 right-[-2px] rounded-full"></div>
+            )}
           </div>
         )}
       </div>
