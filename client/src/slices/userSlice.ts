@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { FormInput, UserInitState } from "../utils/types/types";
+import { FormInput, UserInitState, UserData } from "../utils/types/types";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../configs/firebaseConfig";
 
@@ -12,7 +12,13 @@ export const signinUser = createAsyncThunk(
         inputObject.email,
         inputObject.password
       );
-      return data;
+      console.log(data);
+      return <UserData>{
+        displayName: data.user.displayName,
+        email: data.user.email,
+        photoUrl: data.user.photoURL,
+        id: data.user.uid,
+      };
     } catch (error) {
       return rejectWithValue(error);
     }

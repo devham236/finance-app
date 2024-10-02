@@ -14,5 +14,5 @@ export type UserData = {
   displayName: string | null;
   email: string | null;
   photoUrl: string | null;
-  uid: string | null;
+  id: string | null;
 };
