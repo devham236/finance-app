@@ -58,6 +58,12 @@ const Topbar = () => {
       </div>
       {showForm && (
         <div className=" absolute top-[78px] right-8">
+          <span
+            onClick={() => dispatch(toggleForm(false))}
+            className="material-symbols-rounded absolute top-[10px] right-[10px]"
+          >
+            close
+          </span>
           <AuthForm />
         </div>
       )}
