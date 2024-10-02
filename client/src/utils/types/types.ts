@@ -11,8 +11,8 @@ export type UserInitState = {
 };
 
 export type UserData = {
-  displayName: string;
-  email: string;
-  photoUrl: string;
-  uid: string;
+  displayName: string | null;
+  email: string | null;
+  photoUrl: string | null;
+  uid: string | null;
 };

@@ -6,9 +6,11 @@ import { toggleForm } from "../slices/authFormSlice";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
-  const { loggedIn } = useSelector((state: any) => state.user);
+  const { loggedIn, userData } = useSelector((state: any) => state.user);
   const { showForm } = useSelector((state: any) => state.authForm);
   const dispatch = useDispatch();
+
+  console.log(userData);
 
   return (
     <div className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
