@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
 import AuthForm from "./AuthForm";
 import { toggleForm } from "../slices/authFormSlice";
-import { signoutUser } from "../utils/thunks/userThunks";
+import AuthenticatedUser from "./AuthenticatedUser";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
@@ -14,7 +14,6 @@ const Topbar = () => {
   return (
     <div className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="text-green_color">Ruune</div>
-      <button onClick={() => dispatch(signoutUser())}>Log Out</button>
       <div className="flex items-center">
         <div className="mr-20 flex items-center p-1 rounded-full bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark">
           <span className="material-symbols-rounded mr-2">search</span>
@@ -64,7 +63,7 @@ const Topbar = () => {
           >
             close
           </span>
-          <AuthForm />
+          {userData?.id !== "" ? <AuthenticatedUser /> : <AuthForm />}
         </div>
       )}
     </div>
