@@ -1,6 +1,14 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  AsyncThunkAction,
+  createAsyncThunk,
+  createSlice,
+} from "@reduxjs/toolkit";
 import { FormInput, UserInitState, UserData } from "../utils/types/types";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import { auth, googleProvider } from "../configs/firebaseConfig";
 
 export const signinUser = createAsyncThunk(
@@ -12,7 +20,6 @@ export const signinUser = createAsyncThunk(
         inputObject.email,
         inputObject.password
       );
-      console.log(data);
       return <UserData>{
         displayName: data.user.displayName,
         email: data.user.email,
@@ -39,6 +46,15 @@ export const googleSignIn = createAsyncThunk("user/googleSignIn", async () => {
   }
 });
 
+export const signoutUser = createAsyncThunk("user/signoutUser", async () => {
+  try {
+    const data = await signOut(auth);
+    console.log(data);
+  } catch (error) {
+    return error;
+  }
+});
+
 const userSlice = createSlice({
   name: "user",
   initialState: <UserInitState>{
@@ -47,12 +63,7 @@ const userSlice = createSlice({
     error: "",
     loggedIn: false,
   },
-  reducers: {
-    signoutUser: (state) => {
-      console.log("user signed out");
-      localStorage.removeItem("persist:user");
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     // Email and Password sign in
     builder.addCase(signinUser.pending, (state) => {
@@ -87,8 +98,24 @@ const userSlice = createSlice({
       state.loggedIn = false;
       state.error = action.error.message;
     });
+
+    // Sign out user
+    builder.addCase(signoutUser.pending, (state) => {
+      state.loading = true;
+      state.loggedIn = false;
+    });
+    builder.addCase(signoutUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userData = action.payload;
+      state.loggedIn = true;
+      state.error = "";
+    });
+    builder.addCase(signoutUser.rejected, (state, action) => {
+      state.loading = false;
+      state.loggedIn = false;
+      state.error = action.error.message;
+    });
   },
 });
 
-export const { signoutUser } = userSlice.actions;
 export default userSlice.reducer;
