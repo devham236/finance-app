@@ -12,7 +12,6 @@ const userSlice = createSlice({
     userData: {},
     loading: false,
     error: "",
-    loggedIn: false,
   },
   reducers: {},
   extraReducers: (builder) => {
