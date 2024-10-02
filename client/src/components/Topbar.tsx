@@ -4,6 +4,7 @@ import { toggleDarkMode } from "../slices/darkmodeSlice";
 import AuthForm from "./AuthForm";
 import { toggleForm } from "../slices/authFormSlice";
 import { signoutUser } from "../slices/userSlice";
+import { auth } from "../configs/firebaseConfig.js";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
@@ -54,13 +55,7 @@ const Topbar = () => {
             className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full relative w-[32px] h-[32px] cursor-pointer"
             onClick={() => dispatch(toggleForm(true))}
           >
-            <span
-              className={`material-symbols-rounded ${
-                userData?.id !== "" ? "text-green_color" : ""
-              }`}
-            >
-              account_circle
-            </span>
+            <span className={`material-symbols-rounded`}>account_circle</span>
           </div>
         )}
       </div>

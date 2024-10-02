@@ -50,6 +50,12 @@ export const signoutUser = createAsyncThunk("user/signoutUser", async () => {
   try {
     const data = await signOut(auth);
     console.log(data);
+    return <UserData>{
+      displayName: "",
+      email: "",
+      photoUrl: "",
+      id: "",
+    };
   } catch (error) {
     return error;
   }
@@ -105,6 +111,7 @@ const userSlice = createSlice({
       state.loggedIn = false;
     });
     builder.addCase(signoutUser.fulfilled, (state, action) => {
+      console.log(action.payload);
       state.loading = false;
       state.userData = action.payload;
       state.loggedIn = true;
