@@ -4,7 +4,6 @@ import { toggleDarkMode } from "../slices/darkmodeSlice";
 import AuthForm from "./AuthForm";
 import { toggleForm } from "../slices/authFormSlice";
 import { signoutUser } from "../slices/userSlice";
-import { auth } from "../configs/firebaseConfig.js";
 
 const Topbar = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
