@@ -7,7 +7,6 @@ export type UserInitState = {
   userData: object | unknown;
   loading: boolean;
   error: string | undefined;
-  loggedIn: boolean;
 };
 
 export type UserData = {

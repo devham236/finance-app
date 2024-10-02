@@ -45,6 +45,7 @@ export const googleSignIn = createAsyncThunk("user/googleSignIn", async () => {
 export const signoutUser = createAsyncThunk("user/signoutUser", async () => {
   try {
     await signOut(auth);
+    localStorage.removeItem("persist:user");
     return <UserData>{
       displayName: "",
       email: "",
