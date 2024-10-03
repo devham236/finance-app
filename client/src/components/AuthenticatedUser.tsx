@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signoutUser } from "../utils/thunks/userThunks";
+import { logoutUser } from "../utils/thunks/userThunks";
 
 const AuthenticatedUser = () => {
   const { userData } = useSelector((state: any) => state.user);
@@ -17,7 +17,7 @@ const AuthenticatedUser = () => {
         </span>
       </h2>
       <button
-        onClick={() => dispatch(signoutUser())}
+        onClick={() => dispatch(logoutUser())}
         className="hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
       >
         Log out

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   googleSignIn,
-  signinUser,
+  createUser,
   loginUser,
 } from "../utils/thunks/userThunks";
 import { useDispatch } from "react-redux";
@@ -44,7 +44,7 @@ const AuthForm = () => {
       <div className="flex items-center">
         <button
           onClick={() => {
-            dispatch(signinUser(formInput));
+            dispatch(createUser(formInput));
           }}
           className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
         >

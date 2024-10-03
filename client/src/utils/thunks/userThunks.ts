@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { auth, googleProvider } from "../../configs/firebaseConfig.js";
 
-export const signinUser = createAsyncThunk(
+export const createUser = createAsyncThunk(
   "user/signinUser",
   async (inputObject: FormInput, { rejectWithValue }) => {
     try {
@@ -66,7 +66,7 @@ export const googleSignIn = createAsyncThunk("user/googleSignIn", async () => {
   }
 });
 
-export const signoutUser = createAsyncThunk("user/signoutUser", async () => {
+export const logoutUser = createAsyncThunk("user/signoutUser", async () => {
   try {
     await signOut(auth);
     localStorage.removeItem("persist:user");

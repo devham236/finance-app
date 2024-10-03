@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { UserInitState } from "../utils/types/types";
 import {
-  signinUser,
+  createUser,
   googleSignIn,
-  signoutUser,
+  logoutUser,
   loginUser,
 } from "../utils/thunks/userThunks";
 
@@ -17,15 +17,15 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // Email and Password sign up
-    builder.addCase(signinUser.pending, (state) => {
+    builder.addCase(createUser.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(signinUser.fulfilled, (state, action) => {
+    builder.addCase(createUser.fulfilled, (state, action) => {
       state.loading = false;
       state.userData = action.payload;
       state.error = "";
     });
-    builder.addCase(signinUser.rejected, (state, action) => {
+    builder.addCase(createUser.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });
@@ -61,15 +61,15 @@ const userSlice = createSlice({
     });
 
     // Sign out user
-    builder.addCase(signoutUser.pending, (state) => {
+    builder.addCase(logoutUser.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(signoutUser.fulfilled, (state, action) => {
+    builder.addCase(logoutUser.fulfilled, (state, action) => {
       state.loading = false;
       state.userData = action.payload;
       state.error = "";
     });
-    builder.addCase(signoutUser.rejected, (state, action) => {
+    builder.addCase(logoutUser.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });
