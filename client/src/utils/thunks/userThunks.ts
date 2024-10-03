@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { FormInput, UserData } from "../types/types";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -24,6 +25,29 @@ export const signinUser = createAsyncThunk(
       };
     } catch (error) {
       return rejectWithValue(error);
+    }
+  }
+);
+
+export const loginUser = createAsyncThunk(
+  "user/loginUser",
+  async (inputObject: FormInput) => {
+    try {
+      const data = await signInWithEmailAndPassword(
+        auth,
+        inputObject.email,
+        inputObject.password
+      );
+      console.log(data);
+
+      return <UserData>{
+        displayName: data.user.displayName,
+        email: data.user.email,
+        photoUrl: data.user.photoURL,
+        id: data.user.uid,
+      };
+    } catch (error) {
+      return error;
     }
   }
 );

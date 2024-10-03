@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { googleSignIn, signinUser } from "../utils/thunks/userThunks";
+import {
+  googleSignIn,
+  signinUser,
+  loginUser,
+} from "../utils/thunks/userThunks";
 import { useDispatch } from "react-redux";
 import { FormInput } from "../utils/types/types";
 
@@ -47,9 +51,17 @@ const AuthForm = () => {
         onClick={() => {
           dispatch(signinUser(formInput));
         }}
-        className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
+        className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200 mr-8"
       >
         Sign Up
+      </button>
+      <button
+        onClick={() => {
+          dispatch(loginUser(formInput));
+        }}
+        className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
+      >
+        Login
       </button>
       <div className="flex items-center">
         <p className="mr-2">Sign up with: </p>

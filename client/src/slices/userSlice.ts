@@ -4,6 +4,7 @@ import {
   signinUser,
   googleSignIn,
   signoutUser,
+  loginUser,
 } from "../utils/thunks/userThunks";
 
 const userSlice = createSlice({
@@ -15,7 +16,7 @@ const userSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    // Email and Password sign in
+    // Email and Password sign up
     builder.addCase(signinUser.pending, (state) => {
       state.loading = true;
     });
@@ -25,6 +26,22 @@ const userSlice = createSlice({
       state.error = "";
     });
     builder.addCase(signinUser.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+
+    // Email and Password login
+    builder.addCase(loginUser.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      state.loading = false;
+      console.log(action.payload);
+
+      state.userData = action.payload;
+      state.error = "";
+    });
+    builder.addCase(loginUser.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });
