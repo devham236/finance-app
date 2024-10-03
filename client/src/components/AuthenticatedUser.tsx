@@ -11,9 +11,9 @@ const AuthenticatedUser = () => {
       <h2 className="text-xl font-bold mb-4">
         Hello there!
         <span className="text-green_color ml-2">
-          {userData?.displayName !== ""
-            ? userData?.displayName
-            : userData?.email}
+          {userData?.displayName === "" || userData?.displayName === null
+            ? userData?.email
+            : userData?.displayName}
         </span>
       </h2>
       <button
