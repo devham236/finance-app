@@ -20,7 +20,7 @@ const Topbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className=" bg-transparent text-text_color_light placeholder:text-text_color_light dark:text-text_color_dark dark:placeholder:text-text_color_dark outline-none"
+            className=" bg-transparent text-text_color_light placeholder:text-text_color_light dark:text-text_color_dark dark:placeholder:text-text_color_dark outline-none placeholder:text-opacity-30 dark:placeholder:text-opacity-30"
           />
         </div>
         <div
@@ -59,7 +59,7 @@ const Topbar = () => {
         )}
       </div>
       {showForm && (
-        <div className=" absolute top-[78px] right-8">
+        <div className=" absolute top-[78px] right-8 shadow-xl">
           <span
             onClick={() => dispatch(toggleForm(false))}
             className="material-symbols-rounded absolute top-[10px] right-[10px]"
