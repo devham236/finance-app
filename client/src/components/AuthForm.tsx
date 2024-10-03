@@ -24,7 +24,7 @@ const AuthForm = () => {
 
   return (
     <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
-      <h2 className="text-xl font-bold mb-4">Sign Up</h2>
+      <h2 className="text-xl font-bold mb-4">Authenticate</h2>
       <div className="flex flex-col mb-2">
         <input
           type="text"
@@ -41,12 +41,12 @@ const AuthForm = () => {
           onChange={(e) => handleInputChange(e)}
         />
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center mb-4">
         <button
           onClick={() => {
             dispatch(createUser(formInput));
           }}
-          className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
+          className="hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
         >
           Sign Up
         </button>
@@ -55,13 +55,13 @@ const AuthForm = () => {
           onClick={() => {
             dispatch(loginUser(formInput));
           }}
-          className="mb-4 hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
+          className="hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
         >
           Login
         </button>
       </div>
       <div className="flex items-center">
-        <p className="mr-2">Sign up with: </p>
+        <p className="mr-2">Sign in with: </p>
         <div
           className="w-[30px] h-[30px]"
           onClick={() => dispatch(googleSignIn())}
