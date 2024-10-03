@@ -24,13 +24,7 @@ const AuthForm = () => {
 
   return (
     <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
-      <h2 className="text-xl font-bold mb-2">Sign Up</h2>
-      <p className="mb-4">
-        Already have an Account?
-        <span className="text-green_color ml-2 hover:underline">
-          Login here.
-        </span>
-      </p>
+      <h2 className="text-xl font-bold mb-4">Sign Up</h2>
       <div className="flex flex-col mb-2">
         <input
           type="text"
