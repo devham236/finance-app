@@ -50,13 +50,13 @@ const store = configureStore({
     user: persistedUserReducer,
     authForm: authFormReducer,
   },
-  // middleware: (getDefaultMiddleware) => {
-  //   return getDefaultMiddleware({
-  //     serializableCheck: {
-  //       ignoredActions: [PERSIST],
-  //     },
-  //   });
-  // },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [PERSIST],
+      },
+    });
+  },
 });
 
 const persistor = persistStore(store);
