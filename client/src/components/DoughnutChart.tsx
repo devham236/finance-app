@@ -1,5 +1,5 @@
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { calcTotalIncome } from "../slices/totalIncomeSlice";
@@ -8,9 +8,7 @@ ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const { totalIncome } = useSelector((state: any) => state.totalIncome);
-  const dispatch = useDispatch();
-
-  const data = {
+  const [chartData, setChartData] = useState({
     labels: ["Salary", "Sellings"],
     datasets: [
       {
@@ -21,27 +19,47 @@ const DoughnutChart = () => {
         cutout: 80,
       },
     ],
-  };
+  });
+  const dispatch = useDispatch();
 
   const config = {};
 
   useEffect(() => {
-    dispatch(calcTotalIncome(data.datasets[0].data));
-  }, [data.datasets]);
+    dispatch(calcTotalIncome(chartData.datasets[0].data));
+  }, [chartData.datasets, dispatch]);
+
+  const addIncome = () => {
+    setChartData((prevState) => ({
+      ...prevState,
+      datasets: [
+        {
+          ...prevState.datasets[0],
+          data: [...prevState.datasets[0].data, 100],
+          backgroundColor: [...prevState.datasets[0].backgroundColor, "blue"],
+        },
+      ],
+      labels: [...prevState.labels, "New Label"],
+    }));
+  };
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
-      <h3 className="font-[600] self-start">Total Income</h3>
+      <div className="flex items-center justify-between w-full">
+        <h3 className="font-[600] self-start">Total Income</h3>
+        <button className=" bg-red-400" onClick={() => addIncome()}>
+          Add
+        </button>
+      </div>
       <div className="w-56 h-56">
-        <Doughnut data={data} options={config}></Doughnut>
+        <Doughnut data={chartData} options={config}></Doughnut>
       </div>
       <div className="flex items-center justify-center">
-        {data.labels.map((label, index) => (
+        {chartData.labels.map((label, index) => (
           <div key={index} className="flex items-center mr-4 last:mr-0">
             <span
               className="w-3 h-3 mr-2 rounded-full"
               style={{
-                backgroundColor: data.datasets[0].backgroundColor[index],
+                backgroundColor: chartData.datasets[0].backgroundColor[index],
               }}
             ></span>
             <p>{label}</p>
