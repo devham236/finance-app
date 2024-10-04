@@ -24,10 +24,6 @@ const DoughnutChart = () => {
 
   const config = {};
 
-  useEffect(() => {
-    dispatch(calcTotalIncome(chartData.datasets[0].data));
-  }, [chartData.datasets, dispatch]);
-
   const addIncome = () => {
     setChartData((prevState) => ({
       ...prevState,
@@ -41,6 +37,10 @@ const DoughnutChart = () => {
       labels: [...prevState.labels, "New Label"],
     }));
   };
+
+  useEffect(() => {
+    dispatch(calcTotalIncome(chartData.datasets[0].data));
+  }, [chartData.datasets, dispatch]);
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
