@@ -19,11 +19,7 @@ const DoughnutChart = () => {
 
   const options = {};
 
-  return (
-    <div className="w-56 h-56">
-      <Doughnut data={data} options={options}></Doughnut>
-    </div>
-  );
+  return <Doughnut data={data} options={options}></Doughnut>;
 };
 
 export default DoughnutChart;
