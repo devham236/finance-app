@@ -19,11 +19,7 @@ const DoughnutChart = () => {
     ],
   };
 
-  const config = {
-    type: "doughnut",
-    data,
-    options: {},
-  };
+  const config = {};
 
   useEffect(() => {
     const total = data.datasets[0].data.reduce((prev, curr) => {
