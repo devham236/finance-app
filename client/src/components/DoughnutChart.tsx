@@ -36,7 +36,7 @@ const DoughnutChart = () => {
       </div>
       <div className="flex items-center justify-center">
         {data.labels.map((label, index) => (
-          <div key={index} className="flex items-center mr-4">
+          <div key={index} className="flex items-center mr-4 last:mr-0">
             <span
               className="w-3 h-3 mr-2 rounded-full"
               style={{
