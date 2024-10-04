@@ -20,8 +20,6 @@ const DoughnutChart = () => {
 
   const options = {};
 
-  console.log(data.datasets[0].backgroundColor[0]);
-
   return (
     <>
       <h3 className="font-[600] self-start">Total Income</h3>
