@@ -38,7 +38,6 @@ export const loginUser = createAsyncThunk(
         inputObject.email,
         inputObject.password
       );
-      console.log(data);
 
       return <UserData>{
         displayName: data.user.displayName,
