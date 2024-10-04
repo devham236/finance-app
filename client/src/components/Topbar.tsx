@@ -11,9 +11,11 @@ const Topbar = () => {
   const { showForm } = useSelector((state: any) => state.authForm);
   const dispatch = useDispatch();
 
+  console.log(userData);
+
   return (
     <div className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
-      <div className="text-green_color">Ruune</div>
+      <div className="text-green_color font-bold">Ruune</div>
       <div className="flex items-center">
         <div className="mr-20 flex items-center p-1 rounded-full bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark">
           <span className="material-symbols-rounded mr-2">search</span>
@@ -41,9 +43,10 @@ const Topbar = () => {
             onClick={() => dispatch(toggleForm(true))}
           >
             <img
-              src={userData?.photoUrl}
+              src={userData.photoUrl}
               alt=""
               className="w-full h-full object-cover rounded-full"
+              loading="lazy"
             />
           </div>
         ) : (
