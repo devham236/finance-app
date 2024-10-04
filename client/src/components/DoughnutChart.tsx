@@ -30,7 +30,7 @@ const DoughnutChart = () => {
   }, [data.datasets]);
 
   return (
-    <div className="grid-item p-[1.5rem] flex flex-col items-center justify-between relative">
+    <div className="grid-item flex flex-col items-center justify-between relative">
       <h3 className="font-[600] self-start">Total Income</h3>
       <div className="w-56 h-56">
         <Doughnut data={data} options={config}></Doughnut>
@@ -48,8 +48,8 @@ const DoughnutChart = () => {
           </div>
         ))}
       </div>
-      <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        {totalIncome}
+      <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold">
+        {totalIncome}€
       </p>
     </div>
   );
