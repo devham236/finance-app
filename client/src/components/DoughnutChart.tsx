@@ -6,18 +6,21 @@ ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const data = {
-    labels: ["Salary", "Sellings", "Donations"],
+    labels: ["Salary"],
     datasets: [
       {
-        label: "Total Income",
-        data: [2050, 600, 50],
-        backgroundColor: ["red", "blue", "green"],
+        data: [2050],
+        backgroundColor: ["#3e9c35"],
         hoverOffset: 4,
+        borderWidth: 2,
+        cutout: 80,
       },
     ],
   };
 
   const options = {};
+
+  console.log(data.datasets[0].backgroundColor[0]);
 
   return (
     <>
@@ -26,18 +29,17 @@ const DoughnutChart = () => {
         <Doughnut data={data} options={options}></Doughnut>
       </div>
       <div className="flex items-center justify-center">
-        <div className="flex items-center mr-4">
-          <span>dot</span>
-          <p> category</p>
-        </div>
-        <div className="flex items-center mr-4">
-          <span>dot</span>
-          <p> category</p>
-        </div>
-        <div className="flex items-center">
-          <span>dot</span>
-          <p> category</p>
-        </div>
+        {data.labels.map((label, index) => (
+          <div key={index} className="flex items-center mr-4">
+            <span
+              className="w-3 h-3 mr-2 rounded-full"
+              style={{
+                backgroundColor: data.datasets[0].backgroundColor[index],
+              }}
+            ></span>
+            <p>{label}</p>
+          </div>
+        ))}
       </div>
     </>
   );
