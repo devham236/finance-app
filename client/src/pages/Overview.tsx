@@ -4,9 +4,7 @@ import DoughnutChart from "../components/DoughnutChart";
 const Overview = () => {
   return (
     <div className="text-text_color_light dark:text-text_color_dark w-full h-full  grid grid-rows-2 grid-cols-3 gap-[1.5rem]">
-      <div className="grid-item p-[1.5rem] flex flex-col items-center justify-between">
-        <DoughnutChart />
-      </div>
+      <DoughnutChart />
       <div className="grid-item">Total Spent</div>
       <div className="grid-item">Unknown</div>
       <div className="grid-item col-span-2">

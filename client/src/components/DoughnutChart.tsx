@@ -1,16 +1,17 @@
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
+  const [totalIncome, setTotalIncome] = useState<number>(0);
   const data = {
-    labels: ["Salary"],
+    labels: ["Salary", "Sellings"],
     datasets: [
       {
-        data: [2050],
-        backgroundColor: ["#3e9c35"],
+        data: [2050, 420],
+        backgroundColor: ["#3e9c35", "red"],
         hoverOffset: 4,
         borderWidth: 2,
         cutout: 80,
@@ -18,13 +19,24 @@ const DoughnutChart = () => {
     ],
   };
 
-  const options = {};
+  const config = {
+    type: "doughnut",
+    data,
+    options: {},
+  };
+
+  useEffect(() => {
+    const total = data.datasets[0].data.reduce((prev, curr) => {
+      return prev + curr;
+    }, 0);
+    setTotalIncome(total);
+  }, [data.datasets]);
 
   return (
-    <>
+    <div className="grid-item p-[1.5rem] flex flex-col items-center justify-between relative">
       <h3 className="font-[600] self-start">Total Income</h3>
       <div className="w-56 h-56">
-        <Doughnut data={data} options={options}></Doughnut>
+        <Doughnut data={data} options={config}></Doughnut>
       </div>
       <div className="flex items-center justify-center">
         {data.labels.map((label, index) => (
@@ -39,7 +51,10 @@ const DoughnutChart = () => {
           </div>
         ))}
       </div>
-    </>
+      <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        {totalIncome}
+      </p>
+    </div>
   );
 };
 
