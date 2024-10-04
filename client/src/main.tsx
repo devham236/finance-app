@@ -11,7 +11,7 @@ import sidebarReducer from "./slices/sidebarSlice.ts";
 import darkmodeReducer from "./slices/darkmodeSlice.ts";
 import userReducer from "./slices/userSlice.ts";
 import authFormReducer from "./slices/authFormSlice.ts";
-import totalIncomeReducer from "./slices/totalIncome.ts";
+import totalIncomeReducer from "./slices/totalIncomeSlice.ts";
 
 import storage from "redux-persist/lib/storage";
 import { PERSIST, persistReducer, persistStore } from "redux-persist";

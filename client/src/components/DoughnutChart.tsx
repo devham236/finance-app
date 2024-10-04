@@ -1,11 +1,15 @@
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
+import { useDispatch, useSelector } from "react-redux";
+import { calcTotalIncome } from "../slices/totalIncomeSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
-  const [totalIncome, setTotalIncome] = useState<number>(0);
+  const { totalIncome } = useSelector((state: any) => state.totalIncome);
+  const dispatch = useDispatch();
+
   const data = {
     labels: ["Salary", "Sellings"],
     datasets: [
@@ -22,10 +26,7 @@ const DoughnutChart = () => {
   const config = {};
 
   useEffect(() => {
-    const total = data.datasets[0].data.reduce((prev, curr) => {
-      return prev + curr;
-    }, 0);
-    setTotalIncome(total);
+    dispatch(calcTotalIncome(data.datasets[0].data));
   }, [data.datasets]);
 
   return (
