@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
+import { setTotalIncome } from "../slices/totalIncomeSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const { chartData } = useSelector((state: any) => state.doughnutChart);
-  const [totalIncome, setTotalIncome] = useState(0);
+  const totalIncome = useSelector((state: any) => state.totalIncome);
   const dispatch = useDispatch();
 
   const config = {};
@@ -17,8 +18,11 @@ const DoughnutChart = () => {
     const chartDataIncome = chartData.datasets[0].data.reduce((prev, curr) => {
       return prev + curr;
     }, 0);
-    setTotalIncome(chartDataIncome);
+    dispatch(setTotalIncome(chartDataIncome));
   }, [chartData.datasets, dispatch]);
+
+  console.log(totalIncome);
+  console.log(chartData);
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
