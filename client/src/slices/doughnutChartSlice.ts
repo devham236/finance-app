@@ -4,7 +4,6 @@ const doughnutChartSlice = createSlice({
   name: "dougnutChart",
   initialState: {
     chartData: {
-      totalIncome: 0,
       labels: <any>[],
       datasets: [
         {
@@ -18,14 +17,6 @@ const doughnutChartSlice = createSlice({
     },
   },
   reducers: {
-    calcTotalIncome: (state) => {
-      state.chartData.totalIncome = state.chartData.datasets[0].data.reduce(
-        (prev, curr) => {
-          return prev + curr;
-        },
-        0
-      );
-    },
     addIncome: (state) => {
       state.chartData = {
         ...state.chartData,
@@ -45,5 +36,5 @@ const doughnutChartSlice = createSlice({
   },
 });
 
-export const { calcTotalIncome, addIncome } = doughnutChartSlice.actions;
+export const { addIncome } = doughnutChartSlice.actions;
 export default doughnutChartSlice.reducer;
