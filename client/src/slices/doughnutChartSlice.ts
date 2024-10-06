@@ -8,7 +8,7 @@ const doughnutChartSlice = createSlice({
       datasets: [
         {
           data: <any>[],
-          backgroundColor: ["#3e9c35", "red"],
+          backgroundColor: <any>[],
           hoverOffset: 4,
           borderWidth: 2,
           cutout: 80,

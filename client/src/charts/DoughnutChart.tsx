@@ -8,7 +8,7 @@ ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const { chartData } = useSelector((state: any) => state.doughnutChart);
-  const [totalIncome, setTotalIncome] = useState();
+  const [totalIncome, setTotalIncome] = useState(0);
   const dispatch = useDispatch();
 
   const config = {};
@@ -19,8 +19,6 @@ const DoughnutChart = () => {
     }, 0);
     setTotalIncome(chartDataIncome);
   }, [chartData.datasets, dispatch]);
-
-  console.log(totalIncome);
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
