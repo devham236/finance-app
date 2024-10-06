@@ -32,6 +32,11 @@ const persistUserConfig = {
   storage,
 };
 
+const persistTotalIncomeConfig = {
+  key: "totalIncome",
+  storage,
+};
+
 const persistedDarkmodeReducer = persistReducer(
   persistDarkmodeConfig,
   darkmodeReducer
@@ -44,13 +49,18 @@ const persistedSidebarReducer = persistReducer(
 
 const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
 
+const persistedTotalIncomeReducer = persistReducer(
+  persistTotalIncomeConfig,
+  totalIncomeReducer
+);
+
 const store = configureStore({
   reducer: {
     sidebar: persistedSidebarReducer,
     darkmode: persistedDarkmodeReducer,
     user: persistedUserReducer,
     authForm: authFormReducer,
-    totalIncome: totalIncomeReducer,
+    totalIncome: persistedTotalIncomeReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
