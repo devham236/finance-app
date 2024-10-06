@@ -46,8 +46,10 @@ const DoughnutChart = () => {
     <div className="grid-item flex flex-col items-center justify-between relative">
       <div className="flex items-center justify-between w-full">
         <h3 className="font-[600] self-start">Total Income</h3>
-        <button className=" bg-red-400" onClick={() => addIncome()}>
-          Add
+        <button className="" onClick={() => addIncome()}>
+          <span className="material-symbols-rounded text-green_color">
+            add_circle
+          </span>
         </button>
       </div>
       <div className="w-56 h-56">
