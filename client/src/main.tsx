@@ -32,10 +32,10 @@ const persistUserConfig = {
   storage,
 };
 
-const persistTotalIncomeConfig = {
-  key: "doughnutChart",
-  storage,
-};
+// const persistTotalIncomeConfig = {
+//   key: "doughnutChart",
+//   storage,
+// };
 
 const persistedDarkmodeReducer = persistReducer(
   persistDarkmodeConfig,
@@ -49,10 +49,10 @@ const persistedSidebarReducer = persistReducer(
 
 const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
 
-const persistedTotalIncomeReducer = persistReducer(
-  persistTotalIncomeConfig,
-  doughnutChartReducer
-);
+// const persistedTotalIncomeReducer = persistReducer(
+//   persistTotalIncomeConfig,
+//   doughnutChartReducer
+// );
 
 const store = configureStore({
   reducer: {
@@ -60,7 +60,7 @@ const store = configureStore({
     darkmode: persistedDarkmodeReducer,
     user: persistedUserReducer,
     authForm: authFormReducer,
-    doughnutChart: persistedTotalIncomeReducer,
+    doughnutChart: doughnutChartReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
