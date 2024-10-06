@@ -7,7 +7,7 @@ import { calcTotalIncome } from "../slices/doughnutChartSlice";
 ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
-  const { totalIncome } = useSelector((state: any) => state.totalIncome);
+  const { totalIncome } = useSelector((state: any) => state.doughnutChart);
   const [chartData, setChartData] = useState({
     labels: ["Salary", "Sellings"],
     datasets: [

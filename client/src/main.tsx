@@ -33,7 +33,7 @@ const persistUserConfig = {
 };
 
 const persistTotalIncomeConfig = {
-  key: "totalIncome",
+  key: "doughnutChart",
   storage,
 };
 
@@ -60,7 +60,7 @@ const store = configureStore({
     darkmode: persistedDarkmodeReducer,
     user: persistedUserReducer,
     authForm: authFormReducer,
-    totalIncome: persistedTotalIncomeReducer,
+    doughnutChart: persistedTotalIncomeReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({

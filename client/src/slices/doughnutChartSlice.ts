@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const doughnutChartSlice = createSlice({
-  name: "totalIncome",
+  name: "dougnutChart",
   initialState: { totalIncome: 0 },
   reducers: {
     calcTotalIncome: (state, action) => {
