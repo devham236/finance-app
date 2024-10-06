@@ -2,7 +2,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import React, { useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
-import { calcTotalIncome } from "../slices/totalIncomeSlice";
+import { calcTotalIncome } from "../slices/doughnutChartSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 

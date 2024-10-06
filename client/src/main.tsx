@@ -11,7 +11,7 @@ import sidebarReducer from "./slices/sidebarSlice.ts";
 import darkmodeReducer from "./slices/darkmodeSlice.ts";
 import userReducer from "./slices/userSlice.ts";
 import authFormReducer from "./slices/authFormSlice.ts";
-import totalIncomeReducer from "./slices/totalIncomeSlice.ts";
+import doughnutChartReducer from "./slices/doughnutChartSlice.ts";
 
 import storage from "redux-persist/lib/storage";
 import { PERSIST, persistReducer, persistStore } from "redux-persist";
@@ -51,7 +51,7 @@ const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
 
 const persistedTotalIncomeReducer = persistReducer(
   persistTotalIncomeConfig,
-  totalIncomeReducer
+  doughnutChartReducer
 );
 
 const store = configureStore({
