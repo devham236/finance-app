@@ -3,13 +3,13 @@ import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
-import { setTotalIncome } from "../slices/totalIncomeSlice";
+import { setTotalIncome } from "../slices/totaLIncomeSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const { chartData } = useSelector((state: any) => state.doughnutChart);
-  const totalIncome = useSelector((state: any) => state.totalIncome);
+  const totalIncome = useSelector((state: any) => state.totaLIncome);
   const dispatch = useDispatch();
 
   const config = {};

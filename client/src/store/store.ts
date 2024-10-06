@@ -7,7 +7,7 @@ import {
   persistedUserReducer,
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
-import totalIncomeReducer from "../slices/totalIncomeSlice";
+import totaLIncomeReducer from "../slices/totaLIncomeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,7 +16,7 @@ export const store = configureStore({
     user: persistedUserReducer,
     authForm: authFormReducer,
     doughnutChart: persistedDoughnutReducer,
-    totalIncome: totalIncomeReducer,
+    totalIncome: totaLIncomeReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
