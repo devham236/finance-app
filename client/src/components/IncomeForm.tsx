@@ -54,7 +54,7 @@ const IncomeForm = () => {
               type="color"
               name="color"
               defaultValue={"#3e9c35"}
-              className="w-10 h-10"
+              className="w-10 h-10 rounded-xl appearance-none outline-none border-none"
             />
           </div>
         </div>
