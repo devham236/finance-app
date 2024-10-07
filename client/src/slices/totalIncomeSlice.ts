@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const totaLIncomeSlice = createSlice({
-  name: "totaLIncome",
+const totalIncomeSlice = createSlice({
+  name: "totalIncome",
   initialState: 0,
   reducers: {
     setTotalIncome: (state, action) => {
@@ -14,5 +14,5 @@ const totaLIncomeSlice = createSlice({
   },
 });
 
-export const { setTotalIncome } = totaLIncomeSlice.actions;
-export default totaLIncomeSlice.reducer;
+export const { setTotalIncome } = totalIncomeSlice.actions;
+export default totalIncomeSlice.reducer;

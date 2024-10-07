@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
-import { setTotalIncome } from "../slices/totaLIncomeSlice";
+import { setTotalIncome } from "../slices/totalIncomeSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -20,6 +20,8 @@ const DoughnutChart = () => {
     }, 0);
     dispatch(setTotalIncome(chartDataIncome));
   }, [chartData.datasets, dispatch]);
+
+  console.log(chartData);
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
@@ -48,7 +50,7 @@ const DoughnutChart = () => {
         ))}
       </div>
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold">
-        {totalIncome}€
+        {totalIncome ? totalIncome : 0}€
       </p>
     </div>
   );
