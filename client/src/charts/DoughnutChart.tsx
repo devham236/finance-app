@@ -15,10 +15,18 @@ const DoughnutChart = () => {
   const config = {};
 
   useEffect(() => {
-    const chartDataIncome = chartData.datasets[0].data.reduce((prev, curr) => {
-      return prev + curr;
-    }, 0);
-    dispatch(setTotalIncome(chartDataIncome));
+    if (
+      chartData.datasets.length > 0 &&
+      chartData.datasets[0].data.length > 0
+    ) {
+      const chartDataIncome = chartData.datasets[0].data.reduce(
+        (prev, curr) => {
+          return prev + curr;
+        },
+        0
+      );
+      dispatch(setTotalIncome(chartDataIncome));
+    }
   }, [chartData.datasets, dispatch]);
 
   console.log(incomeValue);
