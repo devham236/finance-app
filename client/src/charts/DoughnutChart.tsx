@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotalIncome } from "../slices/totalIncomeSlice";
+import { toggleIncomeForm } from "../slices/incomeFormSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -32,7 +33,7 @@ const DoughnutChart = () => {
     <div className="grid-item flex flex-col items-center justify-between relative">
       <div className="flex items-center justify-between w-full">
         <h3 className="font-[600] self-start">Total Income</h3>
-        <button>
+        <button onClick={() => dispatch(toggleIncomeForm())}>
           <span className="material-symbols-rounded text-green_color">
             add_circle
           </span>
