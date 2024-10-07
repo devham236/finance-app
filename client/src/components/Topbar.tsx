@@ -63,7 +63,7 @@ const Topbar = () => {
         <div className=" absolute top-[78px] right-8 shadow-xl">
           <span
             onClick={() => dispatch(toggleForm(false))}
-            className="material-symbols-rounded absolute top-[10px] right-[10px]"
+            className="material-symbols-rounded absolute top-[10px] right-[10px] font-bold"
           >
             close
           </span>
