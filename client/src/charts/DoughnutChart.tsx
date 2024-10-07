@@ -43,7 +43,7 @@ const DoughnutChart = () => {
           </span>
         </button>
       </div>
-      <div className="w-56 h-56">
+      <div className="w-52 h-52">
         <Doughnut data={chartData} options={config}></Doughnut>
       </div>
       <div className="flex items-center justify-center">
