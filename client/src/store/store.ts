@@ -7,7 +7,7 @@ import {
   persistedUserReducer,
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
-import totalIncomeReducer from "../slices/totaLIncomeSlice";
+import totalIncomeReducer from "../slices/totalIncomeSlice";
 
 export const store = configureStore({
   reducer: {
