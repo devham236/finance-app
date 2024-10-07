@@ -15,3 +15,8 @@ export type UserData = {
   photoUrl: string | null;
   id: string | null;
 };
+
+export type NewIncome = {
+  income: number;
+  color: string;
+};

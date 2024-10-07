@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { toggleIncomeForm } from "../slices/incomeFormSlice";
 import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
+import { NewIncome } from "../utils/types/types";
 
 const IncomeForm = () => {
-  const [newIncomeInput, setNewIncomeInput] = useState({
+  const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
     income: 0,
     color: "#3e9c35",
   });
