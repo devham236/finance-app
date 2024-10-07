@@ -20,7 +20,7 @@ const IncomeForm = () => {
   };
 
   const addNewIncome = () => {
-    if (newIncomeInput.income > 0 && newIncomeInput.color !== "") {
+    if (newIncomeInput.income > 0) {
       dispatch(addIncome(newIncomeInput));
     }
   };
