@@ -20,7 +20,7 @@ const DoughnutChart = () => {
       chartData.datasets[0].data.length > 0
     ) {
       const chartDataIncome = chartData.datasets[0].data.reduce(
-        (prev, curr) => {
+        (prev: number, curr: number) => {
           return prev + curr;
         },
         0
