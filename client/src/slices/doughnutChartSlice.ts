@@ -17,7 +17,9 @@ const doughnutChartSlice = createSlice({
     },
   },
   reducers: {
-    addIncome: (state) => {
+    addIncome: (state, action) => {
+      console.log(action.payload);
+
       state.chartData = {
         ...state.chartData,
         datasets: [
