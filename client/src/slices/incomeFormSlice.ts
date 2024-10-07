@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const incomeForm = createSlice({
-  name: "darkmode",
+  name: "incomeForm",
   initialState: { isOpen: false },
   reducers: {
     toggleIncomeForm: (state) => {

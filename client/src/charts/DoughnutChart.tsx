@@ -4,12 +4,14 @@ import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
 import { setTotalIncome } from "../slices/totalIncomeSlice";
+import { toggleIncomeForm } from "../slices/incomeFormSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const { chartData } = useSelector((state: any) => state.doughnutChart);
   const { incomeValue } = useSelector((state: any) => state.totalIncome);
+  const { isOpen } = useSelector((state: any) => state.incomeForm);
   const dispatch = useDispatch();
 
   const config = {};
@@ -28,6 +30,8 @@ const DoughnutChart = () => {
       dispatch(setTotalIncome(chartDataIncome));
     }
   }, [chartData.datasets, dispatch]);
+
+  console.log(isOpen);
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
@@ -59,7 +63,10 @@ const DoughnutChart = () => {
         {incomeValue}€
       </p>
       {incomeValue > 0 && (
-        <p className="absolute cursor-pointer bottom-6 right-6 text-green_color hover:underline">
+        <p
+          className="absolute cursor-pointer bottom-6 right-6 text-green_color hover:underline"
+          onClick={() => dispatch(toggleIncomeForm())}
+        >
           Reset
         </p>
       )}
