@@ -22,7 +22,7 @@ const IncomeForm = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
-      <div className="w-[500px] p-[1.5rem] bg-sidebar_item_color_light shadow-md rounded-md">
+      <div className="w-[400px] p-[1.5rem] bg-sidebar_item_color_light shadow-md rounded-md">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold">Add Income</h2>
           <span
@@ -33,8 +33,8 @@ const IncomeForm = () => {
           </span>
         </div>
         <div className="flex flex-col">
-          <div className="flex flex-col">
-            <label htmlFor="income" className="mb-2 font-semibold">
+          <div className="flex items-center justify-between mb-4">
+            <label htmlFor="income" className="font-semibold">
               Income:
             </label>
             <input
@@ -42,10 +42,10 @@ const IncomeForm = () => {
               type="number"
               name="income"
               placeholder="Number"
-              className="mb-4 dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+              className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex items-center justify-between">
             <label htmlFor="color" className="font-semibold">
               Color:
             </label>
@@ -54,7 +54,7 @@ const IncomeForm = () => {
               type="color"
               name="color"
               defaultValue={"#3e9c35"}
-              className="w-10 h-10 rounded-xl appearance-none outline-none border-none"
+              className="w-10 rounded-xl h-10 appearance-none outline-none border-none"
             />
           </div>
         </div>
