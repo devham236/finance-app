@@ -18,7 +18,7 @@ const IncomeForm = () => {
         </div>
         <div className="flex flex-col">
           <div className="flex flex-col">
-            <label htmlFor="income" className="mb-2">
+            <label htmlFor="income" className="mb-2 font-semibold">
               Income:
             </label>
             <input
@@ -29,8 +29,10 @@ const IncomeForm = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="color">Color:</label>
-            <input type="color" name="color" value={"#3e9c35"} />
+            <label htmlFor="color" className="font-semibold">
+              Color:
+            </label>
+            <input type="color" name="color" defaultValue={"#3e9c35"} />
           </div>
         </div>
         <div></div>
