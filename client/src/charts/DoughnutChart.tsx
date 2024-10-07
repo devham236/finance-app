@@ -9,7 +9,7 @@ ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const { chartData } = useSelector((state: any) => state.doughnutChart);
-  const totalIncome = useSelector((state: any) => state.totaLIncome);
+  const { incomeValue } = useSelector((state: any) => state.totalIncome);
   const dispatch = useDispatch();
 
   const config = {};
@@ -21,7 +21,7 @@ const DoughnutChart = () => {
     dispatch(setTotalIncome(chartDataIncome));
   }, [chartData.datasets, dispatch]);
 
-  console.log(chartData);
+  console.log(incomeValue);
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
@@ -50,7 +50,7 @@ const DoughnutChart = () => {
         ))}
       </div>
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold">
-        {totalIncome ? totalIncome : 0}€
+        {incomeValue}€
       </p>
     </div>
   );

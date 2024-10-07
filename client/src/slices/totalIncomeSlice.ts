@@ -2,14 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const totalIncomeSlice = createSlice({
   name: "totalIncome",
-  initialState: 0,
+  initialState: { incomeValue: 0 },
   reducers: {
     setTotalIncome: (state, action) => {
-      return action.payload;
+      state.incomeValue = action.payload;
     },
 
-    resetTotalIncome: () => {
-      return 0;
+    resetTotalIncome: (state) => {
+      state.incomeValue = 0;
     },
   },
 });
