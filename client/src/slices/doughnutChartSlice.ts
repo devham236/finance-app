@@ -11,7 +11,6 @@ const doughnutChartSlice = createSlice({
           backgroundColor: <any>[],
           hoverOffset: 4,
           borderWidth: 2,
-          cutout: 80,
         },
       ],
     },

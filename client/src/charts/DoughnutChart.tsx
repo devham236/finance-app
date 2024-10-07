@@ -58,6 +58,11 @@ const DoughnutChart = () => {
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold">
         {incomeValue}€
       </p>
+      {incomeValue > 0 && (
+        <p className="absolute cursor-pointer bottom-6 right-6 text-green_color hover:underline">
+          Reset
+        </p>
+      )}
     </div>
   );
 };
