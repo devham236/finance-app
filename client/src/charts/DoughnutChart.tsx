@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetTotalIncome, setTotalIncome } from "../slices/totalIncomeSlice";
 import { toggleIncomeForm } from "../slices/incomeFormSlice";
 import { resetChartData } from "../slices/doughnutChartSlice";
-import { toggleForm } from "../slices/authFormSlice";
+import { toggleAuthForm } from "../slices/authFormSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -22,8 +22,8 @@ const DoughnutChart = () => {
   };
 
   const addData = () => {
-    if (!userData || !userData.id || userData.id === "") {
-      dispatch(toggleForm(true));
+    if (!userData || !userData.id) {
+      dispatch(toggleAuthForm(true));
     } else {
       dispatch(toggleIncomeForm());
     }

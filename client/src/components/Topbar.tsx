@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../slices/darkmodeSlice";
 import AuthForm from "./AuthForm";
-import { toggleForm } from "../slices/authFormSlice";
+import { toggleAuthForm } from "../slices/authFormSlice";
 import AuthenticatedUser from "./AuthenticatedUser";
 
 const Topbar = () => {
@@ -38,7 +38,7 @@ const Topbar = () => {
         {userData?.photoUrl ? (
           <div
             className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center rounded-full relative w-[32px] h-[32px] cursor-pointer"
-            onClick={() => dispatch(toggleForm(true))}
+            onClick={() => dispatch(toggleAuthForm(true))}
           >
             <img
               src={userData.photoUrl}
@@ -50,7 +50,7 @@ const Topbar = () => {
         ) : (
           <div
             className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full w-[32px] h-[32px] cursor-pointer relative"
-            onClick={() => dispatch(toggleForm(true))}
+            onClick={() => dispatch(toggleAuthForm(true))}
           >
             <span className={`material-symbols-rounded`}>account_circle</span>
             {userData?.id !== "" && (
@@ -62,7 +62,7 @@ const Topbar = () => {
       {showForm && (
         <div className=" absolute top-[78px] right-8 shadow-xl">
           <span
-            onClick={() => dispatch(toggleForm(false))}
+            onClick={() => dispatch(toggleAuthForm(false))}
             className="material-symbols-rounded absolute top-[10px] right-[10px] font-bold"
           >
             close

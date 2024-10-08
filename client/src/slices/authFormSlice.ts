@@ -4,11 +4,11 @@ const authFormSlice = createSlice({
   name: "authForm",
   initialState: { showForm: false },
   reducers: {
-    toggleForm: (state, action) => {
+    toggleAuthForm: (state, action) => {
       state.showForm = action.payload;
     },
   },
 });
 
-export const { toggleForm } = authFormSlice.actions;
+export const { toggleAuthForm } = authFormSlice.actions;
 export default authFormSlice.reducer;
