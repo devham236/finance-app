@@ -7,6 +7,7 @@ import { NewIncome } from "../utils/types/types";
 const IncomeForm = () => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
     income: 0,
+    label: "",
     color: "#3e9c35",
   });
   const dispatch = useDispatch();
@@ -25,6 +26,8 @@ const IncomeForm = () => {
       dispatch(addIncome(newIncomeInput));
     }
   };
+
+  console.log(newIncomeInput);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
@@ -49,6 +52,18 @@ const IncomeForm = () => {
               name="income"
               placeholder="Number"
               className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+            />
+          </div>
+          <div className="flex items-center justify-between mb-4">
+            <label htmlFor="label" className="font-semibold">
+              Label:
+            </label>
+            <input
+              onChange={(e) => handleChange(e)}
+              type="text"
+              name="label"
+              placeholder="Label"
+              className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
             />
           </div>
           <div className="flex items-center justify-between mb-8">

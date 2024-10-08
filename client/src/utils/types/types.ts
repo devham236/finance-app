@@ -18,5 +18,6 @@ export type UserData = {
 
 export type NewIncome = {
   income: number;
+  label: string;
   color: string;
 };

@@ -18,7 +18,7 @@ const doughnutChartSlice = createSlice({
   },
   reducers: {
     addIncome: (state, action) => {
-      const { income, color } = action.payload;
+      const { income, label, color } = action.payload;
 
       state.chartData = {
         ...state.chartData,
@@ -32,7 +32,7 @@ const doughnutChartSlice = createSlice({
             ],
           },
         ],
-        labels: [...state.chartData.labels, "New Label"],
+        labels: [...state.chartData.labels, label],
       };
     },
   },
