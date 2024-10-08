@@ -17,17 +17,15 @@ const IncomeForm = () => {
 
     setNewIncomeInput((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: name === "income" ? Number(value) : value,
     }));
   };
 
   const addNewIncome = () => {
-    if (newIncomeInput.income > 0) {
+    if (newIncomeInput.income > 0 && newIncomeInput.label !== "") {
       dispatch(addIncome(newIncomeInput));
     }
   };
-
-  console.log(newIncomeInput);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">

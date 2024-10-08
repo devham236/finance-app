@@ -20,20 +20,22 @@ const doughnutChartSlice = createSlice({
     addIncome: (state, action) => {
       const { income, label, color } = action.payload;
 
-      state.chartData = {
-        ...state.chartData,
-        datasets: [
-          {
-            ...state.chartData.datasets[0],
-            data: [...state.chartData.datasets[0].data, income],
-            backgroundColor: [
-              ...state.chartData.datasets[0].backgroundColor,
-              color,
-            ],
-          },
-        ],
-        labels: [...state.chartData.labels, label],
-      };
+      console.log(typeof income);
+
+      // state.chartData = {
+      //   ...state.chartData,
+      //   datasets: [
+      //     {
+      //       ...state.chartData.datasets[0],
+      //       data: [...state.chartData.datasets[0].data, income],
+      //       backgroundColor: [
+      //         ...state.chartData.datasets[0].backgroundColor,
+      //         color,
+      //       ],
+      //     },
+      //   ],
+      //   labels: [...state.chartData.labels, label],
+      // };
     },
   },
 });
