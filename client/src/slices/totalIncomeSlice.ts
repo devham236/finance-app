@@ -7,10 +7,6 @@ const totalIncomeSlice = createSlice({
     setTotalIncome: (state, action) => {
       state.incomeValue = action.payload;
     },
-
-    resetTotalIncome: (state) => {
-      state.incomeValue = 0;
-    },
   },
 });
 
