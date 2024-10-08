@@ -4,6 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotalIncome } from "../slices/totalIncomeSlice";
 import { toggleIncomeForm } from "../slices/incomeFormSlice";
+import { resetChartData } from "../slices/doughnutChartSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -59,7 +60,10 @@ const DoughnutChart = () => {
         {incomeValue}€
       </p>
       {incomeValue > 0 && (
-        <p className="absolute cursor-pointer bottom-6 right-6 text-green_color hover:underline">
+        <p
+          className="absolute cursor-pointer bottom-6 right-6 text-green_color hover:underline"
+          onClick={() => dispatch(resetChartData())}
+        >
           Reset
         </p>
       )}

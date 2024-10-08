@@ -36,8 +36,11 @@ const doughnutChartSlice = createSlice({
         labels: [...state.chartData.labels, label],
       };
     },
+    resetChartData: (state) => {
+      localStorage.removeItem("persist:doughnutChart");
+    },
   },
 });
 
-export const { addIncome } = doughnutChartSlice.actions;
+export const { addIncome, resetChartData } = doughnutChartSlice.actions;
 export default doughnutChartSlice.reducer;
