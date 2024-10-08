@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { NewIncome } from "../utils/types/types";
 
 const doughnutChartSlice = createSlice({
   name: "dougnutChart",
@@ -17,25 +18,23 @@ const doughnutChartSlice = createSlice({
     },
   },
   reducers: {
-    addIncome: (state, action) => {
+    addIncome: (state, action: PayloadAction<NewIncome>) => {
       const { income, label, color } = action.payload;
 
-      console.log(typeof income);
-
-      // state.chartData = {
-      //   ...state.chartData,
-      //   datasets: [
-      //     {
-      //       ...state.chartData.datasets[0],
-      //       data: [...state.chartData.datasets[0].data, income],
-      //       backgroundColor: [
-      //         ...state.chartData.datasets[0].backgroundColor,
-      //         color,
-      //       ],
-      //     },
-      //   ],
-      //   labels: [...state.chartData.labels, label],
-      // };
+      state.chartData = {
+        ...state.chartData,
+        datasets: [
+          {
+            ...state.chartData.datasets[0],
+            data: [...state.chartData.datasets[0].data, income],
+            backgroundColor: [
+              ...state.chartData.datasets[0].backgroundColor,
+              color,
+            ],
+          },
+        ],
+        labels: [...state.chartData.labels, label],
+      };
     },
   },
 });
