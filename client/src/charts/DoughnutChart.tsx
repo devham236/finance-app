@@ -2,7 +2,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
-import { setTotalIncome } from "../slices/totalIncomeSlice";
+import { resetTotalIncome, setTotalIncome } from "../slices/totalIncomeSlice";
 import { toggleIncomeForm } from "../slices/incomeFormSlice";
 import { resetChartData } from "../slices/doughnutChartSlice";
 
@@ -14,6 +14,11 @@ const DoughnutChart = () => {
   const dispatch = useDispatch();
 
   const config = {};
+
+  const resetData = () => {
+    dispatch(resetChartData());
+    dispatch(resetTotalIncome());
+  };
 
   useEffect(() => {
     if (
@@ -62,7 +67,7 @@ const DoughnutChart = () => {
       {incomeValue > 0 && (
         <p
           className="absolute cursor-pointer bottom-6 right-6 text-green_color hover:underline"
-          onClick={() => dispatch(resetChartData())}
+          onClick={resetData}
         >
           Reset
         </p>

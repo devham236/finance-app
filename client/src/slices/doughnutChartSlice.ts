@@ -38,6 +38,18 @@ const doughnutChartSlice = createSlice({
     },
     resetChartData: (state) => {
       localStorage.removeItem("persist:doughnutChart");
+
+      state.chartData = {
+        ...state.chartData,
+        labels: [],
+        datasets: [
+          {
+            ...state.chartData.datasets[0],
+            data: [],
+            backgroundColor: [],
+          },
+        ],
+      };
     },
   },
 });
