@@ -44,8 +44,6 @@ const DoughnutChart = () => {
     }
   }, [chartData.datasets, dispatch]);
 
-  console.log(userData);
-
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
       <div className="flex items-center justify-between w-full">
