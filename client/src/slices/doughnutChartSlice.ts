@@ -28,11 +28,11 @@ const doughnutChartSlice = createSlice({
             data: [...state.chartData.datasets[0].data, income],
             backgroundColor: [
               ...state.chartData.datasets[0].backgroundColor,
-              "blue",
+              color,
             ],
           },
         ],
-        labels: [...state.chartData.labels, color],
+        labels: [...state.chartData.labels, "New Label"],
       };
     },
   },
