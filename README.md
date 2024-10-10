@@ -5,7 +5,7 @@
 ## Technologies Used
 
 - **React, Typescript**
-- **Redux Statemanagemenr**
+- **Redux Statemanagement**
 - **Tailwind CSS**
 - **Firebase**
 - **Node.js/ExpressJS**
