@@ -2,6 +2,8 @@
 
 ## Demo/Preview
 
+## Features
+
 ## Technologies Used
 
 - **React, Typescript**
@@ -9,3 +11,11 @@
 - **Tailwind CSS**
 - **Firebase**
 - **Node.js/ExpressJS**
+
+## What I Learned
+
+## Getting Started
+
+## Improvements/Feedback
+
+## License
