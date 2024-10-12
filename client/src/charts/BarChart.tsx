@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ExpenseBar from "../components/ExpenseBar";
 import { useSelector } from "react-redux";
+import { NewExpense } from "../utils/types/types";
 
 const BarChart = () => {
   const { data } = useSelector((state: any) => state.barChart);
@@ -29,10 +30,9 @@ const BarChart = () => {
       </div>
       <p className="self-start text-2xl font-bold mb-4">{totalExpense}€</p>
       <div className="flex flex-col items-center justify-start w-full h-full">
-        <ExpenseBar />
-        <ExpenseBar />
-        <ExpenseBar />
-        <ExpenseBar />
+        {data.map((expense: NewExpense) => (
+          <ExpenseBar expense={expense} key={expense.id} />
+        ))}
       </div>
       <div className="flex items-center justify-center"></div>
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold"></p>
