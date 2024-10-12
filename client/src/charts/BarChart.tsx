@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 import ExpenseBar from "../components/ExpenseBar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NewExpense } from "../utils/types/types";
+import { setTotalExpenses } from "../slices/totalExpensesSlice";
 
 const BarChart = () => {
   const { data } = useSelector((state: any) => state.barChart);
+  const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
+  const dispatch = useDispatch();
 
-  const totalExpense = data.reduce((prev, curr) => {
-    return prev + curr.expense;
-  }, 0);
+  useEffect(() => {
+    const expensesValue = data.reduce((prev, curr) => {
+      return prev + curr.value;
+    }, 0);
+    dispatch(setTotalExpenses(expensesValue));
+  }, [data, dispatch]);
 
   return (
     <div className="grid-item flex flex-col items-center justify-start relative">
@@ -27,7 +33,7 @@ const BarChart = () => {
           </button>
         </div>
       </div>
-      <p className="self-start text-2xl font-bold mb-4">{totalExpense}€</p>
+      <p className="self-start text-2xl font-bold mb-4">{totalExpenses}€</p>
       <div className="flex flex-col items-center justify-start w-full h-full">
         {data.map((expense: NewExpense) => (
           <ExpenseBar expense={expense} key={expense.id} />

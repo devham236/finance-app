@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const totalExpensesSlice = createSlice({
   name: "totalExpenses",
-  initialState: { expensesValue: 0 },
+  initialState: { totalExpenses: 0 },
   reducers: {
     setTotalExpenses: (state, action) => {
-      state.expensesValue = action.payload;
+      state.totalExpenses = action.payload;
     },
     resetTotalExpenses: (state) => {
-      state.expensesValue = 0;
+      state.totalExpenses = 0;
     },
   },
 });
