@@ -63,14 +63,17 @@ const DoughnutChart = () => {
           </button>
         </div>
       </div>
-      <div className="w-52 h-52">
+      <div className="w-52 h-52 relative">
         <Doughnut data={chartData} options={config}></Doughnut>
+        <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold">
+          {incomeValue}€
+        </p>
       </div>
       <div className="flex items-center justify-center">
         {chartData.labels.map((label: string, index: number) => (
           <div key={index} className="flex items-center mr-4 last:mr-0">
             <span
-              className="w-3 h-3 mr-2 rounded-full"
+              className="w-3 h-3 mr-1 rounded-full"
               style={{
                 backgroundColor: chartData.datasets[0].backgroundColor[index],
               }}
@@ -79,9 +82,6 @@ const DoughnutChart = () => {
           </div>
         ))}
       </div>
-      <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold">
-        {incomeValue}€
-      </p>
     </div>
   );
 };
