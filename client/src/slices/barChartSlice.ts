@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { NewExpense } from "../utils/types/types";
 
 const barChartSlice = createSlice({
   name: "barChart",
