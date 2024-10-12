@@ -21,3 +21,10 @@ export type NewIncome = {
   label: string;
   color: string;
 };
+
+export type NewExpense = {
+  id: string;
+  expense: number;
+  label: string;
+  color: string;
+};
