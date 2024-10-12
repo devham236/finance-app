@@ -19,8 +19,11 @@ const BarChart = () => {
           </button>
         </div>
       </div>
-      <p className="self-start text-2xl font-bold mb-8">1500€</p>
-      <div className="flex flex-col w-full">
+      <p className="self-start text-2xl font-bold mb-4">1500€</p>
+      <div className="flex flex-col items-center justify-start w-full h-full">
+        <ExpenseBar />
+        <ExpenseBar />
+        <ExpenseBar />
         <ExpenseBar />
       </div>
       <div className="flex items-center justify-center"></div>
