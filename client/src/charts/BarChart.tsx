@@ -5,7 +5,6 @@ import { NewExpense } from "../utils/types/types";
 
 const BarChart = () => {
   const { data } = useSelector((state: any) => state.barChart);
-  console.log(data);
 
   const totalExpense = data.reduce((prev, curr) => {
     return prev + curr.expense;

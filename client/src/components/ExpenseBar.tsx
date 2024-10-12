@@ -1,8 +1,9 @@
 import React from "react";
 import { NewExpense } from "../utils/types/types";
+import { calcExpensePercentage } from "../utils/helpers/methods.ts";
 
 const ExpenseBar = ({ expense }) => {
-  console.log(expense);
+  console.log(calcExpensePercentage(30, 150));
 
   return (
     <div className="w-full mb-[14px]">
