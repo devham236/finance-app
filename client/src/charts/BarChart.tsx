@@ -1,7 +1,11 @@
 import React from "react";
 import ExpenseBar from "../components/ExpenseBar";
+import { useSelector } from "react-redux";
 
 const BarChart = () => {
+  const { data } = useSelector((state: any) => state.barChart);
+  console.log(data);
+
   return (
     <div className="grid-item flex flex-col items-center justify-start relative">
       <div className="flex items-center justify-between w-full mb-2">

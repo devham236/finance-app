@@ -5,13 +5,13 @@ const barChartSlice = createSlice({
   initialState: {
     data: [
       {
-        id: 1,
+        id: crypto.randomUUID(),
         expense: 200,
         label: "Rent",
         color: "red",
       },
       {
-        id: 2,
+        id: crypto.randomUUID(),
         expense: 100,
         label: "Groceries",
         color: "yellow",
