@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ExpenseBar from "../components/ExpenseBar";
 import { useSelector } from "react-redux";
 
 const BarChart = () => {
   const { data } = useSelector((state: any) => state.barChart);
   console.log(data);
+
+  const totalExpense = data.reduce((prev, curr) => {
+    return prev + curr.expense;
+  }, 0);
 
   return (
     <div className="grid-item flex flex-col items-center justify-start relative">
@@ -23,7 +27,7 @@ const BarChart = () => {
           </button>
         </div>
       </div>
-      <p className="self-start text-2xl font-bold mb-4">1500€</p>
+      <p className="self-start text-2xl font-bold mb-4">{totalExpense}€</p>
       <div className="flex flex-col items-center justify-start w-full h-full">
         <ExpenseBar />
         <ExpenseBar />
