@@ -11,8 +11,7 @@ const IncomeForm = ({ chart }) => {
     label: "",
     color: "#3e9c35",
   });
-  const [newExpenseInput, setNewExpenseInput] = useState<NewExpense>({
-    id: crypto.randomUUID(),
+  const [newExpenseInput, setNewExpenseInput] = useState({
     expense: 0,
     label: "",
     color: "#3e9c35",
@@ -36,19 +35,8 @@ const IncomeForm = ({ chart }) => {
   };
 
   const addNewEntry = () => {
-    if (
-      (newIncomeInput.income > 0 && newIncomeInput.label !== "") ||
-      (newExpenseInput.expense > 0 && newExpenseInput.label !== "")
-    ) {
-      dispatch(
-        chart === "Income"
-          ? addIncome(newIncomeInput)
-          : addExpense(newExpenseInput)
-      );
-    }
+    dispatch(addExpense(newExpenseInput));
   };
-
-  console.log(chart.toLowerCase());
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
@@ -70,7 +58,7 @@ const IncomeForm = ({ chart }) => {
             <input
               onChange={(e) => handleChange(e)}
               type="number"
-              name={chart}
+              name={chart.toLowerCase()}
               placeholder="Number"
               className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
             />
@@ -95,7 +83,7 @@ const IncomeForm = ({ chart }) => {
               onChange={(e) => handleChange(e)}
               type="color"
               name="color"
-              defaultValue={newIncomeInput.color}
+              defaultValue="#3e9c35"
               className="w-10 rounded-xl h-10 appearance-none outline-none border-none bg-transparent"
             />
           </div>

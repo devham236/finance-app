@@ -20,9 +20,15 @@ const barChartSlice = createSlice({
   },
   reducers: {
     addExpense: (state, action) => {
-      console.log(action.payload);
+      const { color, expense, label } = action.payload;
+      state.data = [
+        ...state.data,
+        { id: crypto.randomUUID(), value: expense, label: label, color: color },
+      ];
     },
-    resetBarChartData: (state, action) => {},
+    resetBarChartData: (state) => {
+      state.data = [];
+    },
   },
 });
 
