@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { closeForm } from "../slices/incomeFormSlice";
 import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
-import { NewExpense, NewIncome } from "../utils/types/types";
+import { NewIncome } from "../utils/types/types";
 import { addExpense } from "../slices/barChartSlice";
 
 const IncomeForm = ({ chart }) => {
@@ -35,8 +35,18 @@ const IncomeForm = ({ chart }) => {
   };
 
   const addNewEntry = () => {
-    dispatch(addExpense(newExpenseInput));
+    if (chart === "Income") {
+      if (newIncomeInput.income > 0 && newIncomeInput.label !== "") {
+        dispatch(addIncome(newIncomeInput));
+      }
+    } else if (chart === "Expense") {
+      if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
+        dispatch(addExpense(newExpenseInput));
+      }
+    }
   };
+
+  console.log(chart);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
