@@ -6,7 +6,7 @@ import IncomeForm from "./IncomeForm";
 import { useSelector } from "react-redux";
 
 const MainContent = () => {
-  const { isOpen } = useSelector((state: any) => state.incomeForm);
+  const { isOpen, chart } = useSelector((state: any) => state.incomeForm);
 
   return (
     <div className="w-full h-full flex items-center justify-center text-text_color_light p-[1.5rem]">
@@ -15,7 +15,7 @@ const MainContent = () => {
         <Route path="/overview" element={<Overview />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
-      {isOpen && <IncomeForm />}
+      {isOpen && <IncomeForm chart={chart} />}
     </div>
   );
 };

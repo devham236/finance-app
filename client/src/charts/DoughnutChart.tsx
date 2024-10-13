@@ -25,7 +25,7 @@ const DoughnutChart = () => {
     if (!userData || !userData.id) {
       dispatch(toggleAuthForm(true));
     } else {
-      dispatch(toggleIncomeForm());
+      dispatch(toggleIncomeForm("Income"));
     }
   };
 

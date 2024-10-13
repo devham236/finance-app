@@ -23,7 +23,7 @@ const BarChart = () => {
     if (!userData || !userData.id) {
       dispatch(toggleAuthForm(true));
     } else {
-      dispatch(toggleIncomeForm());
+      dispatch(toggleIncomeForm("Expense"));
     }
   };
 

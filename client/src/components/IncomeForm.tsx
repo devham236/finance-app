@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { toggleIncomeForm } from "../slices/incomeFormSlice";
+import { closeForm } from "../slices/incomeFormSlice";
 import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
 import { NewIncome } from "../utils/types/types";
 
-const IncomeForm = () => {
+const IncomeForm = ({ chart }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
     income: 0,
     label: "",
@@ -27,14 +27,16 @@ const IncomeForm = () => {
     }
   };
 
+  console.log(chart.toLowerCase());
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
       <div className="w-[400px] p-[1.5rem] bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark shadow-md rounded-md text-text_color_light dark:text-text_color_dark">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold">Add Income</h2>
+          <h2 className="text-xl font-bold">Add {chart}</h2>
           <span
             className="material-symbols-rounded font-bold"
-            onClick={() => dispatch(toggleIncomeForm())}
+            onClick={() => dispatch(closeForm())}
           >
             close
           </span>
