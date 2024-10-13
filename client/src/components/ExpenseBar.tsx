@@ -14,8 +14,6 @@ const ExpenseBar = ({ expense }) => {
     }
   }, [totalExpenses]);
 
-  console.log(expense);
-
   return (
     <div className="w-full mb-[14px]">
       <p className="mb-1">

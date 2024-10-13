@@ -19,7 +19,9 @@ const barChartSlice = createSlice({
     ],
   },
   reducers: {
-    addExpense: (state, action) => {},
+    addExpense: (state, action) => {
+      console.log(action.payload);
+    },
     resetBarChartData: (state, action) => {},
   },
 });
