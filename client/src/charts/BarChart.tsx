@@ -5,6 +5,7 @@ import { NewExpense } from "../utils/types/types";
 import { setTotalExpenses } from "../slices/totalExpensesSlice";
 import { toggleAuthForm } from "../slices/authFormSlice";
 import { toggleIncomeForm } from "../slices/incomeFormSlice";
+import { resetBarChartData } from "../slices/barChartSlice";
 
 const BarChart = () => {
   const { data } = useSelector((state: any) => state.barChart);
@@ -32,7 +33,10 @@ const BarChart = () => {
       <div className="flex items-center justify-between w-full mb-2">
         <h3 className="font-[600] self-start">Total Expenses</h3>
         <div className="flex items-center">
-          <button className="mr-2">
+          <button
+            onClick={() => dispatch(resetBarChartData())}
+            className="mr-2"
+          >
             <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">
               autorenew
             </span>

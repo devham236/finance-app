@@ -3,20 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const barChartSlice = createSlice({
   name: "barChart",
   initialState: {
-    data: [
-      {
-        id: crypto.randomUUID(),
-        value: 200,
-        label: "Rent",
-        color: "red",
-      },
-      {
-        id: crypto.randomUUID(),
-        value: 100,
-        label: "Groceries",
-        color: "rgb(50, 168, 82)",
-      },
-    ],
+    data: <any>[],
   },
   reducers: {
     addExpense: (state, action) => {
