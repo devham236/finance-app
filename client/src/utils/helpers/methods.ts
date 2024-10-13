@@ -1,6 +1,3 @@
-export const calcExpensePercentage = (
-  expense: number,
-  totalExpenses: number
-): string => {
+export const calcExpensePercentage = (expense, totalExpenses) => {
   return ((expense / totalExpenses) * 100).toFixed(2);
 };
