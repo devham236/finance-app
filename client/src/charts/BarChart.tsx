@@ -3,9 +3,12 @@ import ExpenseBar from "../components/ExpenseBar";
 import { useDispatch, useSelector } from "react-redux";
 import { NewExpense } from "../utils/types/types";
 import { setTotalExpenses } from "../slices/totalExpensesSlice";
+import { toggleAuthForm } from "../slices/authFormSlice";
+import { toggleIncomeForm } from "../slices/incomeFormSlice";
 
 const BarChart = () => {
   const { data } = useSelector((state: any) => state.barChart);
+  const { userData } = useSelector((state: any) => state.user);
   const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
   const dispatch = useDispatch();
 
@@ -15,6 +18,14 @@ const BarChart = () => {
     }, 0);
     dispatch(setTotalExpenses(expensesValue));
   }, [data, dispatch]);
+
+  const addData = () => {
+    if (!userData || !userData.id) {
+      dispatch(toggleAuthForm(true));
+    } else {
+      dispatch(toggleIncomeForm());
+    }
+  };
 
   return (
     <div className="grid-item flex flex-col items-center justify-start relative">
@@ -26,7 +37,7 @@ const BarChart = () => {
               autorenew
             </span>
           </button>
-          <button>
+          <button onClick={addData}>
             <span className="material-symbols-rounded text-green_color">
               add_circle
             </span>
