@@ -3,9 +3,11 @@ import darkmodeReducer from "../slices/darkmodeSlice";
 import sidebarReducer from "../slices/sidebarSlice";
 import userReducer from "../slices/userSlice";
 import doughnutChartReducer from "../slices/doughnutChartSlice";
+import barChartReducer from "../slices/barChartSlice";
 import {
   persistDarkmodeConfig,
   persistDoughnutConfig,
+  persistBarConfig,
   persistSidebarConfig,
   persistUserConfig,
 } from "./persistConfigs";
@@ -28,4 +30,9 @@ export const persistedUserReducer = persistReducer(
 export const persistedDoughnutReducer = persistReducer(
   persistDoughnutConfig,
   doughnutChartReducer
+);
+
+export const persistedBarChartReducer = persistReducer(
+  persistBarConfig,
+  barChartReducer
 );

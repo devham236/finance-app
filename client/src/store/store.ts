@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { PERSIST, persistStore } from "redux-persist";
 import {
+  persistedBarChartReducer,
   persistedDarkmodeReducer,
   persistedDoughnutReducer,
   persistedSidebarReducer,
@@ -10,7 +11,6 @@ import authFormReducer from "../slices/authFormSlice";
 import totalIncomeReducer from "../slices/totalIncomeSlice";
 import incomeFormReducer from "../slices/incomeFormSlice";
 import totalExpensesReducer from "../slices/totalExpensesSlice";
-import barChartReducer from "../slices/barChartSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,7 +22,7 @@ export const store = configureStore({
     totalIncome: totalIncomeReducer,
     incomeForm: incomeFormReducer,
     totalExpenses: totalExpensesReducer,
-    barChart: barChartReducer,
+    barChart: persistedBarChartReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({

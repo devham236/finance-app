@@ -19,3 +19,8 @@ export const persistDoughnutConfig = {
   key: "doughnutChart",
   storage,
 };
+
+export const persistBarConfig = {
+  key: "barChart",
+  storage,
+};
