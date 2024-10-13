@@ -14,6 +14,7 @@ const barChartSlice = createSlice({
       ];
     },
     resetBarChartData: (state) => {
+      localStorage.removeItem("persist:barChart");
       state.data = [];
     },
   },
