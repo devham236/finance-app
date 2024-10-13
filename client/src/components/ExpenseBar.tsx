@@ -14,7 +14,7 @@ const ExpenseBar = ({ expense }) => {
     }
   }, [totalExpenses]);
 
-  console.log(expensePercentage);
+  console.log(expense);
 
   return (
     <div className="w-full mb-[14px]">
@@ -23,8 +23,11 @@ const ExpenseBar = ({ expense }) => {
       </p>
       <div className="w-full h-[7px] bg-container_color_light dark:bg-container_color_dark rounded-full">
         <div
-          style={{ width: `${expensePercentage}%` }}
-          className={`h-full bg-green_color rounded-full`}
+          style={{
+            width: `${expensePercentage}%`,
+            backgroundColor: `${expense.color}`,
+          }}
+          className={`h-full rounded-full`}
         ></div>
       </div>
     </div>
