@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { closeForm } from "../slices/incomeFormSlice";
 import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
-import { NewIncome } from "../utils/types/types";
+import { NewExpense, NewIncome } from "../utils/types/types";
+import { addExpense } from "../slices/barChartSlice";
 
 const IncomeForm = ({ chart }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
     income: 0,
+    label: "",
+    color: "#3e9c35",
+  });
+  const [newExpenseInput, setNewExpenseInput] = useState<NewExpense>({
+    id: crypto.randomUUID(),
+    expense: 0,
     label: "",
     color: "#3e9c35",
   });
@@ -15,15 +22,29 @@ const IncomeForm = ({ chart }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
-    setNewIncomeInput((prevState) => ({
-      ...prevState,
-      [name]: name === "income" ? Number(value) : value,
-    }));
+    if (chart === "Income") {
+      setNewIncomeInput((prevState) => ({
+        ...prevState,
+        [name]: name === "income" ? Number(value) : value,
+      }));
+    } else if (chart === "Expense") {
+      setNewExpenseInput((prevState) => ({
+        ...prevState,
+        [name]: name === "expense" ? Number(value) : value,
+      }));
+    }
   };
 
-  const addNewIncome = () => {
-    if (newIncomeInput.income > 0 && newIncomeInput.label !== "") {
-      dispatch(addIncome(newIncomeInput));
+  const addNewEntry = () => {
+    if (
+      (newIncomeInput.income > 0 && newIncomeInput.label !== "") ||
+      (newExpenseInput.expense > 0 && newExpenseInput.label !== "")
+    ) {
+      dispatch(
+        chart === "Income"
+          ? addIncome(newIncomeInput)
+          : addExpense(newExpenseInput)
+      );
     }
   };
 
@@ -43,13 +64,13 @@ const IncomeForm = ({ chart }) => {
         </div>
         <div className="flex flex-col">
           <div className="flex items-center justify-between mb-4">
-            <label htmlFor="income" className="font-semibold">
-              Income:
+            <label htmlFor={chart.toLowerCase()} className="font-semibold">
+              {chart}:
             </label>
             <input
               onChange={(e) => handleChange(e)}
               type="number"
-              name="income"
+              name={chart}
               placeholder="Number"
               className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
             />
@@ -79,7 +100,7 @@ const IncomeForm = ({ chart }) => {
             />
           </div>
           <button
-            onClick={addNewIncome}
+            onClick={addNewEntry}
             className="hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
           >
             Add
