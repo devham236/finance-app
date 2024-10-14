@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const incomeForm = createSlice({
-  name: "incomeForm",
+const entryFormSlice = createSlice({
+  name: "entryForm",
   initialState: { isOpen: false, chart: null },
   reducers: {
-    toggleIncomeForm: (state, action) => {
+    toggleEntryForm: (state, action) => {
       state.isOpen = !state.isOpen;
       state.chart = action.payload;
     },
@@ -14,5 +14,5 @@ const incomeForm = createSlice({
   },
 });
 
-export const { toggleIncomeForm, closeForm } = incomeForm.actions;
-export default incomeForm.reducer;
+export const { toggleEntryForm, closeForm } = entryFormSlice.actions;
+export default entryFormSlice.reducer;

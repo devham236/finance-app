@@ -9,7 +9,7 @@ import {
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
 import totalIncomeReducer from "../slices/totalIncomeSlice";
-import incomeFormReducer from "../slices/incomeFormSlice";
+import entryFormReducer from "../slices/entryFormSlice";
 import totalExpensesReducer from "../slices/totalExpensesSlice";
 
 export const store = configureStore({
@@ -20,7 +20,7 @@ export const store = configureStore({
     authForm: authFormReducer,
     doughnutChart: persistedDoughnutReducer,
     totalIncome: totalIncomeReducer,
-    incomeForm: incomeFormReducer,
+    entryForm: entryFormReducer,
     totalExpenses: totalExpensesReducer,
     barChart: persistedBarChartReducer,
   },

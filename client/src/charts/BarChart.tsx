@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NewExpense } from "../utils/types/types";
 import { setTotalExpenses } from "../slices/totalExpensesSlice";
 import { toggleAuthForm } from "../slices/authFormSlice";
-import { toggleIncomeForm } from "../slices/incomeFormSlice";
+import { toggleIncomeForm } from "../slices/entryFormSlice";
 import { resetBarChartData } from "../slices/barChartSlice";
 
 const BarChart = () => {

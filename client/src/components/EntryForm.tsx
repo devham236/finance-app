@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { closeForm } from "../slices/incomeFormSlice";
+import { closeForm } from "../slices/entryFormSlice";
 import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
 import { NewIncome } from "../utils/types/types";
