@@ -15,10 +15,15 @@ const ExpenseBar = ({ expense }) => {
   }, [totalExpenses]);
 
   return (
-    <div className="w-full mb-[14px]">
-      <p className="mb-1">
-        {expensePercentage}% {expense.label}
-      </p>
+    <div className="w-full mb-4">
+      <div className="w-full flex items-center justify-between">
+        <p className="mb-1">
+          {expensePercentage}% {expense.label}
+        </p>
+        <p className=" text-container_color_light dark:text-container_color_dark">
+          {expense.value}€
+        </p>
+      </div>
       <div className="w-full h-[7px] bg-container_color_light dark:bg-container_color_dark rounded-full">
         <div
           style={{
