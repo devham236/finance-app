@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Overview from "../pages/Overview";
 import Settings from "../pages/Settings";
-import IncomeForm from "./IncomeForm";
 import { useSelector } from "react-redux";
+import EntryForm from "./EntryForm";
 
 const MainContent = () => {
   const { isOpen, chart } = useSelector((state: any) => state.incomeForm);
@@ -15,7 +15,7 @@ const MainContent = () => {
         <Route path="/overview" element={<Overview />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
-      {isOpen && <IncomeForm chart={chart} />}
+      {isOpen && <EntryForm chart={chart} />}
     </div>
   );
 };

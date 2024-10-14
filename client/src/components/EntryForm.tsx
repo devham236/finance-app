@@ -5,7 +5,7 @@ import { addIncome } from "../slices/doughnutChartSlice";
 import { NewIncome } from "../utils/types/types";
 import { addExpense } from "../slices/barChartSlice";
 
-const IncomeForm = ({ chart }) => {
+const EntryForm = ({ chart }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
     income: 0,
     label: "",
@@ -110,4 +110,4 @@ const IncomeForm = ({ chart }) => {
   );
 };
 
-export default IncomeForm;
+export default EntryForm;
