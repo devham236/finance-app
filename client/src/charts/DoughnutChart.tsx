@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { resetTotalIncome, setTotalIncome } from "../slices/totalIncomeSlice";
-import { toggleIncomeForm } from "../slices/entryFormSlice";
+import { toggleEntryForm } from "../slices/entryFormSlice";
 import { resetChartData } from "../slices/doughnutChartSlice";
 import { toggleAuthForm } from "../slices/authFormSlice";
 
@@ -25,7 +25,7 @@ const DoughnutChart = () => {
     if (!userData || !userData.id) {
       dispatch(toggleAuthForm(true));
     } else {
-      dispatch(toggleIncomeForm("Income"));
+      dispatch(toggleEntryForm("Income"));
     }
   };
 

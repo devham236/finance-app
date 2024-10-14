@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NewExpense } from "../utils/types/types";
 import { setTotalExpenses } from "../slices/totalExpensesSlice";
 import { toggleAuthForm } from "../slices/authFormSlice";
-import { toggleIncomeForm } from "../slices/entryFormSlice";
+import { toggleEntryForm } from "../slices/entryFormSlice";
 import { resetBarChartData } from "../slices/barChartSlice";
 
 const BarChart = () => {
@@ -24,7 +24,7 @@ const BarChart = () => {
     if (!userData || !userData.id) {
       dispatch(toggleAuthForm(true));
     } else {
-      dispatch(toggleIncomeForm("Expense"));
+      dispatch(toggleEntryForm("Expense"));
     }
   };
 

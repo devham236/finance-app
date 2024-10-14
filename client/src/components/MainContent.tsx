@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import EntryForm from "./EntryForm";
 
 const MainContent = () => {
-  const { isOpen, chart } = useSelector((state: any) => state.incomeForm);
+  const { isOpen, chart } = useSelector((state: any) => state.entryForm);
 
   return (
     <div className="w-full h-full flex items-center justify-center text-text_color_light p-[1.5rem]">
