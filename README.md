@@ -1,5 +1,5 @@
 ## Finance App
-Welcome to Ruune, a simple overview of your income and expenses.
+Welcome to Ruune
 
 ## Demo/Preview
 
