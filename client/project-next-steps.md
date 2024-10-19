@@ -4,7 +4,7 @@
 
 1. **Finish Features**
 
-   - [ ] Task 1 (Finish all features inside the Grid-Items --> "Trends", "Income and Expenses monthly" and "Goals")
+   - [x] Task 1 (Finish all features inside the Grid-Items --> "Trends", "Income and Expenses monthly" and "Goals")
    - [ ] Task 2 (Create Settings Page)
 
 2. **Backend - Database Connection**
