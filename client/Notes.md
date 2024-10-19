@@ -23,5 +23,3 @@
    - [ ] Review and refactor code for readability and performance
    - [ ] Optimize Redux store and reducers
    - [ ] Clean up unused components and code
-
-## Notes & Explanations
