@@ -20,6 +20,7 @@
    - [ ] Improve overall UI consistency
 
 4. **Code Optimization**
+
    - [ ] Review and refactor code for readability and performance
    - [ ] Optimize Redux store and reducers
    - [ ] Clean up unused components and code
