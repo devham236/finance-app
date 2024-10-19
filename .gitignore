@@ -25,4 +25,3 @@ dist-ssr
 *.env
 *axiosConfig.js
 *firebaseConfig.js
-*Notes.md
