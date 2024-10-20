@@ -23,4 +23,5 @@
 
    - [ ] Review and refactor code for readability and performance
    - [ ] Optimize Redux store and reducers
+   - [ ] Make more use of Typescript
    - [ ] Clean up unused components and code
