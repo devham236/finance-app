@@ -7,9 +7,10 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
-import React from "react";
+import React, { useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addLinePoint } from "../slices/lineChartSlice";
 
 ChartJS.register(
   LineElement,
@@ -23,6 +24,11 @@ ChartJS.register(
 const LineChart = () => {
   const { chartData } = useSelector((state: any) => state.lineChart);
   const config = { maintainAspectRatio: false };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addLinePoint());
+  }, []);
 
   return (
     <div className="grid-item col-span-2">

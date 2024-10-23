@@ -21,23 +21,23 @@ const lineChartSlice = createSlice({
       datasets: [
         {
           label: "Income",
-          data: [
-            2050, 2050, 2050, 2050, 2050, 2050, 2050, 2050, 2050, 2050, 2050,
-            2050,
-          ],
+          data: [],
           borderColor: "#3e9c35",
         },
         {
           label: "Expenses",
-          data: [
-            1556, 200, 20, 2011, 945, 1802, 56, 1234, 876, 2049, 567, 1490,
-          ],
+          data: [],
           borderColor: "red",
         },
       ],
     },
   },
-  reducers: {},
+  reducers: {
+    addLinePoint: (state, action) => {
+      console.log("added linepoint");
+    },
+  },
 });
 
+export const { addLinePoint } = lineChartSlice.actions;
 export default lineChartSlice.reducer;
