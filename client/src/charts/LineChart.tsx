@@ -24,7 +24,7 @@ ChartJS.register(
 
 const LineChart = () => {
   const { chartData } = useSelector((state: any) => state.lineChart);
-  const config = {};
+  const config = { maintainAspectRatio: false };
 
   return (
     <div className="grid-item col-span-2">
