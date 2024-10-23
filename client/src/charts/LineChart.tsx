@@ -1,7 +1,6 @@
 import {
   CategoryScale,
   Chart as ChartJS,
-  Legend,
   LinearScale,
   LineElement,
   PointElement,
@@ -18,8 +17,7 @@ ChartJS.register(
   LinearScale,
   CategoryScale,
   Title,
-  Tooltip,
-  Legend
+  Tooltip
 );
 
 const LineChart = () => {
@@ -28,6 +26,10 @@ const LineChart = () => {
 
   return (
     <div className="grid-item col-span-2">
+      <div className="flex items-center justify-between">
+        <h3 className="font-[600] self-start">Total Income</h3>
+        <div className="flex items-center"></div>
+      </div>
       <Line options={config} data={chartData} />
     </div>
   );
