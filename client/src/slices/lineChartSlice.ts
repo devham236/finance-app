@@ -33,7 +33,6 @@ const lineChartSlice = createSlice({
             1556, 200, 20, 2011, 945, 1802, 56, 1234, 876, 2049, 567, 1490,
           ],
           borderColor: "red",
-          borderDash: [5, 5],
         },
       ],
     },

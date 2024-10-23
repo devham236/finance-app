@@ -28,9 +28,23 @@ const LineChart = () => {
     <div className="grid-item col-span-2">
       <div className="flex items-center justify-between">
         <h3 className="font-[600] self-start">Total Income</h3>
-        <div className="flex items-center"></div>
+        <div className="flex items-center">
+          {chartData.datasets.map((dataset, index) => (
+            <div key={index} className="flex items-center mr-4 last:mr-0">
+              <span
+                style={{
+                  backgroundColor: dataset.borderColor,
+                }}
+                className="w-3 h-3 mr-1 rounded-full"
+              ></span>
+              <p>{dataset.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <Line options={config} data={chartData} />
+      <div className="w-full h-[calc(100%-24px)]">
+        <Line options={config} data={chartData} />
+      </div>
     </div>
   );
 };
