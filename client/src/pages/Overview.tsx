@@ -1,6 +1,7 @@
 import React from "react";
 import DoughnutChart from "../charts/DoughnutChart";
 import BarChart from "../charts/BarChart";
+import LineChart from "../charts/LineChart";
 
 const Overview = () => {
   return (
@@ -8,9 +9,7 @@ const Overview = () => {
       <DoughnutChart />
       <BarChart />
       <div className="grid-item">Trends</div>
-      <div className="grid-item col-span-2">
-        Compare Income and Spent Graphs
-      </div>
+      <LineChart />
       <div className="grid-item">Goals</div>
     </div>
   );
