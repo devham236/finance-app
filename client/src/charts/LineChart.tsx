@@ -27,10 +27,10 @@ const LineChart = () => {
   return (
     <div className="grid-item col-span-2">
       <div className="flex items-center justify-between">
-        <h3 className="font-[600] self-start">Total Income</h3>
+        <h3 className="font-[600] self-start">Compare Income and Expenses</h3>
         <div className="flex items-center">
           {chartData.datasets.map((dataset, index) => (
-            <div key={index} className="flex items-center mr-4 last:mr-0">
+            <div key={index} className="flex items-center mr-4 last:mr-0 mb-2">
               <span
                 style={{
                   backgroundColor: dataset.borderColor,
@@ -42,7 +42,7 @@ const LineChart = () => {
           ))}
         </div>
       </div>
-      <div className="w-full h-[calc(100%-24px)]">
+      <div className="w-full h-[calc(100%-32px)]">
         <Line options={config} data={chartData} />
       </div>
     </div>
