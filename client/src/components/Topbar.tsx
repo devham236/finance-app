@@ -63,7 +63,7 @@ const Topbar = () => {
         <div className=" absolute top-[78px] right-8 shadow-xl z-50">
           <span
             onClick={() => dispatch(toggleAuthForm(false))}
-            className="material-symbols-rounded absolute top-[10px] right-[10px] font-bold"
+            className="material-symbols-rounded absolute top-[10px] right-[10px] font-bold cursor-pointer"
           >
             close
           </span>

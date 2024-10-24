@@ -23,12 +23,21 @@ ChartJS.register(
 
 const LineChart = () => {
   const { lineData } = useSelector((state: any) => state.lineChart);
+  const { barData } = useSelector((state: any) => state.barChart);
+  const { doughnutData } = useSelector((state: any) => state.doughnutChart);
   const dispatch = useDispatch();
   const config = { maintainAspectRatio: false };
 
   useEffect(() => {
-    dispatch(addLinePoint());
-  }, []);
+    const filteredBarData = barData.map((bar) => bar.value);
+
+    dispatch(
+      addLinePoint({
+        incomes: [...doughnutData.datasets[0].data],
+        expenses: [...filteredBarData],
+      })
+    );
+  }, [doughnutData.datasets, barData]);
 
   return (
     <div className="grid-item col-span-2">

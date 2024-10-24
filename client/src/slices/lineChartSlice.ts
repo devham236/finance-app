@@ -21,12 +21,12 @@ const lineChartSlice = createSlice({
       datasets: [
         {
           label: "Income",
-          data: [],
+          data: <any>[2050, 2050],
           borderColor: "#3e9c35",
         },
         {
           label: "Expenses",
-          data: [],
+          data: <any>[1500, 1500],
           borderColor: "red",
         },
       ],
@@ -34,7 +34,28 @@ const lineChartSlice = createSlice({
   },
   reducers: {
     addLinePoint: (state, action) => {
-      console.log("added linepoint");
+      console.log(action.payload);
+      const { expenses, incomes } = action.payload;
+      const reducedExpenses = expenses.reduce((curr, prev) => {
+        return prev + curr;
+      }, 0);
+      const reducedIncomes = incomes.reduce((curr, prev) => {
+        return prev + curr;
+      }, 0);
+
+      state.lineData = {
+        ...state.lineData,
+        datasets: [
+          {
+            ...state.lineData.datasets[0],
+            data: [...state.lineData.datasets[0].data, reducedIncomes],
+          },
+          {
+            ...state.lineData.datasets[1],
+            data: [...state.lineData.datasets[1].data, reducedExpenses],
+          },
+        ],
+      };
     },
   },
 });
