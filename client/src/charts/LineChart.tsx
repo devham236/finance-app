@@ -22,7 +22,7 @@ ChartJS.register(
 );
 
 const LineChart = () => {
-  const { chartData } = useSelector((state: any) => state.lineChart);
+  const { lineData } = useSelector((state: any) => state.lineChart);
   const dispatch = useDispatch();
   const config = { maintainAspectRatio: false };
 
@@ -35,7 +35,7 @@ const LineChart = () => {
       <div className="flex items-center justify-between">
         <h3 className="font-[600] self-start">Compare Income and Expenses</h3>
         <div className="flex items-center">
-          {chartData.datasets.map((dataset, index) => (
+          {lineData.datasets.map((dataset, index) => (
             <div key={index} className="flex items-center mr-4 last:mr-0 mb-2">
               <span
                 style={{
@@ -49,7 +49,7 @@ const LineChart = () => {
         </div>
       </div>
       <div className="w-full h-[calc(100%-32px)]">
-        <Line options={config} data={chartData} />
+        <Line options={config} data={lineData} />
       </div>
     </div>
   );
