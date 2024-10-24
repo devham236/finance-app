@@ -8,7 +8,7 @@ const Goal = () => {
           type="checkbox"
           name="goal"
           id=""
-          className="appearance-none mr-3 w-4 h-4 rounded-full border-2 border-green_color checked:bg-green_color goal-checkbox relative"
+          className="appearance-none mr-3 w-4 h-4 rounded-full border-2 border-green_color checked:bg-green_color goal-checkbox relative cursor-pointer"
         />
         <p className="text-[1rem] font-[600]">Goal Title</p>
       </div>
