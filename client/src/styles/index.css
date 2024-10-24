@@ -22,6 +22,19 @@
         height: 100%;
     }
 
+    .goal-checkbox::after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        clip-path: polygon(14% 44%, 0% 65%, 50% 100%, 100% 20%, 82% 0%, 43% 62%);
+        transition: opacity 0.2s ease-in-out;
+    }
+
     .grid-item{
         @apply w-full h-full bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark rounded-md p-[1.5rem]
     }
