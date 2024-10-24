@@ -26,7 +26,7 @@ const lineChartSlice = createSlice({
         },
         {
           label: "Expenses",
-          data: <any>[1500, 1500],
+          data: <any>[1500, 1500, 500],
           borderColor: "red",
         },
       ],
