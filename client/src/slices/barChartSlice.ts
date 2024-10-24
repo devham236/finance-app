@@ -3,19 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const barChartSlice = createSlice({
   name: "barChart",
   initialState: {
-    data: <any>[],
+    barData: <any>[],
   },
   reducers: {
     addExpense: (state, action) => {
       const { color, expense, label } = action.payload;
-      state.data = [
-        ...state.data,
+      state.barData = [
+        ...state.barData,
         { id: crypto.randomUUID(), value: expense, label: label, color: color },
       ];
     },
     resetBarChartData: (state) => {
       localStorage.removeItem("persist:barChart");
-      state.data = [];
+      state.barData = [];
     },
   },
 });

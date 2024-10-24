@@ -8,17 +8,17 @@ import { toggleEntryForm } from "../slices/entryFormSlice";
 import { resetBarChartData } from "../slices/barChartSlice";
 
 const BarChart = () => {
-  const { data } = useSelector((state: any) => state.barChart);
+  const { barData } = useSelector((state: any) => state.barChart);
   const { userData } = useSelector((state: any) => state.user);
   const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const expensesValue = data.reduce((prev, curr) => {
+    const expensesValue = barData.reduce((prev, curr) => {
       return prev + curr.value;
     }, 0);
     dispatch(setTotalExpenses(expensesValue));
-  }, [data, dispatch]);
+  }, [barData, dispatch]);
 
   const addData = () => {
     if (!userData || !userData.id) {
@@ -52,7 +52,7 @@ const BarChart = () => {
       </div>
       <p className="self-start text-2xl font-bold mb-4">{totalExpenses}€</p>
       <div className="flex flex-col items-center justify-start w-full h-full">
-        {data.map((expense: NewExpense) => (
+        {barData.map((expense: NewExpense) => (
           <ExpenseBar expense={expense} key={expense.id} />
         ))}
       </div>
