@@ -34,15 +34,6 @@ const Sidebar = () => {
         <span className="material-symbols-rounded mr-2">settings</span>
         <p>Settings</p>
       </Link>
-      <button
-        className={`bg-sidebar_item_color_light absolute bottom-0 left-[1.5rem] dark:bg-sidebar_item_color_dark duration-200 p-2 rounded-md hover:shadow-md mb-6 cursor-pointer flex items-center 
-        `}
-      >
-        <span className="material-symbols-rounded mr-2 text-green_color">
-          add_circle
-        </span>
-        <p>Add Entry</p>
-      </button>
     </div>
   );
 };
