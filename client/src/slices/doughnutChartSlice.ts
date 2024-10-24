@@ -4,7 +4,7 @@ import { NewIncome } from "../utils/types/types";
 const doughnutChartSlice = createSlice({
   name: "dougnutChart",
   initialState: {
-    chartData: {
+    doughnutData: {
       labels: <any>[],
       datasets: [
         {
@@ -21,30 +21,30 @@ const doughnutChartSlice = createSlice({
     addIncome: (state, action: PayloadAction<NewIncome>) => {
       const { income, label, color } = action.payload;
 
-      state.chartData = {
-        ...state.chartData,
+      state.doughnutData = {
+        ...state.doughnutData,
         datasets: [
           {
-            ...state.chartData.datasets[0],
-            data: [...state.chartData.datasets[0].data, income],
+            ...state.doughnutData.datasets[0],
+            data: [...state.doughnutData.datasets[0].data, income],
             backgroundColor: [
-              ...state.chartData.datasets[0].backgroundColor,
+              ...state.doughnutData.datasets[0].backgroundColor,
               color,
             ],
           },
         ],
-        labels: [...state.chartData.labels, label],
+        labels: [...state.doughnutData.labels, label],
       };
     },
     resetChartData: (state) => {
       localStorage.removeItem("persist:doughnutChart");
 
-      state.chartData = {
-        ...state.chartData,
+      state.doughnutData = {
+        ...state.doughnutData,
         labels: [],
         datasets: [
           {
-            ...state.chartData.datasets[0],
+            ...state.doughnutData.datasets[0],
             data: [],
             backgroundColor: [],
           },

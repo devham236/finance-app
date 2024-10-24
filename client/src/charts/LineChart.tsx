@@ -23,8 +23,8 @@ ChartJS.register(
 
 const LineChart = () => {
   const { chartData } = useSelector((state: any) => state.lineChart);
-  const config = { maintainAspectRatio: false };
   const dispatch = useDispatch();
+  const config = { maintainAspectRatio: false };
 
   useEffect(() => {
     dispatch(addLinePoint());
