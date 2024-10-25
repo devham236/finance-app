@@ -13,8 +13,11 @@ const goalsSlice = createSlice({
         { ...action.payload, id: crypto.randomUUID() },
       ];
     },
-    toggleGoalStatus: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
+    toggleGoalStatus: (state, action) => {
+      const goal = state.goalsData.find((g) => g.id === action.payload);
+      if (goal) {
+        goal.achieved = !goal.achieved;
+      }
     },
   },
 });
