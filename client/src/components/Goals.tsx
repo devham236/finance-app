@@ -18,17 +18,11 @@ const Goals = () => {
           </span>
         </button>
       </div>
-      {goalsData.length > 0 ? (
-        <div className="w-full mt-2 flex flex-col">
-          {goalsData.map((goal: GoalType, index) => (
-            <Goal goal={goal} key={index} />
-          ))}
-        </div>
-      ) : (
-        <div className="w-full h-full">
-          <p>No Goals</p>
-        </div>
-      )}
+      <div className="w-full mt-2 flex flex-col">
+        {goalsData.map((goal: GoalType, index) => (
+          <Goal goal={goal} key={index} />
+        ))}
+      </div>
     </div>
   );
 };
