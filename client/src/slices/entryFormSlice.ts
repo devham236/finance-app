@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const entryFormSlice = createSlice({
   name: "entryForm",
-  initialState: { isOpen: false, chart: null },
+  initialState: { isOpen: false, entry: null },
   reducers: {
     toggleEntryForm: (state, action) => {
       state.isOpen = !state.isOpen;
-      state.chart = action.payload;
+      state.entry = action.payload;
     },
     closeForm: (state) => {
       state.isOpen = false;

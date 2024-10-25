@@ -5,7 +5,7 @@ import { addIncome } from "../slices/doughnutChartSlice";
 import { NewIncome } from "../utils/types/types";
 import { addExpense } from "../slices/barChartSlice";
 
-const EntryForm = ({ chart }) => {
+const EntryForm = ({ entry }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
     income: 0,
     label: "",
@@ -25,17 +25,17 @@ const EntryForm = ({ chart }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
-    if (chart === "Income") {
+    if (entry === "Income") {
       setNewIncomeInput((prevState) => ({
         ...prevState,
         [name]: name === "income" ? Number(value) : value,
       }));
-    } else if (chart === "Expense") {
+    } else if (entry === "Expense") {
       setNewExpenseInput((prevState) => ({
         ...prevState,
         [name]: name === "expense" ? Number(value) : value,
       }));
-    } else if (chart === "Goal") {
+    } else if (entry === "Goal") {
       setNewGoalInput((prevState) => ({
         ...prevState,
         [name]: value,
@@ -44,15 +44,15 @@ const EntryForm = ({ chart }) => {
   };
 
   const addNewEntry = () => {
-    if (chart === "Income") {
+    if (entry === "Income") {
       if (newIncomeInput.income > 0 && newIncomeInput.label !== "") {
         dispatch(addIncome(newIncomeInput));
       }
-    } else if (chart === "Expense") {
+    } else if (entry === "Expense") {
       if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
         dispatch(addExpense(newExpenseInput));
       }
-    } else if (chart === "Goal") {
+    } else if (entry === "Goal") {
       if (newGoalInput.title !== "") {
         console.log(newGoalInput);
       }
@@ -63,7 +63,7 @@ const EntryForm = ({ chart }) => {
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
       <div className="w-[400px] p-[1.5rem] bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark shadow-md rounded-md text-text_color_light dark:text-text_color_dark">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold">Add {chart}</h2>
+          <h2 className="text-xl font-bold">Add {entry}</h2>
           <span
             className="material-symbols-rounded font-bold"
             onClick={() => dispatch(closeForm())}
@@ -72,7 +72,7 @@ const EntryForm = ({ chart }) => {
           </span>
         </div>
         <div className="flex flex-col">
-          {chart === "Goal" ? (
+          {entry === "Goal" ? (
             <>
               <div className="flex flex-col mb-4">
                 <label htmlFor="goalTitle" className="font-semibold mb-2">
@@ -108,13 +108,13 @@ const EntryForm = ({ chart }) => {
           ) : (
             <>
               <div className="flex items-center justify-between mb-4">
-                <label htmlFor={chart.toLowerCase()} className="font-semibold">
-                  {chart}:
+                <label htmlFor={entry.toLowerCase()} className="font-semibold">
+                  {entry}:
                 </label>
                 <input
                   onChange={(e) => handleChange(e)}
                   type="number"
-                  name={chart.toLowerCase()}
+                  name={entry.toLowerCase()}
                   placeholder="Number"
                   className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
                 />
