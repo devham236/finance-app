@@ -29,7 +29,7 @@ export type NewExpense = {
   color: string;
 };
 
-export type Goal = {
+export type GoalType = {
   title: string;
   description: string;
   achieved: boolean;

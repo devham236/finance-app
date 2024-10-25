@@ -1,10 +1,13 @@
 import React from "react";
 import Goal from "./Goal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleEntryForm } from "../slices/entryFormSlice";
+import { GoalType } from "../utils/types/types";
 
 const Goals = () => {
   const dispatch = useDispatch();
+  const { goalsData } = useSelector((state: any) => state.goals);
+
   return (
     <div className="grid-item flex flex-col">
       <div className="flex items-center justify-between">
@@ -16,7 +19,9 @@ const Goals = () => {
         </button>
       </div>
       <div className="w-full mt-2 flex flex-col">
-        <Goal />
+        {goalsData.map((goal: GoalType, index) => (
+          <Goal goal={goal} key={index} />
+        ))}
       </div>
     </div>
   );

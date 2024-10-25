@@ -56,7 +56,7 @@ const EntryForm = ({ entry }) => {
       }
     } else if (entry === "Goal") {
       if (newGoalInput.title !== "") {
-        dispatch(addNewGoal());
+        dispatch(addNewGoal(newGoalInput));
       }
     }
   };

@@ -26,7 +26,7 @@ export const store = configureStore({
     totalExpenses: totalExpensesReducer,
     barChart: persistedBarChartReducer,
     lineChart: lineChartReducer,
-    goal: goalsSliceReducer,
+    goals: goalsSliceReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({

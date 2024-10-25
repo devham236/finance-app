@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Goal } from "../utils/types/types";
+import { GoalType } from "../utils/types/types";
 
 const goalsSlice = createSlice({
   name: "goals",
   initialState: {
-    goalsData: [],
+    goalsData: <any>[],
   },
   reducers: {
-    addNewGoal: (state, action: PayloadAction<Goal>) => {
-      console.log("added new goal to array");
+    addNewGoal: (state, action: PayloadAction<GoalType>) => {
+      state.goalsData = [...state.goalsData, action.payload];
     },
   },
 });
