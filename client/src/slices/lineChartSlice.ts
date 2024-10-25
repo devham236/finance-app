@@ -34,7 +34,6 @@ const lineChartSlice = createSlice({
   },
   reducers: {
     addLinePoint: (state, action) => {
-      console.log(action.payload);
       const { expenses, incomes } = action.payload;
       const reducedExpenses = expenses.reduce((curr, prev) => {
         return prev + curr;

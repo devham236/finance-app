@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { closeForm } from "../slices/entryFormSlice";
 import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
-import { NewIncome } from "../utils/types/types";
+import { Goal, NewIncome } from "../utils/types/types";
 import { addExpense } from "../slices/barChartSlice";
+import { addNewGoal } from "../slices/goalsSlice";
 
 const EntryForm = ({ entry }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
@@ -16,9 +17,10 @@ const EntryForm = ({ entry }) => {
     label: "",
     color: "#3e9c35",
   });
-  const [newGoalInput, setNewGoalInput] = useState({
+  const [newGoalInput, setNewGoalInput] = useState<Goal>({
     title: "",
     description: "",
+    achieved: false,
   });
   const dispatch = useDispatch();
 
@@ -54,7 +56,7 @@ const EntryForm = ({ entry }) => {
       }
     } else if (entry === "Goal") {
       if (newGoalInput.title !== "") {
-        console.log(newGoalInput);
+        dispatch(addNewGoal());
       }
     }
   };
