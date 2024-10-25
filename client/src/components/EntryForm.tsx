@@ -16,6 +16,10 @@ const EntryForm = ({ chart }) => {
     label: "",
     color: "#3e9c35",
   });
+  const [newGoalInput, setNewGoalInput] = useState({
+    title: "",
+    description: "",
+  });
   const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +47,8 @@ const EntryForm = ({ chart }) => {
       if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
         dispatch(addExpense(newExpenseInput));
       }
+    } else if (chart === "Goal") {
+      console.log("add goal");
     }
   };
 
@@ -59,48 +65,83 @@ const EntryForm = ({ chart }) => {
           </span>
         </div>
         <div className="flex flex-col">
-          <div className="flex items-center justify-between mb-4">
-            <label htmlFor={chart.toLowerCase()} className="font-semibold">
-              {chart}:
-            </label>
-            <input
-              onChange={(e) => handleChange(e)}
-              type="number"
-              name={chart.toLowerCase()}
-              placeholder="Number"
-              className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
-            />
-          </div>
-          <div className="flex items-center justify-between mb-4">
-            <label htmlFor="label" className="font-semibold">
-              Label:
-            </label>
-            <input
-              onChange={(e) => handleChange(e)}
-              type="text"
-              name="label"
-              placeholder="Label"
-              className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
-            />
-          </div>
-          <div className="flex items-center justify-between mb-8">
-            <label htmlFor="color" className="font-semibold">
-              Color:
-            </label>
-            <input
-              onChange={(e) => handleChange(e)}
-              type="color"
-              name="color"
-              defaultValue="#3e9c35"
-              className="w-10 rounded-xl h-10 appearance-none outline-none border-none bg-transparent"
-            />
-          </div>
-          <button
-            onClick={addNewEntry}
-            className="hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
-          >
-            Add
-          </button>
+          {chart === "Goal" ? (
+            <>
+              <div className="flex flex-col mb-4">
+                <label htmlFor="goalTitle" className="font-semibold mb-2">
+                  Title:
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Title..."
+                  className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+                />
+              </div>
+              <div className="flex flex-col mb-4">
+                <label htmlFor="goalDescription" className="font-semibold mb-2">
+                  Description:
+                </label>
+                <input
+                  type="text"
+                  name="description"
+                  placeholder="Description..."
+                  className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+                />
+              </div>
+              <button
+                onClick={addNewEntry}
+                className="hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
+              >
+                Add
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="flex items-center justify-between mb-4">
+                <label htmlFor={chart.toLowerCase()} className="font-semibold">
+                  {chart}:
+                </label>
+                <input
+                  onChange={(e) => handleChange(e)}
+                  type="number"
+                  name={chart.toLowerCase()}
+                  placeholder="Number"
+                  className=" dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+                />
+              </div>
+              <div className="flex items-center justify-between mb-4">
+                <label htmlFor="label" className="font-semibold">
+                  Label:
+                </label>
+                <input
+                  onChange={(e) => handleChange(e)}
+                  type="text"
+                  name="label"
+                  placeholder="Label"
+                  className="dark:border-container_color_dark bg-transparent border-container_color_light border-2 rounded-md p-2 placeholder:text-container_color_light dark:placeholder:text-container_color_dark outline-none"
+                />
+              </div>
+              <div className="flex items-center justify-between mb-8">
+                <label htmlFor="color" className="font-semibold">
+                  Color:
+                </label>
+                <input
+                  onChange={(e) => handleChange(e)}
+                  type="color"
+                  name="color"
+                  defaultValue="#3e9c35"
+                  className="w-10 rounded-xl h-10 appearance-none outline-none border-none bg-transparent"
+                />
+              </div>
+              <button
+                onClick={addNewEntry}
+                className="hover:shadow-md bg-green_color text-text_color_dark py-2 px-6 rounded-md duration-200"
+              >
+                Add
+              </button>
+            </>
+          )}
         </div>
         <div></div>
       </div>
