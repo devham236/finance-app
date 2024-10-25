@@ -24,3 +24,8 @@ export const persistBarConfig = {
   key: "barChart",
   storage,
 };
+
+export const persistGoalsConfig = {
+  key: "goals",
+  storage,
+};

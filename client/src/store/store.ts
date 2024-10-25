@@ -6,13 +6,13 @@ import {
   persistedDoughnutReducer,
   persistedSidebarReducer,
   persistedUserReducer,
+  persistedGoalsReducer,
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
 import totalIncomeReducer from "../slices/totalIncomeSlice";
 import entryFormReducer from "../slices/entryFormSlice";
 import totalExpensesReducer from "../slices/totalExpensesSlice";
 import lineChartReducer from "../slices/lineChartSlice";
-import goalsSliceReducer from "../slices/goalsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -26,7 +26,7 @@ export const store = configureStore({
     totalExpenses: totalExpensesReducer,
     barChart: persistedBarChartReducer,
     lineChart: lineChartReducer,
-    goals: goalsSliceReducer,
+    goals: persistedGoalsReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
