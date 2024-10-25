@@ -28,3 +28,9 @@ export type NewExpense = {
   label: string;
   color: string;
 };
+
+export type Goal = {
+  title: string;
+  description: string;
+  achieved: boolean;
+};

@@ -2,7 +2,7 @@ import React from "react";
 
 const Goal = () => {
   return (
-    <div className="w-full flex flex-col p-2 rounded-md hover:shadow-md duration-200 duration-200 cursor-pointer">
+    <div className="w-full flex flex-col p-2 rounded-md hover:shadow-md duration-200 cursor-pointer">
       <div className="flex items-center">
         <input
           type="checkbox"
