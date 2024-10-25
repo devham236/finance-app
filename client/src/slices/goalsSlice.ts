@@ -13,8 +13,11 @@ const goalsSlice = createSlice({
         { ...action.payload, id: crypto.randomUUID() },
       ];
     },
+    toggleGoalStatus: (state, action: PayloadAction<string>) => {
+      console.log(action.payload);
+    },
   },
 });
 
-export const { addNewGoal } = goalsSlice.actions;
+export const { addNewGoal, toggleGoalStatus } = goalsSlice.actions;
 export default goalsSlice.reducer;

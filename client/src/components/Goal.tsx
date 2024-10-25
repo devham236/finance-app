@@ -1,10 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleGoalStatus } from "../slices/goalsSlice";
 
 const Goal = ({ goal }) => {
+  const dispatch = useDispatch();
+
   return (
-    <div className="w-full flex flex-col p-2 rounded-md hover:shadow-md duration-200 cursor-pointer">
+    <div className="w-full flex flex-col p-2 mb-2 last:mb-0 rounded-md hover:shadow-md duration-200 cursor-pointer">
       <div className="flex items-center">
         <input
+          onChange={() => dispatch(toggleGoalStatus(goal.id))}
           type="checkbox"
           name="goal"
           id=""
