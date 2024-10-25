@@ -8,6 +8,8 @@ const Goals = () => {
   const dispatch = useDispatch();
   const { goalsData } = useSelector((state: any) => state.goals);
 
+  console.log(goalsData);
+
   return (
     <div className="grid-item flex flex-col">
       <div className="flex items-center justify-between">

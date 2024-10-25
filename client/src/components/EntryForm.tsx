@@ -17,7 +17,7 @@ const EntryForm = ({ entry }) => {
     label: "",
     color: "#3e9c35",
   });
-  const [newGoalInput, setNewGoalInput] = useState<Goal>({
+  const [newGoalInput, setNewGoalInput] = useState({
     title: "",
     description: "",
     achieved: false,

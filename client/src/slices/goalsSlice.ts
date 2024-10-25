@@ -4,11 +4,14 @@ import { GoalType } from "../utils/types/types";
 const goalsSlice = createSlice({
   name: "goals",
   initialState: {
-    goalsData: <any>[],
+    goalsData: [] as GoalType[],
   },
   reducers: {
     addNewGoal: (state, action: PayloadAction<GoalType>) => {
-      state.goalsData = [...state.goalsData, action.payload];
+      state.goalsData = [
+        ...state.goalsData,
+        { ...action.payload, id: crypto.randomUUID() },
+      ];
     },
   },
 });

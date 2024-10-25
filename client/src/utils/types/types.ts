@@ -33,4 +33,5 @@ export type GoalType = {
   title: string;
   description: string;
   achieved: boolean;
+  id: string;
 };
