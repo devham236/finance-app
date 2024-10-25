@@ -15,7 +15,7 @@
 
 3. **Frontend - Styling & Animations**
 
-   - [ ] Add responsive styles using Tailwind CSS
+   - [ ] Add responsive styles
    - [ ] Implement smooth transitions and animations for components
    - [ ] Improve overall UI consistency
 
