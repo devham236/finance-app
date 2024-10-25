@@ -19,8 +19,14 @@ const goalsSlice = createSlice({
         goal.achieved = !goal.achieved;
       }
     },
+    deleteGoal: (state, action) => {
+      const filteredArray = state.goalsData.filter(
+        (g) => g.id !== action.payload
+      );
+      state.goalsData = filteredArray;
+    },
   },
 });
 
-export const { addNewGoal, toggleGoalStatus } = goalsSlice.actions;
+export const { addNewGoal, toggleGoalStatus, deleteGoal } = goalsSlice.actions;
 export default goalsSlice.reducer;
