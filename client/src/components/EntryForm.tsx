@@ -35,6 +35,11 @@ const EntryForm = ({ chart }) => {
         ...prevState,
         [name]: name === "expense" ? Number(value) : value,
       }));
+    } else if (chart === "Goal") {
+      setNewGoalInput((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
     }
   };
 
@@ -48,7 +53,9 @@ const EntryForm = ({ chart }) => {
         dispatch(addExpense(newExpenseInput));
       }
     } else if (chart === "Goal") {
-      console.log("add goal");
+      if (newGoalInput.title !== "") {
+        console.log(newGoalInput);
+      }
     }
   };
 
@@ -72,6 +79,7 @@ const EntryForm = ({ chart }) => {
                   Title:
                 </label>
                 <input
+                  onChange={(e) => handleChange(e)}
                   type="text"
                   name="title"
                   placeholder="Title..."
@@ -83,6 +91,7 @@ const EntryForm = ({ chart }) => {
                   Description:
                 </label>
                 <input
+                  onChange={(e) => handleChange(e)}
                   type="text"
                   name="description"
                   placeholder="Description..."
