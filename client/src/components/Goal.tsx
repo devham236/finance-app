@@ -6,7 +6,7 @@ const Goal = ({ goal }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full flex items-center justify-between p-2 mb-2 last:mb-0 rounded-md border-opacity-20  cursor-pointer">
+    <div className="w-full flex items-center justify-between p-2 mb-2 last:mb-0 rounded-md cursor-pointer border-2 border-container_color_light dark:border-container_color_dark">
       <div className="flex flex-col">
         <div className="flex items-center">
           <input
