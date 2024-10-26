@@ -4,7 +4,7 @@
 
 1. **Frontend - Features**
 
-   - [x ] Finish all features inside the Grid-Items --> "Trends", "Income and Expenses monthly" and "Goals"
+   - [x] Finish all features inside the Grid-Items --> "Trends", "Income and Expenses monthly" and "Goals"
    - [ ] Create Settings Page
    - [ ] Set up functionality to show Overview of specific month.
 
