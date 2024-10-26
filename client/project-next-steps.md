@@ -4,14 +4,14 @@
 
 1. **Frontend - Features**
 
-   - [ ] Finish all features inside the Grid-Items --> "Trends", "Income and Expenses monthly" and "Goals"
+   - [x] Finish all features inside the Grid-Items --> "Trends", "Income and Expenses monthly" and "Goals"
    - [ ] Create Settings Page
    - [ ] Set up functionality to show Overview of specific month.
 
 2. **Backend - Database Connection**
 
-   - [ ] Set up MongoDB database and create Schemas
-   - [ ] Set up endpoints in backend to handle CRUD operations
+   - [x] Set up MongoDB database
+   - [ ] Set up Schemas to save all data of user in database
    - [ ] Connect frontend to backend API
 
 3. **Frontend - Styling & Animations**
