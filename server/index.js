@@ -3,7 +3,7 @@ import cors from "cors";
 import http from "http";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import { ExpenseModel } from "./models/ExpenseModel";
+import { ExpenseModel } from "./models/ExpenseModel.js";
 dotenv.config();
 
 const app = express();
