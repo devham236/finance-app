@@ -3,6 +3,7 @@ import cors from "cors";
 import http from "http";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import { ExpenseModel } from "./models/ExpenseModel";
 dotenv.config();
 
 const app = express();
@@ -11,7 +12,10 @@ const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
 
-app.post("/api/v1/test", async (req, res) => {});
+app.post("/api/v1/expenses", async (req, res) => {
+  const newExpense = await ExpenseModel.addExpense();
+  console.log(newExpense);
+});
 
 mongoose
   .connect(process.env.MONGO_URL)
