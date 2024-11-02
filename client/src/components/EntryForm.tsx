@@ -3,7 +3,6 @@ import { closeForm } from "../slices/entryFormSlice";
 import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
 import { Goal, NewIncome } from "../utils/types/types";
-import { addExpense } from "../slices/barChartSlice";
 import { addNewGoal } from "../slices/goalsSlice";
 
 const EntryForm = ({ entry }) => {
@@ -52,7 +51,7 @@ const EntryForm = ({ entry }) => {
       }
     } else if (entry === "Expense") {
       if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
-        dispatch(addExpense(newExpenseInput));
+        // dispatch(addExpense(newExpenseInput));
       }
     } else if (entry === "Goal") {
       if (newGoalInput.title !== "") {
