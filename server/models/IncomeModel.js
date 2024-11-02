@@ -9,7 +9,6 @@ const incomeSchema = new mongoose.Schema({
   income: {
     type: Number,
     required: true,
-    unique: true,
   },
   id: {
     type: String,

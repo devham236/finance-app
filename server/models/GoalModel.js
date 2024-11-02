@@ -8,7 +8,6 @@ const goalSchema = new mongoose.Schema({
   },
   description: {
     type: Number,
-    unique: true,
   },
   id: {
     type: String,
