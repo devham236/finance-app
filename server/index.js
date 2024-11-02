@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.post("/api/v1/expenses", async (req, res) => {
   const newExpense = await ExpenseModel.addExpense();
-  console.log(newExpense);
+  res.json({ data: newExpense });
 });
 
 mongoose

@@ -29,14 +29,13 @@ const LineChart = () => {
   const config = { maintainAspectRatio: false };
 
   useEffect(() => {
-    const filteredBarData = barData.map((bar) => bar.value);
-
-    dispatch(
-      addLinePoint({
-        incomes: [...doughnutData.datasets[0].data],
-        expenses: [...filteredBarData],
-      })
-    );
+    // const filteredBarData = barData.map((bar) => bar.value);
+    // dispatch(
+    //   addLinePoint({
+    //     incomes: [...doughnutData.datasets[0].data],
+    //     expenses: [...filteredBarData],
+    //   })
+    // );
   }, [doughnutData.datasets, barData]);
 
   return (
@@ -44,7 +43,7 @@ const LineChart = () => {
       <div className="flex items-center justify-between">
         <h3 className="font-[600] self-start">Compare Income and Expenses</h3>
         <div className="flex items-center">
-          {lineData.datasets.map((dataset, index) => (
+          {/* {lineData.datasets.map((dataset, index) => (
             <div key={index} className="flex items-center mr-4 last:mr-0 mb-2">
               <span
                 style={{
@@ -54,7 +53,7 @@ const LineChart = () => {
               ></span>
               <p>{dataset.label}</p>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
       <div className="w-full h-[calc(100%-32px)]">

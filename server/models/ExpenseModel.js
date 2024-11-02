@@ -39,12 +39,12 @@ expenseSchema.statics.addExpense = async function () {
   //     });
   //     return newExpense;
   //   }
-  const newExpense = await this.create({
+  const newExpense = {
     id: "12345",
     expense: 1000,
     color: "red",
     label: "Salary",
-  });
+  };
   return newExpense;
 };
 

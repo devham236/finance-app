@@ -5,6 +5,7 @@ import { NewExpense } from "../utils/types/types";
 import { setTotalExpenses } from "../slices/totalExpensesSlice";
 import { toggleAuthForm } from "../slices/authFormSlice";
 import { toggleEntryForm } from "../slices/entryFormSlice";
+import { addExpense } from "../utils/thunks/expenseThunks";
 
 const BarChart = () => {
   const { barData } = useSelector((state: any) => state.barChart);
@@ -12,12 +13,16 @@ const BarChart = () => {
   const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   const expensesValue = barData.reduce((prev, curr) => {
+  //     return prev + curr.value;
+  //   }, 0);
+  //   dispatch(setTotalExpenses(expensesValue));
+  // }, [barData, dispatch]);
+
   useEffect(() => {
-    const expensesValue = barData.reduce((prev, curr) => {
-      return prev + curr.value;
-    }, 0);
-    dispatch(setTotalExpenses(expensesValue));
-  }, [barData, dispatch]);
+    dispatch(addExpense());
+  }, []);
 
   const addData = () => {
     if (!userData || !userData.id) {
@@ -50,11 +55,11 @@ const BarChart = () => {
         </div>
       </div>
       <p className="self-start text-2xl font-bold mb-4">{totalExpenses}€</p>
-      <div className="flex flex-col items-center justify-start w-full h-full">
+      {/* <div className="flex flex-col items-center justify-start w-full h-full">
         {barData.map((expense: NewExpense) => (
           <ExpenseBar expense={expense} key={expense.id} />
         ))}
-      </div>
+      </div> */}
       <div className="flex items-center justify-center"></div>
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold"></p>
     </div>
