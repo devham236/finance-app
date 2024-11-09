@@ -5,7 +5,6 @@ const expenseSchema = new mongoose.Schema(
     label: {
       type: String,
       required: true,
-      unique: true,
     },
     expense: {
       type: Number,
@@ -26,32 +25,24 @@ const expenseSchema = new mongoose.Schema(
   }
 );
 
-expenseSchema.statics.addExpense = async () => {
-  // const expenseExists = await this.findOne(expense.id);
-  // if (expenseExists) {
-  //   throw Error("Expense already exists.");
-  // } else {
-  //   const newExpense = await this.create({
-  //     id: expense.id,
-  //     expense: expense.value,
-  //     color: expense.color,
-  //     label: expense.label,
-  //   });
-  //   return newExpense;
-  // }
-  const newExpense = {
+expenseSchema.statics.addExpense = async function () {
+  const newExpense = await this.create({
     id: "12345",
     expense: 1000,
     color: "red",
     label: "Salary",
-  };
+  });
   return newExpense;
 };
 
-expenseSchema.statics.getExpenses = async () => {
+expenseSchema.statics.getExpenses = async function () {
   try {
     const expensesList = await this.find();
-    return expensesList;
+    if (expensesList.length > 0) {
+      return expensesList;
+    } else {
+      return [];
+    }
   } catch (error) {
     throw Error("Unable to fetch expenses.");
   }

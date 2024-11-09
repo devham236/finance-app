@@ -12,9 +12,14 @@ const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
 
-app.post("/api/v1/expenses", async (req, res) => {
-  const newExpense = await ExpenseModel.addExpense();
-  res.json({ data: newExpense });
+app.post("/api/v1/expenses/add", async (req, res) => {
+  await ExpenseModel.addExpense();
+  res.json({ data: "newExpense" });
+});
+
+app.get("/api/v1/expenses/get", async (req, res) => {
+  const allExpenses = await ExpenseModel.getExpenses();
+  res.json({ data: allExpenses });
 });
 
 mongoose

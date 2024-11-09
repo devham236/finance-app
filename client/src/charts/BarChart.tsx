@@ -5,7 +5,7 @@ import { NewExpense } from "../utils/types/types";
 import { setTotalExpenses } from "../slices/totalExpensesSlice";
 import { toggleAuthForm } from "../slices/authFormSlice";
 import { toggleEntryForm } from "../slices/entryFormSlice";
-import { addExpense } from "../utils/thunks/expenseThunks";
+import { addExpense, getExpenses } from "../utils/thunks/expenseThunks";
 
 const BarChart = () => {
   const { barData } = useSelector((state: any) => state.barChart);
@@ -21,7 +21,7 @@ const BarChart = () => {
   // }, [barData, dispatch]);
 
   useEffect(() => {
-    dispatch(addExpense());
+    dispatch(getExpenses());
   }, []);
 
   const addData = () => {
