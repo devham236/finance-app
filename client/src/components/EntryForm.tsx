@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
 import { Goal, NewIncome } from "../utils/types/types";
 import { addNewGoal } from "../slices/goalsSlice";
+import { addExpense } from "../utils/thunks/expenseThunks";
 
 const EntryForm = ({ entry }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
@@ -52,6 +53,7 @@ const EntryForm = ({ entry }) => {
     } else if (entry === "Expense") {
       if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
         // dispatch(addExpense(newExpenseInput));
+        dispatch(addExpense(newExpenseInput));
       }
     } else if (entry === "Goal") {
       if (newGoalInput.title !== "") {

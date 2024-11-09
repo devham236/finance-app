@@ -20,10 +20,6 @@ const BarChart = () => {
   //   dispatch(setTotalExpenses(expensesValue));
   // }, [barData, dispatch]);
 
-  useEffect(() => {
-    dispatch(addExpense({ message: "test object" }));
-  }, []);
-
   const addData = () => {
     if (!userData || !userData.id) {
       dispatch(toggleAuthForm(true));
