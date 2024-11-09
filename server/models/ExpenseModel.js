@@ -27,7 +27,7 @@ const expenseSchema = new mongoose.Schema(
 expenseSchema.statics.addExpense = async function (expenseInput) {
   const { id, expense, color, label } = expenseInput;
   if (!id || !expense || !label) {
-    throw new Error("Missing required fields: id, expense, or label.");
+    throw new Error("Missing required fields: color, expense, or label.");
   }
   try {
     const newExpense = await this.create({

@@ -6,6 +6,8 @@ export const addExpense = createAsyncThunk(
   async (expenseInput, { rejectWithValue }) => {
     try {
       const response = await axios.post("/expenses/add", { expenseInput });
+      console.log(response);
+
       return response.data;
     } catch (error) {
       if (error.response && error.response.data) {
