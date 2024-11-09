@@ -15,6 +15,16 @@ app.use(express.json());
 app.post("/api/v1/expenses/add", async (req, res) => {
   const { expenseInput } = req.body;
   await ExpenseModel.addExpense(expenseInput);
+  try {
+    if (!expenseInput || !expenseInput.expense || !expenseInput.label) {
+      return res.status(400).json({ message: "Invalid expense data." });
+    }
+    const newExpense = await ExpenseModel.addExpense(expenseInput);
+    res.status(201).json(newExpense);
+  } catch (error) {
+    console.error("Error adding expense:", error);
+    res.status(500).json({ message: "Internal Server error" });
+  }
 });
 
 app.get("/api/v1/expenses/get", async (req, res) => {

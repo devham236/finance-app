@@ -3,12 +3,15 @@ import axios from "../../configs/axiosConfig.js";
 
 export const addExpense = createAsyncThunk(
   "expenses/addExpense",
-  async (expenseInput) => {
+  async (expenseInput, { rejectWithValue }) => {
     try {
-      const data = await axios.post("/expenses/add", { expenseInput });
-      console.log(data);
+      const response = await axios.post("/expenses/add", { expenseInput });
+      return response.data;
     } catch (error) {
-      return error;
+      if (error.response && error.response.data) {
+        return rejectWithValue(error.response.data.message);
+      }
+      return rejectWithValue("Failed to add expense, Please try again later.");
     }
   }
 );

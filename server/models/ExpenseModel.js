@@ -17,7 +17,6 @@ const expenseSchema = new mongoose.Schema(
     userId: {
       type: String,
       required: true,
-      unique: true,
     },
   },
   {
@@ -27,12 +26,21 @@ const expenseSchema = new mongoose.Schema(
 
 expenseSchema.statics.addExpense = async function (expenseInput) {
   const { id, expense, color, label } = expenseInput;
-  const newExpense = await this.create({
-    userId: id,
-    expense,
-    color,
-    label,
-  });
+  if (!id || !expense || !label) {
+    throw new Error("Missing required fields: id, expense, or label.");
+  }
+  try {
+    const newExpense = await this.create({
+      userId: id,
+      expense,
+      color,
+      label,
+    });
+    return newExpense;
+  } catch (error) {
+    console.error("Database error:", error);
+    throw new Error("Failed to create expense in Database");
+  }
 };
 
 expenseSchema.statics.getExpenses = async function () {
