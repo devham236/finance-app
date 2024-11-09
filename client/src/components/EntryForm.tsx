@@ -53,7 +53,6 @@ const EntryForm = ({ entry }) => {
       }
     } else if (entry === "Expense") {
       if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
-        // dispatch(addExpense(newExpenseInput));
         dispatch(addExpense({ ...newExpenseInput, id: userData.id }));
       }
     } else if (entry === "Goal") {
