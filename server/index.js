@@ -13,8 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/api/v1/expenses/add", async (req, res) => {
-  await ExpenseModel.addExpense();
-  res.json({ data: "newExpense" });
+  // await ExpenseModel.addExpense();
+  // res.json({ data: "newExpense" });
+  console.log(req.body);
 });
 
 app.get("/api/v1/expenses/get", async (req, res) => {

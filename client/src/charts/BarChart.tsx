@@ -21,7 +21,7 @@ const BarChart = () => {
   // }, [barData, dispatch]);
 
   useEffect(() => {
-    dispatch(getExpenses());
+    dispatch(addExpense({ message: "test object" }));
   }, []);
 
   const addData = () => {
@@ -31,6 +31,8 @@ const BarChart = () => {
       dispatch(toggleEntryForm("Expense"));
     }
   };
+
+  console.log(userData);
 
   return (
     <div className="grid-item flex flex-col items-center justify-start relative">
