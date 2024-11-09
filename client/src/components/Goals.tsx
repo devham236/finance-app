@@ -3,16 +3,26 @@ import Goal from "./Goal";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleEntryForm } from "../slices/entryFormSlice";
 import { GoalType } from "../utils/types/types";
+import { toggleAuthForm } from "../slices/authFormSlice";
 
 const Goals = () => {
+  const { userData } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
   const { goalsData } = useSelector((state: any) => state.goals);
+
+  const addData = () => {
+    if (!userData || !userData.id) {
+      dispatch(toggleAuthForm(true));
+    } else {
+      dispatch(toggleEntryForm("Goal"));
+    }
+  };
 
   return (
     <div className="grid-item flex flex-col">
       <div className="flex items-center justify-between">
         <h3 className="font-[600] self-start">Goals</h3>
-        <button onClick={() => dispatch(toggleEntryForm("Goal"))}>
+        <button onClick={addData}>
           <span className="material-symbols-rounded text-green_color">
             add_circle
           </span>
