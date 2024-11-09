@@ -28,8 +28,6 @@ const BarChart = () => {
     }
   };
 
-  console.log(userData);
-
   return (
     <div className="grid-item flex flex-col items-center justify-start relative">
       <div className="flex items-center justify-between w-full mb-2">
