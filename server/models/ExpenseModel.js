@@ -14,7 +14,7 @@ const expenseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    id: {
+    userId: {
       type: String,
       required: true,
       unique: true,
@@ -25,14 +25,14 @@ const expenseSchema = new mongoose.Schema(
   }
 );
 
-expenseSchema.statics.addExpense = async function () {
+expenseSchema.statics.addExpense = async function (expenseInput) {
+  const { id, expense, color, label } = expenseInput;
   const newExpense = await this.create({
-    id: "12345",
-    expense: 1000,
-    color: "red",
-    label: "Salary",
+    userId: id,
+    expense,
+    color,
+    label,
   });
-  return newExpense;
 };
 
 expenseSchema.statics.getExpenses = async function () {

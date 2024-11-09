@@ -13,10 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/api/v1/expenses/add", async (req, res) => {
-  // await ExpenseModel.addExpense();
-  // res.json({ data: "newExpense" });
   const { expenseInput } = req.body;
-  console.log(expenseInput);
+  await ExpenseModel.addExpense(expenseInput);
 });
 
 app.get("/api/v1/expenses/get", async (req, res) => {
