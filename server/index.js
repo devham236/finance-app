@@ -15,7 +15,8 @@ app.use(express.json());
 app.post("/api/v1/expenses/add", async (req, res) => {
   // await ExpenseModel.addExpense();
   // res.json({ data: "newExpense" });
-  console.log(req.body);
+  const { expenseInput } = req.body;
+  console.log(expenseInput);
 });
 
 app.get("/api/v1/expenses/get", async (req, res) => {

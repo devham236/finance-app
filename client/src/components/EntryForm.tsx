@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { closeForm } from "../slices/entryFormSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addIncome } from "../slices/doughnutChartSlice";
 import { Goal, NewIncome } from "../utils/types/types";
 import { addNewGoal } from "../slices/goalsSlice";
@@ -23,6 +23,7 @@ const EntryForm = ({ entry }) => {
     achieved: false,
   });
   const dispatch = useDispatch();
+  const { userData } = useSelector((state: any) => state.user);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -53,7 +54,7 @@ const EntryForm = ({ entry }) => {
     } else if (entry === "Expense") {
       if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
         // dispatch(addExpense(newExpenseInput));
-        dispatch(addExpense(newExpenseInput));
+        dispatch(addExpense({ ...newExpenseInput, id: userData.id }));
       }
     } else if (entry === "Goal") {
       if (newGoalInput.title !== "") {

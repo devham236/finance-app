@@ -3,9 +3,9 @@ import axios from "../../configs/axiosConfig.js";
 
 export const addExpense = createAsyncThunk(
   "expenses/addExpense",
-  async (expense) => {
+  async (expenseInput) => {
     try {
-      const data = await axios.post("/expenses/add", expense);
+      const data = await axios.post("/expenses/add", { expenseInput });
       console.log(data);
     } catch (error) {
       return error;
