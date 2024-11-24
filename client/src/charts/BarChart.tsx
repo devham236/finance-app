@@ -13,12 +13,16 @@ const BarChart = () => {
   const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const expensesValue = barData.reduce((prev, curr) => {
-  //     return prev + curr.value;
-  //   }, 0);
-  //   dispatch(setTotalExpenses(expensesValue));
-  // }, [barData, dispatch]);
+  useEffect(() => {
+    const expensesValue = barData.data.reduce((prev, curr) => {
+      return prev + curr.value;
+    }, 0);
+    dispatch(setTotalExpenses(expensesValue));
+  }, [barData.data, dispatch]);
+
+  useEffect(() => {
+    dispatch(getExpenses());
+  }, []);
 
   const addData = () => {
     if (!userData || !userData.id) {
@@ -51,11 +55,11 @@ const BarChart = () => {
         </div>
       </div>
       <p className="self-start text-2xl font-bold mb-4">{totalExpenses}€</p>
-      {/* <div className="flex flex-col items-center justify-start w-full h-full">
-        {barData.map((expense: NewExpense) => (
-          <ExpenseBar expense={expense} key={expense.id} />
+      <div className="flex flex-col items-center justify-start w-full h-full">
+        {barData.data.map((bar) => (
+          <ExpenseBar expense={bar} key={bar._id} />
         ))}
-      </div> */}
+      </div>
       <div className="flex items-center justify-center"></div>
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold"></p>
     </div>

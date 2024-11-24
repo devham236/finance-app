@@ -5,13 +5,12 @@ import { useSelector } from "react-redux";
 
 const ExpenseBar = ({ expense }) => {
   const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
+  const { barData } = useSelector((state: any) => state.barChart);
   const [expensePercentage, setExpensePercentage] = useState<string>();
 
   useEffect(() => {
-    if (totalExpenses > 0) {
-      const percentage = calcExpensePercentage(expense.value, totalExpenses);
-      setExpensePercentage(percentage);
-    }
+    const percentage = calcExpensePercentage(expense.expense, totalExpenses);
+    setExpensePercentage(percentage);
   }, [totalExpenses]);
 
   return (

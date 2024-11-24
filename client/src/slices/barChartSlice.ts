@@ -37,17 +37,17 @@ const barChartSlice = createSlice({
     });
 
     builder.addCase(getExpenses.pending, (state) => {
-      // state.loading = true;
-      // state.error = "";
+      state.loading = true;
+      state.error = "";
     });
     builder.addCase(getExpenses.fulfilled, (state, action) => {
-      // state.loading = true;
-      // state.barData = action.payload;
-      // state.error = "";
+      state.loading = true;
+      state.barData = action.payload;
+      state.error = "";
     });
     builder.addCase(getExpenses.rejected, (state, action) => {
-      // state.loading = false;
-      // state.error = action.error.message;
+      state.loading = false;
+      state.error = action.error.message;
     });
   },
 });

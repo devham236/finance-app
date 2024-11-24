@@ -57,7 +57,7 @@ const EntryForm = ({ entry }) => {
       }
     } else if (entry === "Goal") {
       if (newGoalInput.title !== "") {
-        dispatch(addNewGoal(newGoalInput));
+        dispatch(addNewGoal({ ...newGoalInput, id: userData.id }));
       }
     }
   };

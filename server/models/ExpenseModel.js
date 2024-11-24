@@ -5,18 +5,22 @@ const expenseSchema = new mongoose.Schema(
     label: {
       type: String,
       required: true,
+      unique: true,
     },
     expense: {
       type: Number,
       required: true,
+      unique: false,
     },
     color: {
       type: String,
       required: true,
+      unique: false,
     },
     userId: {
       type: String,
       required: true,
+      unique: false,
     },
   },
   {
