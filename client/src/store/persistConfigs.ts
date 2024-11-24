@@ -20,11 +20,6 @@ export const persistDoughnutConfig = {
   storage,
 };
 
-export const persistBarConfig = {
-  key: "barChart",
-  storage,
-};
-
 export const persistGoalsConfig = {
   key: "goals",
   storage,

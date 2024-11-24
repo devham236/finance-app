@@ -14,7 +14,7 @@ const BarChart = () => {
 
   useEffect(() => {
     dispatch(getExpenses());
-  }, [barData]);
+  }, []);
 
   const addData = () => {
     if (!userData || !userData.id) {
@@ -48,7 +48,7 @@ const BarChart = () => {
       </div>
       <p className="self-start text-2xl font-bold mb-4">{totalExpenses}€</p>
       <div className="flex flex-col items-center justify-start w-full h-full">
-        {barData.data.map((bar) => (
+        {barData?.data?.map((bar) => (
           <ExpenseBar expense={bar} key={bar._id} />
         ))}
       </div>

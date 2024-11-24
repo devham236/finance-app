@@ -8,7 +8,6 @@ import goalsReducer from "../slices/goalsSlice";
 import {
   persistDarkmodeConfig,
   persistDoughnutConfig,
-  persistBarConfig,
   persistSidebarConfig,
   persistUserConfig,
   persistGoalsConfig,
@@ -32,11 +31,6 @@ export const persistedUserReducer = persistReducer(
 export const persistedDoughnutReducer = persistReducer(
   persistDoughnutConfig,
   doughnutChartReducer
-);
-
-export const persistedBarChartReducer = persistReducer(
-  persistBarConfig,
-  barChartReducer
 );
 
 export const persistedGoalsReducer = persistReducer(

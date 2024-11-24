@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { PERSIST, persistStore } from "redux-persist";
 import {
-  persistedBarChartReducer,
   persistedDarkmodeReducer,
   persistedDoughnutReducer,
   persistedSidebarReducer,
@@ -12,6 +11,7 @@ import authFormReducer from "../slices/authFormSlice";
 import totalIncomeReducer from "../slices/totalIncomeSlice";
 import entryFormReducer from "../slices/entryFormSlice";
 import lineChartReducer from "../slices/lineChartSlice";
+import barChartReducer from "../slices/barChartSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,7 +22,7 @@ export const store = configureStore({
     doughnutChart: persistedDoughnutReducer,
     totalIncome: totalIncomeReducer,
     entryForm: entryFormReducer,
-    barChart: persistedBarChartReducer,
+    barChart: barChartReducer,
     lineChart: lineChartReducer,
     goals: persistedGoalsReducer,
   },
