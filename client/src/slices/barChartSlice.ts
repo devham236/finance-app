@@ -5,6 +5,7 @@ const barChartSlice = createSlice({
   name: "barChart",
   initialState: {
     barData: <any>[],
+    totalExpenses: 0,
     loading: false,
     error: "",
   },
@@ -44,6 +45,10 @@ const barChartSlice = createSlice({
       state.loading = true;
       state.barData = action.payload;
       state.error = "";
+      const totalValue = action.payload.data.reduce((prev, curr) => {
+        return prev + curr.expense;
+      }, 0);
+      state.totalExpenses = totalValue;
     });
     builder.addCase(getExpenses.rejected, (state, action) => {
       state.loading = false;

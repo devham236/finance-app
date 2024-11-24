@@ -8,17 +8,11 @@ import { toggleEntryForm } from "../slices/entryFormSlice";
 import { addExpense, getExpenses } from "../utils/thunks/expenseThunks";
 
 const BarChart = () => {
-  const { barData } = useSelector((state: any) => state.barChart);
+  const { barData, totalExpenses } = useSelector(
+    (state: any) => state.barChart
+  );
   const { userData } = useSelector((state: any) => state.user);
-  const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const expensesValue = barData.data.reduce((prev, curr) => {
-      return prev + curr.value;
-    }, 0);
-    dispatch(setTotalExpenses(expensesValue));
-  }, [barData.data, dispatch]);
 
   useEffect(() => {
     dispatch(getExpenses());
@@ -39,7 +33,7 @@ const BarChart = () => {
         <div className="flex items-center">
           {totalExpenses > 0 && (
             <button
-              // onClick={() => dispatch(resetBarChartData())}
+              onClick={() => dispatch(resetBarChartData())}
               className="mr-2"
             >
               <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">

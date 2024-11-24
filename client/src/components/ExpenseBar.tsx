@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NewExpense } from "../utils/types/types";
 import { calcExpensePercentage } from "../utils/helpers/methods.ts";
 import { useSelector } from "react-redux";
 
 const ExpenseBar = ({ expense }) => {
-  const { totalExpenses } = useSelector((state: any) => state.totalExpenses);
-  const { barData } = useSelector((state: any) => state.barChart);
+  const { totalExpenses } = useSelector((state: any) => state.barChart);
   const [expensePercentage, setExpensePercentage] = useState<string>();
 
   useEffect(() => {
@@ -20,7 +18,7 @@ const ExpenseBar = ({ expense }) => {
           {expensePercentage}% {expense.label}
         </p>
         <p className=" text-container_color_light dark:text-container_color_dark hover:text-text_color_light dark:hover:text-text_color_dark">
-          {expense.value}€
+          {expense.expense}€
         </p>
       </div>
       <div className="w-full h-[7px] bg-container_color_light dark:bg-container_color_dark rounded-full">
