@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import ExpenseBar from "../components/ExpenseBar";
 import { useDispatch, useSelector } from "react-redux";
-import { NewExpense } from "../utils/types/types";
-import { setTotalExpenses } from "../slices/totalExpensesSlice";
 import { toggleAuthForm } from "../slices/authFormSlice";
 import { toggleEntryForm } from "../slices/entryFormSlice";
-import { addExpense, getExpenses } from "../utils/thunks/expenseThunks";
+import { getExpenses } from "../utils/thunks/expenseThunks";
 
 const BarChart = () => {
   const { barData, totalExpenses } = useSelector(
@@ -33,7 +31,7 @@ const BarChart = () => {
         <div className="flex items-center">
           {totalExpenses > 0 && (
             <button
-              onClick={() => dispatch(resetBarChartData())}
+              // onClick={() => dispatch(resetBarChartData())}
               className="mr-2"
             >
               <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">
