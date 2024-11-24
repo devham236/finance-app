@@ -8,10 +8,7 @@ const goalsSlice = createSlice({
   },
   reducers: {
     addNewGoal: (state, action: PayloadAction<GoalType>) => {
-      state.goalsData = [
-        ...state.goalsData,
-        { ...action.payload, id: crypto.randomUUID() },
-      ];
+      state.goalsData = [...state.goalsData, { ...action.payload }];
     },
     toggleGoalStatus: (state, action) => {
       const goal = state.goalsData.find((g) => g.id === action.payload);
