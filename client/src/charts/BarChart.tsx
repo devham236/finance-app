@@ -16,7 +16,7 @@ const BarChart = () => {
 
   useEffect(() => {
     dispatch(getExpenses());
-  }, []);
+  }, [barData]);
 
   const addData = () => {
     if (!userData || !userData.id) {
