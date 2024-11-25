@@ -7,11 +7,11 @@ import {
   persistedUserReducer,
   persistedGoalsReducer,
 } from "./persistReducers";
-import authFormReducer from "./slices/authFormSlice";
-import totalIncomeReducer from "./slices/totalIncomeSlice";
-import entryFormReducer from "./slices/entryFormSlice";
-import lineChartReducer from "./slices/lineChartSlice";
-import barChartReducer from "./slices/barChartSlice";
+import authFormReducer from "../slices/authFormSlice";
+import totalIncomeReducer from "../slices/totalIncomeSlice";
+import entryFormReducer from "../slices/entryFormSlice";
+import lineChartReducer from "../slices/lineChartSlice";
+import barChartReducer from "../slices/barChartSlice";
 
 export const store = configureStore({
   reducer: {
