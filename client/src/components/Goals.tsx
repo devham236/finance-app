@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Goal from "./Goal";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleEntryForm } from "../redux/slices/entryFormSlice";
 import { GoalType } from "../utils/types/types";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
+import { getGoals } from "../redux/thunks/goalThunks";
 
 const Goals = () => {
   const { userData } = useSelector((state: any) => state.user);
@@ -17,6 +18,10 @@ const Goals = () => {
       dispatch(toggleEntryForm("Goal"));
     }
   };
+
+  useEffect(() => {
+    dispatch(getGoals());
+  }, []);
 
   return (
     <div className="grid-item flex flex-col">

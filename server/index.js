@@ -4,6 +4,7 @@ import http from "http";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { ExpenseModel } from "./models/ExpenseModel.js";
+import { GoalModel } from "./models/GoalModel.js";
 dotenv.config();
 
 const app = express();
@@ -33,20 +34,33 @@ app.get("/api/v1/expenses/get", async (req, res) => {
 
 app.delete("/api/v1/expenses/deleteAll/:userId", async (req, res) => {
   const { userId } = req.params;
-
   try {
     if (!userId) {
       res.status(400).json({ message: "Invalid user id" });
     }
     const response = await ExpenseModel.deleteAllExpenses(userId);
-    res
-      .status(200)
-      .json({
-        message: `${response.deletedCount} expenses deleted successfully`,
-      });
+    res.status(200).json({
+      message: `${response.deletedCount} expenses deleted successfully`,
+    });
   } catch (error) {
     console.error("Error adding expense:", error);
   }
+});
+
+app.post("/api/v1/goals/add", async (req, res) => {
+  const { goalObject } = req.body;
+  try {
+    const response = await GoalModel.addGoal(goalObject);
+    res.status(201).json(response);
+  } catch (error) {
+    console.error("Error adding goal:", error);
+    res.status(500).json({ message: "Internal  Server Error" });
+  }
+});
+
+app.get("/api/v1/goals/get", async (req, res) => {
+  const allGoals = await GoalModel.getGoals();
+  res.json({ data: allGoals });
 });
 
 mongoose

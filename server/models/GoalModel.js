@@ -7,12 +7,12 @@ const goalSchema = new mongoose.Schema({
     unique: true,
   },
   description: {
-    type: Number,
+    type: String,
   },
   userId: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   achieved: {
     type: Boolean,
@@ -23,6 +23,8 @@ const goalSchema = new mongoose.Schema({
 
 goalSchema.statics.addGoal = async function (goalObject) {
   const { id, title, description, achieved } = goalObject;
+  console.log(goalObject);
+
   if ((!title, !id)) {
     throw new Error("Missing required field: title or id.");
   }
