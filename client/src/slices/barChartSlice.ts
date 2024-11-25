@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addExpense, getExpenses } from "../utils/thunks/expenseThunks";
+import {
+  addExpense,
+  deleteAllExpenses,
+  getExpenses,
+} from "../utils/thunks/expenseThunks";
 
 const barChartSlice = createSlice({
   name: "barChart",
@@ -9,34 +13,24 @@ const barChartSlice = createSlice({
     loading: false,
     error: "",
   },
-  reducers: {
-    // addExpense: (state, action) => {
-    //   const { color, expense, label } = action.payload;
-    //   state.barData = [
-    //     ...state.barData,
-    //     { id: crypto.randomUUID(), value: expense, label: label, color: color },
-    //   ];
-    // },
-    // resetBarChartData: (state) => {
-    //   localStorage.removeItem("persist:barChart");
-    //   state.barData = [];
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
+    // Add Expense
     builder.addCase(addExpense.pending, (state) => {
-      // state.loading = true;
-      // state.error = "";
+      state.loading = true;
+      state.error = "";
     });
     builder.addCase(addExpense.fulfilled, (state, action) => {
-      // state.loading = true;
-      // state.barData = action.payload;
-      // state.error = "";
+      state.loading = true;
+      state.error = "";
+      console.log(action.payload);
     });
     builder.addCase(addExpense.rejected, (state, action) => {
-      // state.loading = false;
-      // state.error = action.error.message;
+      state.loading = false;
+      state.error = action.error.message;
     });
 
+    // Get All Expenses
     builder.addCase(getExpenses.pending, (state) => {
       state.loading = true;
       state.error = "";
@@ -51,6 +45,20 @@ const barChartSlice = createSlice({
       state.totalExpenses = totalValue;
     });
     builder.addCase(getExpenses.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+
+    // Delete All Expenses
+    builder.addCase(deleteAllExpenses.pending, (state) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(deleteAllExpenses.fulfilled, (state) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(deleteAllExpenses.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });

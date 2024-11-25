@@ -31,6 +31,24 @@ app.get("/api/v1/expenses/get", async (req, res) => {
   res.json({ data: allExpenses });
 });
 
+app.delete("/api/v1/expenses/deleteAll/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    if (!userId) {
+      res.status(400).json({ message: "Invalid user id" });
+    }
+    const response = await ExpenseModel.deleteAllExpenses(userId);
+    res
+      .status(200)
+      .json({
+        message: `${response.deletedCount} expenses deleted successfully`,
+      });
+  } catch (error) {
+    console.error("Error adding expense:", error);
+  }
+});
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {

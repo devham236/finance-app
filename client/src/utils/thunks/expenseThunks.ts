@@ -29,3 +29,15 @@ export const getExpenses = createAsyncThunk(
     }
   }
 );
+
+export const deleteAllExpenses = createAsyncThunk(
+  "expenses/deleteAllExpenses",
+  async (userId) => {
+    try {
+      const response = await axios.delete(`/expenses/deleteAll/${userId}`);
+      console.log(response);
+    } catch (error) {
+      return error;
+    }
+  }
+);

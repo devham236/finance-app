@@ -60,4 +60,13 @@ expenseSchema.statics.getExpenses = async function () {
   }
 };
 
+expenseSchema.statics.deleteAllExpenses = async function (userId) {
+  try {
+    const result = await this.deleteMany({ userId });
+    return result;
+  } catch (error) {
+    throw new Error("Unable to delete all expenses");
+  }
+};
+
 export const ExpenseModel = mongoose.model("expenses", expenseSchema);
