@@ -3,7 +3,7 @@ import {
   addExpense,
   deleteAllExpenses,
   getExpenses,
-} from "../utils/thunks/expenseThunks";
+} from "../thunks/expenseThunks";
 
 const barChartSlice = createSlice({
   name: "barChart",

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setCurrentPath } from "../slices/sidebarSlice";
+import { setCurrentPath } from "../redux/slices/sidebarSlice";
 
 const Sidebar = () => {
   const { currentPath } = useSelector((state: any) => state.sidebar);

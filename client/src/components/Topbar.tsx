@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode } from "../slices/darkmodeSlice";
+import { toggleDarkMode } from "../redux/slices/darkmodeSlice";
 import AuthForm from "./AuthForm";
-import { toggleAuthForm } from "../slices/authFormSlice";
+import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import AuthenticatedUser from "./AuthenticatedUser";
 
 const Topbar = () => {

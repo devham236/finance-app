@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { closeForm } from "../slices/entryFormSlice";
+import { closeForm } from "../redux/slices/entryFormSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { addIncome } from "../slices/doughnutChartSlice";
+import { addIncome } from "../redux/slices/doughnutChartSlice";
 import { Goal, NewIncome } from "../utils/types/types";
-import { addNewGoal } from "../slices/goalsSlice";
-import { addExpense } from "../utils/thunks/expenseThunks";
+import { addNewGoal } from "../redux/slices/goalsSlice";
+import { addExpense } from "../redux/thunks/expenseThunks";
 
 const EntryForm = ({ entry }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({

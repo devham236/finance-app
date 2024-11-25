@@ -5,7 +5,7 @@ import {
   googleSignIn,
   logoutUser,
   loginUser,
-} from "../utils/thunks/userThunks";
+} from "../thunks/userThunks";
 
 const userSlice = createSlice({
   name: "user",

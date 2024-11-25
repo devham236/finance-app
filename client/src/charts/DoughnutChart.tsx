@@ -2,10 +2,13 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
-import { resetTotalIncome, setTotalIncome } from "../slices/totalIncomeSlice";
-import { toggleEntryForm } from "../slices/entryFormSlice";
-import { resetChartData } from "../slices/doughnutChartSlice";
-import { toggleAuthForm } from "../slices/authFormSlice";
+import {
+  resetTotalIncome,
+  setTotalIncome,
+} from "../redux/slices/totalIncomeSlice";
+import { toggleEntryForm } from "../redux/slices/entryFormSlice";
+import { resetChartData } from "../redux/slices/doughnutChartSlice";
+import { toggleAuthForm } from "../redux/slices/authFormSlice";
 
 ChartJS.register(ArcElement, Tooltip);
 

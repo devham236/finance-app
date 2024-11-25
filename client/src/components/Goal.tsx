@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteGoal, toggleGoalStatus } from "../slices/goalsSlice";
+import { deleteGoal, toggleGoalStatus } from "../redux/slices/goalsSlice";
 
 const Goal = ({ goal }) => {
   const dispatch = useDispatch();

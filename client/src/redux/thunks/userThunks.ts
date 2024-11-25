@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { FormInput, UserData } from "../types/types";
+import { FormInput, UserData } from "../../utils/types/types.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../utils/thunks/userThunks";
+import { logoutUser } from "../redux/thunks/userThunks";
 
 const AuthenticatedUser = () => {
   const { userData } = useSelector((state: any) => state.user);

@@ -1,9 +1,9 @@
 import React from "react";
 import Goal from "./Goal";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleEntryForm } from "../slices/entryFormSlice";
+import { toggleEntryForm } from "../redux/slices/entryFormSlice";
 import { GoalType } from "../utils/types/types";
-import { toggleAuthForm } from "../slices/authFormSlice";
+import { toggleAuthForm } from "../redux/slices/authFormSlice";
 
 const Goals = () => {
   const { userData } = useSelector((state: any) => state.user);
