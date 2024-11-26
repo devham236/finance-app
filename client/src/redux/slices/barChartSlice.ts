@@ -21,9 +21,10 @@ const barChartSlice = createSlice({
       state.error = "";
     });
     builder.addCase(addExpense.fulfilled, (state, action) => {
-      state.loading = true;
+      state.loading = false;
       state.error = "";
-      state.barData.push(action.payload);
+      state.barData.data = [...state.barData.data, action.payload];
+      state.totalExpenses += action.payload.expense;
     });
     builder.addCase(addExpense.rejected, (state, action) => {
       state.loading = false;
@@ -57,6 +58,8 @@ const barChartSlice = createSlice({
     builder.addCase(deleteAllExpenses.fulfilled, (state) => {
       state.loading = true;
       state.error = "";
+      state.barData = [];
+      state.totalExpenses = 0;
     });
     builder.addCase(deleteAllExpenses.rejected, (state, action) => {
       state.loading = false;
