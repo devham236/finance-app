@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteGoal } from "../redux/thunks/goalThunks";
+import { deleteGoal, updateAchieved } from "../redux/thunks/goalThunks";
 
 const Goal = ({ goal }) => {
   const dispatch = useDispatch();
@@ -10,7 +10,11 @@ const Goal = ({ goal }) => {
       <div className="flex flex-col">
         <div className="flex items-center">
           <input
-            onChange={() => dispatch(toggleGoalStatus(goal.id))}
+            onChange={() =>
+              dispatch(
+                updateAchieved({ id: goal?._id, newValue: !goal.achieved })
+              )
+            }
             type="checkbox"
             name="goal"
             id=""

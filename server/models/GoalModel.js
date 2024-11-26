@@ -54,7 +54,6 @@ goalSchema.statics.getGoals = async function () {
 };
 
 goalSchema.statics.deleteGoal = async function (id) {
-  console.log(id, "from model");
   try {
     const deletedGoal = await this.findOneAndDelete({ _id: id });
     if (!deletedGoal) {
@@ -63,6 +62,21 @@ goalSchema.statics.deleteGoal = async function (id) {
     return deletedGoal;
   } catch (error) {
     throw new Error("Unable to delete goal.");
+  }
+};
+
+goalSchema.statics.updateAchieved = async function ({ _id, newValue }) {
+  try {
+    const updatedGoal = await this.findByIdAndUpdate(
+      { _id },
+      {
+        achieved: newValue,
+      },
+      { new: true }
+    );
+    return updatedGoal;
+  } catch (error) {
+    throw new Error("Unable to update goal.");
   }
 };
 

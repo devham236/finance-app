@@ -33,3 +33,15 @@ export const deleteGoal = createAsyncThunk("goals/delete", async (id) => {
     return error;
   }
 });
+
+export const updateAchieved = createAsyncThunk(
+  "goals/update",
+  async ({ id, newValue }) => {
+    try {
+      const response = await axios.patch(`/goals/update/${id}`, { newValue });
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  }
+);

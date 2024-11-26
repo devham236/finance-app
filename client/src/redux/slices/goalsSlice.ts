@@ -1,5 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { addGoal, deleteGoal, getGoals } from "../thunks/goalThunks";
+import { createSlice, current } from "@reduxjs/toolkit";
+import {
+  addGoal,
+  deleteGoal,
+  getGoals,
+  updateAchieved,
+} from "../thunks/goalThunks";
 
 const goalsSlice = createSlice({
   name: "goals",
@@ -71,7 +76,30 @@ const goalsSlice = createSlice({
         state.goalsData = filteredArray;
       }
     });
-    builder.addCase(deleteGoal.rejected, (state) => {
+    builder.addCase(deleteGoal.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+
+    // Update Goal
+    builder.addCase(updateAchieved.pending, (state) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(updateAchieved.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = "";
+
+      const index = state.goalsData.findIndex(
+        (goal) => goal._id === action.payload._id
+      );
+
+      state.goalsData[index] = {
+        ...current(state.goalsData[index]),
+        achieved: action.payload.achieved,
+      };
+    });
+    builder.addCase(updateAchieved.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });
