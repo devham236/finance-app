@@ -6,7 +6,7 @@ export const addGoal = createAsyncThunk(
   async (goalObject, { rejectWithValue }) => {
     try {
       const response = await axios.post("/goals/add", { goalObject });
-      return response;
+      return response.data;
     } catch (error) {
       if (error.response && error.response.data) {
         return rejectWithValue(error.response.data.message);

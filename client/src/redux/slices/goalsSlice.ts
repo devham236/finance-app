@@ -1,11 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { GoalType } from "../utils/types/types";
+import { createSlice } from "@reduxjs/toolkit";
 import { addGoal, deleteGoal, getGoals } from "../thunks/goalThunks";
 
 const goalsSlice = createSlice({
   name: "goals",
   initialState: {
-    goalsData: [] as GoalType[],
+    goalsData: <any>[],
     loading: false,
     error: "",
   },
@@ -35,8 +34,7 @@ const goalsSlice = createSlice({
     builder.addCase(addGoal.fulfilled, (state, action) => {
       state.loading = false;
       state.error = "";
-      console.log(action.payload);
-      state.goalsData.push(action.payload.data);
+      state.goalsData.push(action.payload);
     });
     builder.addCase(addGoal.rejected, (state, action) => {
       state.loading = false;
@@ -67,7 +65,6 @@ const goalsSlice = createSlice({
       state.loading = false;
       state.error = "";
       if (action.payload._id) {
-        console.log("deleted goal");
         const filteredArray = state.goalsData.filter(
           (g) => g._id != action.payload._id
         );
