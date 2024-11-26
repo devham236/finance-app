@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { closeForm } from "../redux/slices/entryFormSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome } from "../redux/slices/doughnutChartSlice";
-import { Goal, NewIncome } from "../utils/types/types";
-import { addNewGoal } from "../redux/slices/goalsSlice";
 import { addExpense } from "../redux/thunks/expenseThunks";
 import { addGoal } from "../redux/thunks/goalThunks";
 
