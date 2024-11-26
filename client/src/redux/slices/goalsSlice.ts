@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { GoalType } from "../utils/types/types";
-import { addGoal, getGoals } from "../thunks/goalThunks";
+import { addGoal, deleteGoal, getGoals } from "../thunks/goalThunks";
 
 const goalsSlice = createSlice({
   name: "goals",
@@ -33,7 +33,7 @@ const goalsSlice = createSlice({
       state.error = "";
     });
     builder.addCase(addGoal.fulfilled, (state, action) => {
-      state.loading = true;
+      state.loading = false;
       state.error = "";
       console.log(action.payload);
       state.goalsData.push(action.payload.data);
@@ -49,7 +49,7 @@ const goalsSlice = createSlice({
       state.error = "";
     });
     builder.addCase(getGoals.fulfilled, (state, action) => {
-      state.loading = true;
+      state.loading = false;
       state.error = "";
       state.goalsData = action.payload.data;
     });
@@ -57,8 +57,29 @@ const goalsSlice = createSlice({
       state.loading = false;
       state.error = action.error.message;
     });
+
+    // Delete Goal
+    builder.addCase(deleteGoal.pending, (state) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(deleteGoal.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = "";
+      if (action.payload._id) {
+        console.log("deleted goal");
+        const filteredArray = state.goalsData.filter(
+          (g) => g._id != action.payload._id
+        );
+        state.goalsData = filteredArray;
+      }
+    });
+    builder.addCase(deleteGoal.rejected, (state) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
   },
 });
 
-export const { addNewGoal, toggleGoalStatus, deleteGoal } = goalsSlice.actions;
+export const { toggleGoalStatus } = goalsSlice.actions;
 export default goalsSlice.reducer;

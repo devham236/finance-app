@@ -63,6 +63,17 @@ app.get("/api/v1/goals/get", async (req, res) => {
   res.json({ data: allGoals });
 });
 
+app.delete("/api/v1/goals/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await GoalModel.deleteGoal(id);
+    res.status(201).json(response);
+  } catch (error) {
+    console.error("Error adding goal:", error);
+    res.status(500).json({ message: "Internal  Server Error" });
+  }
+});
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {

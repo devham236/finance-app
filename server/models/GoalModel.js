@@ -53,4 +53,17 @@ goalSchema.statics.getGoals = async function () {
   }
 };
 
+goalSchema.statics.deleteGoal = async function (id) {
+  console.log(id, "from model");
+  try {
+    const deletedGoal = await this.findOneAndDelete({ _id: id });
+    if (!deletedGoal) {
+      throw new Error("Goal not found");
+    }
+    return deletedGoal;
+  } catch (error) {
+    throw new Error("Unable to delete goal.");
+  }
+};
+
 export const GoalModel = mongoose.model("goals", goalSchema);

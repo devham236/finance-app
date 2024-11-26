@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteGoal, toggleGoalStatus } from "../redux/slices/goalsSlice";
+import { deleteGoal } from "../redux/thunks/goalThunks";
 
 const Goal = ({ goal }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Goal = ({ goal }) => {
         <p>{goal.description}</p>
       </div>
       <span
-        onClick={() => dispatch(deleteGoal(goal.id))}
+        onClick={() => dispatch(deleteGoal(goal._id))}
         className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200"
       >
         delete

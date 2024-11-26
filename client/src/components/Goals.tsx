@@ -34,7 +34,7 @@ const Goals = () => {
         </button>
       </div>
       <div className="w-full mt-2 flex flex-col">
-        {goalsData.map((goal: GoalType, index) => (
+        {goalsData?.map((goal: GoalType, index) => (
           <Goal goal={goal} key={index} />
         ))}
       </div>

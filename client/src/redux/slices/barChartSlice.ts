@@ -23,7 +23,7 @@ const barChartSlice = createSlice({
     builder.addCase(addExpense.fulfilled, (state, action) => {
       state.loading = true;
       state.error = "";
-      console.log(action.payload);
+      state.barData.push(action.payload);
     });
     builder.addCase(addExpense.rejected, (state, action) => {
       state.loading = false;

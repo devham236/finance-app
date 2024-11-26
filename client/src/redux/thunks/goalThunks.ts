@@ -24,3 +24,12 @@ export const getGoals = createAsyncThunk("goals/getGoals", async () => {
     return error;
   }
 });
+
+export const deleteGoal = createAsyncThunk("goals/delete", async (id) => {
+  try {
+    const response = await axios.delete(`/goals/delete/${id}`);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+});
