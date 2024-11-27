@@ -5,7 +5,7 @@ import { addIncome } from "../redux/slices/doughnutChartSlice";
 import { addExpense } from "../redux/thunks/expenseThunks";
 import { addGoal } from "../redux/thunks/goalThunks";
 
-const EntryForm = ({ entry }) => {
+const EntryForm = ({ entry }: { entry: string }) => {
   const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
     income: 0,
     label: "",
