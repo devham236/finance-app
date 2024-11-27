@@ -6,58 +6,39 @@ import { addExpense } from "../redux/thunks/expenseThunks";
 import { addGoal } from "../redux/thunks/goalThunks";
 
 const EntryForm = ({ entry }: { entry: string }) => {
-  const [newIncomeInput, setNewIncomeInput] = useState<NewIncome>({
-    income: 0,
-    label: "",
-    color: "#3e9c35",
-  });
-  const [newExpenseInput, setNewExpenseInput] = useState({
-    expense: 0,
-    label: "",
-    color: "#3e9c35",
-  });
-  const [newGoalInput, setNewGoalInput] = useState({
-    title: "",
-    description: "",
-    achieved: false,
-  });
-  const dispatch = useDispatch();
+  const [formData, setFormData] = useState(() => getInitialState(entry));
   const { userData } = useSelector((state: any) => state.user);
+  const dispatch = useDispatch();
+
+  function getInitialState(entryType: string) {
+    switch (entryType) {
+      case "Income":
+        return { income: 0, label: "", color: "#3e9c35" };
+      case "Expense":
+        return { expense: 0, label: "", color: "#3e9c35" };
+      case "Goal":
+        return { title: "", description: "", achieved: false };
+      default:
+        return {};
+    }
+  }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
+    const { name, value, type } = event.target;
 
-    if (entry === "Income") {
-      setNewIncomeInput((prevState) => ({
-        ...prevState,
-        [name]: name === "income" ? Number(value) : value,
-      }));
-    } else if (entry === "Expense") {
-      setNewExpenseInput((prevState) => ({
-        ...prevState,
-        [name]: name === "expense" ? Number(value) : value,
-      }));
-    } else if (entry === "Goal") {
-      setNewGoalInput((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    }
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "number" ? Number(value) : value,
+    }));
   };
 
   const addNewEntry = () => {
-    if (entry === "Income") {
-      if (newIncomeInput.income > 0 && newIncomeInput.label !== "") {
-        dispatch(addIncome(newIncomeInput));
-      }
-    } else if (entry === "Expense") {
-      if (newExpenseInput.expense > 0 && newExpenseInput.label !== "") {
-        dispatch(addExpense({ ...newExpenseInput, id: userData.id }));
-      }
-    } else if (entry === "Goal") {
-      if (newGoalInput.title !== "") {
-        dispatch(addGoal({ ...newGoalInput, id: userData.id }));
-      }
+    if (entry === "Income" && formData.income > 0 && formData.label) {
+      dispatch(addIncome(formData));
+    } else if (entry === "Expense" && formData.expense > 0 && formData.label) {
+      dispatch(addExpense({ ...formData, id: userData.id }));
+    } else if (entry === "Goal" && formData.title) {
+      dispatch(addGoal({ ...formData, id: userData.id }));
     }
   };
 
