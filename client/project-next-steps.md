@@ -11,8 +11,8 @@
 2. **Backend - Database Connection**
 
    - [x] Set up MongoDB database
-   - [ ] Set up Schemas to save all data of user in database
-   - [ ] Connect frontend to backend API
+   - [x] Set up Schemas to save all data of user in database
+   - [x] Connect frontend to backend API
 
 3. **Frontend - Styling & Animations**
 
