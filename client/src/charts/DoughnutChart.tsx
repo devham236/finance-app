@@ -24,7 +24,6 @@ const DoughnutChart = () => {
   const resetData = () => {
     // dispatch(resetChartData());
     // dispatch(resetTotalIncome());
-    dispatch(getIncomes());
   };
 
   const addData = () => {
@@ -48,6 +47,7 @@ const DoughnutChart = () => {
     //   );
     //   dispatch(setTotalIncome(doughnutDataIncome));
     // }
+    dispatch(getIncomes());
   }, []);
 
   return (
@@ -55,13 +55,11 @@ const DoughnutChart = () => {
       <div className="flex items-center justify-between w-full">
         <h3 className="font-[600] self-start">Total Income</h3>
         <div className="flex items-center">
-          {totalIncome > 0 && (
-            <button className="mr-2" onClick={resetData}>
-              <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">
-                autorenew
-              </span>
-            </button>
-          )}
+          <button className="mr-2" onClick={resetData}>
+            <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">
+              autorenew
+            </span>
+          </button>
           <button onClick={addData}>
             <span className="material-symbols-rounded text-green_color">
               add_circle

@@ -68,6 +68,21 @@ const doughnutChartSlice = createSlice({
       const { color, income, label } = action.payload;
 
       state.totalIncome += income;
+
+      state.doughnutData = {
+        ...state.doughnutData,
+        datasets: [
+          {
+            ...state.doughnutData.datasets[0],
+            data: [...state.doughnutData.datasets[0].data, income],
+            backgroundColor: [
+              ...state.doughnutData.datasets[0].backgroundColor,
+              color,
+            ],
+          },
+        ],
+        labels: [...state.doughnutData.labels, label],
+      };
     });
     builder.addCase(addIncome.rejected, (state, action) => {
       state.loading = false;
