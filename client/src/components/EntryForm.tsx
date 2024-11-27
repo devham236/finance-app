@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { closeForm } from "../redux/slices/entryFormSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { addIncome } from "../redux/slices/doughnutChartSlice";
 import { addExpense } from "../redux/thunks/expenseThunks";
 import { addGoal } from "../redux/thunks/goalThunks";
+import { addIncome } from "../redux/thunks/incomeThunks";
 
 const EntryForm = ({ entry }: { entry: string }) => {
   const [formData, setFormData] = useState(() => getInitialState(entry));
@@ -34,7 +34,8 @@ const EntryForm = ({ entry }: { entry: string }) => {
 
   const addNewEntry = () => {
     if (entry === "Income" && formData.income > 0 && formData.label) {
-      dispatch(addIncome(formData));
+      // dispatch(addIncome(formData));
+      dispatch(addIncome({ ...formData, userId: userData.id }));
     } else if (entry === "Expense" && formData.expense > 0 && formData.label) {
       dispatch(addExpense({ ...formData, id: userData.id }));
     } else if (entry === "Goal" && formData.title) {

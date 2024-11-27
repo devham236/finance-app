@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { ExpenseModel } from "./models/ExpenseModel.js";
 import { GoalModel } from "./models/GoalModel.js";
+import { IncomeModel } from "./models/IncomeModel.js";
 dotenv.config();
 
 const app = express();
@@ -12,6 +13,25 @@ const server = http.createServer(app);
 
 app.use(cors());
 app.use(express.json());
+
+app.post("/api/v1/incomes/add", async (req, res) => {
+  const { incomeInput } = req.body;
+  try {
+    if (!incomeInput || !incomeInput.income || !incomeInput.label) {
+      return res.status(400).json({ message: "Invalid income data!" });
+    }
+    const newIncome = await IncomeModel.addIncome(incomeInput);
+    res.status(201).json(newIncome);
+  } catch (error) {
+    console.error("Error adding expense:", error);
+    res.status(500).json({ message: "Internal Server error" });
+  }
+});
+
+app.get("/api/v1/incomes/get", async (req, res) => {
+  const allIncomes = await IncomeModel.getIncomes();
+  res.json({ data: allIncomes });
+});
 
 app.post("/api/v1/expenses/add", async (req, res) => {
   const { expenseInput } = req.body;
