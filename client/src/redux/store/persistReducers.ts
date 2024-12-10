@@ -2,7 +2,6 @@ import { persistReducer } from "redux-persist";
 import darkmodeReducer from "../slices/darkmodeSlice";
 import sidebarReducer from "../slices/sidebarSlice";
 import userReducer from "../slices/userSlice";
-import doughnutChartReducer from "../slices/doughnutChartSlice";
 import goalsReducer from "../slices/goalsSlice";
 import {
   persistDarkmodeConfig,
