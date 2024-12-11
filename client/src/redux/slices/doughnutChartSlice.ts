@@ -21,39 +21,7 @@ const doughnutChartSlice = createSlice({
       ],
     },
   },
-  reducers: {
-    // addIncome: (state, action: PayloadAction<NewIncome>) => {
-    //   const { income, label, color } = action.payload;
-    //   state.doughnutData = {
-    //     ...state.doughnutData,
-    //     datasets: [
-    //       {
-    //         ...state.doughnutData.datasets[0],
-    //         data: [...state.doughnutData.datasets[0].data, income],
-    //         backgroundColor: [
-    //           ...state.doughnutData.datasets[0].backgroundColor,
-    //           color,
-    //         ],
-    //       },
-    //     ],
-    //     labels: [...state.doughnutData.labels, label],
-    //   };
-    // },
-    // resetChartData: (state) => {
-    //   localStorage.removeItem("persist:doughnutChart");
-    //   state.doughnutData = {
-    //     ...state.doughnutData,
-    //     labels: [],
-    //     datasets: [
-    //       {
-    //         ...state.doughnutData.datasets[0],
-    //         data: [],
-    //         backgroundColor: [],
-    //       },
-    //     ],
-    //   };
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     // Add Income
     builder.addCase(addIncome.pending, (state) => {
@@ -63,7 +31,6 @@ const doughnutChartSlice = createSlice({
     builder.addCase(addIncome.fulfilled, (state, action) => {
       state.loading = false;
       state.error = "";
-      console.log(action.payload);
 
       const { color, income, label } = action.payload;
 
@@ -97,10 +64,28 @@ const doughnutChartSlice = createSlice({
     builder.addCase(getIncomes.fulfilled, (state, action) => {
       state.loading = true;
       state.error = "";
+      console.log(action.payload);
+
       const totalIncome = action.payload.data.reduce((prev, curr) => {
         return prev + curr.income;
       }, 0);
       state.totalIncome = totalIncome;
+
+      const allIncomes = action.payload.data.map((entry) => entry.income);
+      const allColors = action.payload.data.map((entry) => entry.color);
+      const allLabels = action.payload.data.map((entry) => entry.label);
+
+      state.doughnutData = {
+        ...state.doughnutData,
+        datasets: [
+          {
+            ...state.doughnutData.datasets[0],
+            data: [...allIncomes],
+            backgroundColor: [...allColors],
+          },
+        ],
+        labels: [...allLabels],
+      };
     });
     builder.addCase(getIncomes.rejected, (state, action) => {
       state.loading = false;
