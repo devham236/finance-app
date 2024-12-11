@@ -71,20 +71,26 @@ const doughnutChartSlice = createSlice({
       }, 0);
       state.totalIncome = totalIncome;
 
-      const allIncomes = action.payload.data.map((entry) => entry.income);
-      const allColors = action.payload.data.map((entry) => entry.color);
-      const allLabels = action.payload.data.map((entry) => entry.label);
+      const allIncomes: number[] = [];
+      const allColors: string[] = [];
+      const allLabels: string[] = [];
+
+      action.payload.data.forEach(({ income, color, label }) => {
+        allIncomes.push(income);
+        allColors.push(color);
+        allLabels.push(label);
+      });
 
       state.doughnutData = {
         ...state.doughnutData,
         datasets: [
           {
             ...state.doughnutData.datasets[0],
-            data: [...allIncomes],
-            backgroundColor: [...allColors],
+            data: allIncomes,
+            backgroundColor: allColors,
           },
         ],
-        labels: [...allLabels],
+        labels: allLabels,
       };
     });
     builder.addCase(getIncomes.rejected, (state, action) => {
