@@ -9,8 +9,8 @@ Welcome to Ruune
 
 ## Technologies Used
 
-- **React, Typescript**
-- **Redux**
+- **React, Redux, Typescript**
+- **Chart JS**
 - **Tailwind CSS**
 - **Firebase**
 - **Node.js/ExpressJS**
