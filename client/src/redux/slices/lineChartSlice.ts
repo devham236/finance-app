@@ -21,12 +21,18 @@ const lineChartSlice = createSlice({
       datasets: [
         {
           label: "Income",
-          data: <any>[],
+          data: <any>[
+            2050, 2050, 2050, 2050, 2050, 2250, 2250, 2250, 2250, 2250, 2250,
+            2250,
+          ],
           borderColor: "#3e9c35",
         },
         {
           label: "Expenses",
-          data: <any>[],
+          data: <any>[
+            1200, 1300, 1500, 1100, 1700, 1200, 1300, 1500, 1100, 1700, 1400,
+            1600,
+          ],
           borderColor: "red",
         },
       ],
