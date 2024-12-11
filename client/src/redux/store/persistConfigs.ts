@@ -14,8 +14,3 @@ export const persistUserConfig = {
   key: "user",
   storage,
 };
-
-export const persistGoalsConfig = {
-  key: "goals",
-  storage,
-};

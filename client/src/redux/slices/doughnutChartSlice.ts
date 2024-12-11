@@ -64,7 +64,6 @@ const doughnutChartSlice = createSlice({
     builder.addCase(getIncomes.fulfilled, (state, action) => {
       state.loading = true;
       state.error = "";
-      console.log(action.payload);
 
       const totalIncome = action.payload.data.reduce((prev, curr) => {
         return prev + curr.income;

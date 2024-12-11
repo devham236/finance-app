@@ -4,13 +4,13 @@ import {
   persistedDarkmodeReducer,
   persistedSidebarReducer,
   persistedUserReducer,
-  persistedGoalsReducer,
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
 import entryFormReducer from "../slices/entryFormSlice";
 import lineChartReducer from "../slices/lineChartSlice";
 import barChartReducer from "../slices/barChartSlice";
 import doughnutReducer from "../slices/doughnutChartSlice";
+import goalsReducer from "../slices/goalsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,7 +22,7 @@ export const store = configureStore({
     entryForm: entryFormReducer,
     barChart: barChartReducer,
     lineChart: lineChartReducer,
-    goals: persistedGoalsReducer,
+    goals: goalsReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
