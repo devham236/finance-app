@@ -9,7 +9,7 @@ import authFormReducer from "../slices/authFormSlice";
 import entryFormReducer from "../slices/entryFormSlice";
 import lineChartReducer from "../slices/lineChartSlice";
 import barChartReducer from "../slices/barChartSlice";
-import doughnutReducer from "../slices/doughnutChartSlice";
+import incomeReducer from "../slices/incomeSlice";
 import goalsReducer from "../slices/goalsSlice";
 
 export const store = configureStore({
@@ -18,7 +18,7 @@ export const store = configureStore({
     darkmode: persistedDarkmodeReducer,
     user: persistedUserReducer,
     authForm: authFormReducer,
-    doughnutChart: doughnutReducer,
+    income: incomeReducer,
     entryForm: entryFormReducer,
     barChart: barChartReducer,
     lineChart: lineChartReducer,

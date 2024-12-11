@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getIncomes } from "../thunks/incomeThunks";
 import { addIncome } from "../thunks/incomeThunks";
 
-const doughnutChartSlice = createSlice({
-  name: "dougnutChart",
+const incomeSlice = createSlice({
+  name: "income",
   initialState: {
     loading: false,
     error: "",
@@ -99,4 +99,4 @@ const doughnutChartSlice = createSlice({
   },
 });
 
-export default doughnutChartSlice.reducer;
+export default incomeSlice.reducer;

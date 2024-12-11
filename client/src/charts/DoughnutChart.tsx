@@ -2,12 +2,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  resetTotalIncome,
-  setTotalIncome,
-} from "../redux/slices/totalIncomeSlice";
 import { toggleEntryForm } from "../redux/slices/entryFormSlice";
-import { resetChartData } from "../redux/slices/doughnutChartSlice";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import { getIncomes } from "../redux/thunks/incomeThunks";
 
@@ -15,16 +10,11 @@ ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
   const { doughnutData, totalIncome } = useSelector(
-    (state: any) => state.doughnutChart
+    (state: any) => state.income
   );
   const { userData } = useSelector((state: any) => state.user);
   const config = {};
   const dispatch = useDispatch();
-
-  const resetData = () => {
-    // dispatch(resetChartData());
-    // dispatch(resetTotalIncome());
-  };
 
   const addData = () => {
     if (!userData || !userData.id) {
@@ -35,18 +25,6 @@ const DoughnutChart = () => {
   };
 
   useEffect(() => {
-    // if (
-    //   doughnutData.datasets.length > 0 &&
-    //   doughnutData.datasets[0].data.length > 0
-    // ) {
-    //   const doughnutDataIncome = doughnutData.datasets[0].data.reduce(
-    //     (prev: number, curr: number) => {
-    //       return prev + curr;
-    //     },
-    //     0
-    //   );
-    //   dispatch(setTotalIncome(doughnutDataIncome));
-    // }
     dispatch(getIncomes());
   }, []);
 
@@ -55,7 +33,7 @@ const DoughnutChart = () => {
       <div className="flex items-center justify-between w-full">
         <h3 className="font-[600] self-start">Total Income</h3>
         <div className="flex items-center">
-          <button className="mr-2" onClick={resetData}>
+          <button className="mr-2">
             <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">
               autorenew
             </span>
