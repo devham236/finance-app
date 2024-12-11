@@ -7,7 +7,6 @@ import {
   persistedGoalsReducer,
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
-import totalIncomeReducer from "../slices/totalIncomeSlice";
 import entryFormReducer from "../slices/entryFormSlice";
 import lineChartReducer from "../slices/lineChartSlice";
 import barChartReducer from "../slices/barChartSlice";
@@ -20,7 +19,6 @@ export const store = configureStore({
     user: persistedUserReducer,
     authForm: authFormReducer,
     doughnutChart: doughnutReducer,
-    totalIncome: totalIncomeReducer,
     entryForm: entryFormReducer,
     barChart: barChartReducer,
     lineChart: lineChartReducer,

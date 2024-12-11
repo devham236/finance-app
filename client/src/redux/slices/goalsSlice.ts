@@ -13,23 +13,7 @@ const goalsSlice = createSlice({
     loading: false,
     error: "",
   },
-  reducers: {
-    // addNewGoal: (state, action: PayloadAction<GoalType>) => {
-    //   state.goalsData = [...state.goalsData, { ...action.payload }];
-    // },
-    // toggleGoalStatus: (state, action) => {
-    //   const goal = state.goalsData.find((g) => g.id === action.payload);
-    //   if (goal) {
-    //     goal.achieved = !goal.achieved;
-    //   }
-    // },
-    // deleteGoal: (state, action) => {
-    //   const filteredArray = state.goalsData.filter(
-    //     (g) => g.id !== action.payload
-    //   );
-    //   state.goalsData = filteredArray;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     // Add Goal
     builder.addCase(addGoal.pending, (state) => {
