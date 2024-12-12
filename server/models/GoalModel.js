@@ -1,25 +1,30 @@
 import mongoose from "mongoose";
 
-const goalSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-    unique: true,
+const goalSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    description: {
+      type: String,
+    },
+    userId: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    achieved: {
+      type: Boolean,
+      required: true,
+      unique: false,
+    },
   },
-  description: {
-    type: String,
-  },
-  userId: {
-    type: String,
-    required: true,
-    unique: false,
-  },
-  achieved: {
-    type: Boolean,
-    required: true,
-    unique: false,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
 goalSchema.statics.addGoal = async function (goalObject) {
   const { id, title, description, achieved } = goalObject;

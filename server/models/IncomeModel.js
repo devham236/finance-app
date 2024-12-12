@@ -1,26 +1,31 @@
 import mongoose from "mongoose";
 
-const incomeSchema = new mongoose.Schema({
-  label: {
-    type: String,
-    required: true,
-    unique: true,
+const incomeSchema = new mongoose.Schema(
+  {
+    label: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    income: {
+      type: Number,
+      required: true,
+    },
+    color: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    userId: {
+      type: String,
+      required: true,
+      unique: false,
+    },
   },
-  income: {
-    type: Number,
-    required: true,
-  },
-  color: {
-    type: String,
-    required: true,
-    unique: false,
-  },
-  userId: {
-    type: String,
-    required: true,
-    unique: false,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
 incomeSchema.statics.addIncome = async function (incomeInput) {
   const { userId, income, color, label } = incomeInput;
