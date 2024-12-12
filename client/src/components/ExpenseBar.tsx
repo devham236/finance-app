@@ -3,7 +3,7 @@ import { calcExpensePercentage } from "../utils/helpers/methods.ts";
 import { useSelector } from "react-redux";
 
 const ExpenseBar = ({ expense }) => {
-  const { totalExpenses } = useSelector((state: any) => state.barChart);
+  const { totalExpenses } = useSelector((state: any) => state.expenses);
   const [expensePercentage, setExpensePercentage] = useState<string>();
 
   useEffect(() => {

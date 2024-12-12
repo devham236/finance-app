@@ -7,7 +7,7 @@ import { getExpenses, deleteAllExpenses } from "../redux/thunks/expenseThunks";
 
 const BarChart = () => {
   const { barData, totalExpenses } = useSelector(
-    (state: any) => state.barChart
+    (state: any) => state.expenses
   );
   const { userData } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();

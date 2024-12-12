@@ -5,8 +5,8 @@ import {
   getExpenses,
 } from "../thunks/expenseThunks";
 
-const barChartSlice = createSlice({
-  name: "barChart",
+const expensesSlice = createSlice({
+  name: "expenses",
   initialState: {
     barData: <any>[],
     totalExpenses: 0,
@@ -68,4 +68,4 @@ const barChartSlice = createSlice({
   },
 });
 
-export default barChartSlice.reducer;
+export default expensesSlice.reducer;

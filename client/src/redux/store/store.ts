@@ -8,7 +8,7 @@ import {
 import authFormReducer from "../slices/authFormSlice";
 import entryFormReducer from "../slices/entryFormSlice";
 import lineChartReducer from "../slices/lineChartSlice";
-import barChartReducer from "../slices/barChartSlice";
+import expensesReducer from "../slices/expensesSlice";
 import incomeReducer from "../slices/incomeSlice";
 import goalsReducer from "../slices/goalsSlice";
 
@@ -20,7 +20,7 @@ export const store = configureStore({
     authForm: authFormReducer,
     income: incomeReducer,
     entryForm: entryFormReducer,
-    barChart: barChartReducer,
+    expenses: expensesReducer,
     lineChart: lineChartReducer,
     goals: goalsReducer,
   },

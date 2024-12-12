@@ -23,7 +23,7 @@ ChartJS.register(
 
 const LineChart = () => {
   const { lineData } = useSelector((state: any) => state.lineChart);
-  const { barData } = useSelector((state: any) => state.barChart);
+  const { barData } = useSelector((state: any) => state.expenses);
   const { doughnutData } = useSelector((state: any) => state.income);
   const dispatch = useDispatch();
   const config = { maintainAspectRatio: false };
