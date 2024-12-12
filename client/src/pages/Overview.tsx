@@ -1,9 +1,9 @@
 import React from "react";
-import DoughnutChart from "../charts/DoughnutChart";
-import BarChart from "../charts/BarChart";
-import LineChart from "../charts/LineChart";
-import Goals from "../components/Goals";
-import Trends from "../components/Trends";
+import DoughnutChart from "../sections/DoughnutChart";
+import BarChart from "../sections/BarChart";
+import LineChart from "../sections/LineChart";
+import Goals from "../sections/Goals";
+import Trends from "../sections/Trends";
 
 const Overview = () => {
   return (

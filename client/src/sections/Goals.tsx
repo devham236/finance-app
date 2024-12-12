@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Goal from "./Goal";
+import Goal from "../components/Goal";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleEntryForm } from "../redux/slices/entryFormSlice";
 import { GoalType } from "../utils/types/types";
