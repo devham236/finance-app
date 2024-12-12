@@ -18,6 +18,7 @@ export default {
         sidebar_item_color_dark: "#1e293b",
 
         green_color: "#3e9c35",
+        red_color: "#bf3232",
       },
     },
   },
