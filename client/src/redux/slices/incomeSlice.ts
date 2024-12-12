@@ -8,6 +8,7 @@ const incomeSlice = createSlice({
     loading: false,
     error: "",
     totalIncome: 0,
+    incomeArray: <any>[],
     doughnutData: {
       labels: <any>[],
       datasets: [
@@ -33,6 +34,8 @@ const incomeSlice = createSlice({
       state.error = "";
 
       const { color, income, label } = action.payload;
+
+      state.incomeArray.push(action.payload);
 
       state.totalIncome += income;
 
@@ -64,6 +67,8 @@ const incomeSlice = createSlice({
     builder.addCase(getIncomes.fulfilled, (state, action) => {
       state.loading = true;
       state.error = "";
+
+      state.incomeArray = action.payload.data;
 
       const totalIncome = action.payload.data.reduce((prev, curr) => {
         return prev + curr.income;

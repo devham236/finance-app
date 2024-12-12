@@ -10,6 +10,7 @@ const expensesSlice = createSlice({
   initialState: {
     barData: <any>[],
     totalExpenses: 0,
+    expensesArray: <any>[],
     loading: false,
     error: "",
   },
@@ -25,6 +26,7 @@ const expensesSlice = createSlice({
       state.error = "";
       state.barData.data = [...state.barData.data, action.payload];
       state.totalExpenses += action.payload.expense;
+      state.expensesArray.push(action.payload);
     });
     builder.addCase(addExpense.rejected, (state, action) => {
       state.loading = false;
@@ -40,6 +42,8 @@ const expensesSlice = createSlice({
       state.loading = true;
       state.barData = action.payload;
       state.error = "";
+      state.expensesArray = action.payload.data;
+
       const totalValue = action.payload.data.reduce((prev, curr) => {
         return prev + curr.expense;
       }, 0);
