@@ -34,7 +34,6 @@ const EntryForm = ({ entry }: { entry: string }) => {
 
   const addNewEntry = () => {
     if (entry === "Income" && formData.income > 0 && formData.label) {
-      // dispatch(addIncome(formData));
       dispatch(addIncome({ ...formData, userId: userData.id }));
     } else if (entry === "Expense" && formData.expense > 0 && formData.label) {
       dispatch(addExpense({ ...formData, id: userData.id }));
