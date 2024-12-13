@@ -1,6 +1,6 @@
 import React from "react";
-import Topbar from "./components/Topbar";
-import Sidebar from "./components/Sidebar";
+import Topbar from "./sections/Topbar";
+import Sidebar from "./sections/Sidebar";
 import MainContent from "./components/MainContent";
 import { useSelector } from "react-redux";
 
