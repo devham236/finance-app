@@ -16,26 +16,44 @@ const Topbar = () => {
       <div className="text-green_color font-bold">Ruune</div>
       <div className="flex items-center">
         {/*Month and Year Picker*/}
-        <div className="flex items-center mr-20">
-          <select name="" id="month-picker" className="mr-5">
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-          </select>
-          <select name="" id="year-picker">
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-          </select>
+        <div className="flex items-center mr-20 ">
+          <div className="relative">
+            <select
+              name=""
+              id="month-picker"
+              className="mr-5 bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark py-1 px-2 appearance-none rounded-md"
+            >
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+            <span className="material-symbols-rounded absolute top-1/2 right-[21px] transform -translate-y-1/2 font-bold text-green_color">
+              keyboard_arrow_down
+            </span>
+          </div>
+          <div className="relative">
+            <select
+              name=""
+              id="year-picker"
+              className="w-[79px] bg-sidebar_item_color_light rounded-md dark:bg-sidebar_item_color_dark p-1 appearance-none py-1 px-2"
+            >
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+            </select>
+            <span className="material-symbols-rounded absolute top-1/2 right-[2px] transform -translate-y-1/2 font-bold text-green_color">
+              keyboard_arrow_down
+            </span>
+          </div>
         </div>
         {/*Darkmode Toggle*/}
         <div
