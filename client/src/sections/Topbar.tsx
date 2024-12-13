@@ -15,6 +15,7 @@ const Topbar = () => {
     <div className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="text-green_color font-bold">Ruune</div>
       <div className="flex items-center">
+        {/*Month and Year Picker*/}
         <div className="flex items-center mr-20">
           <select name="" id="month-picker" className="mr-5">
             <option value="January">January</option>
@@ -36,6 +37,7 @@ const Topbar = () => {
             <option value="2022">2022</option>
           </select>
         </div>
+        {/*Darkmode Toggle*/}
         <div
           className="mr-20 cursor-pointer bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center justify-between px-1 py-1 rounded-[20px] relative"
           onClick={() => dispatch(toggleDarkMode())}
@@ -48,6 +50,7 @@ const Topbar = () => {
             }`}
           ></span>
         </div>
+        {/*User Icon and Auth Form*/}
         {userData?.photoUrl ? (
           <div
             className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center rounded-full relative w-[32px] h-[32px] cursor-pointer"
