@@ -12,7 +12,7 @@
 
    - [x] Set up MongoDB database
    - [x] Set up Schemas to save all data of user in database
-   - [x] Connect frontend to backend API
+   - [x] Connect frontend to backend via API
 
 3. **Frontend - Styling & Animations**
 
