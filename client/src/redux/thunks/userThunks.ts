@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth, googleProvider } from "../../configs/firebaseConfig.js";
+import axios from "../../configs/axiosConfig.js";
 
 export const createUser = createAsyncThunk(
   "user/signinUser",
@@ -79,3 +80,14 @@ export const logoutUser = createAsyncThunk("user/signoutUser", async () => {
     return error;
   }
 });
+
+export const getAllUserData = createAsyncThunk(
+  "user/getAllUserData",
+  async (userId) => {
+    try {
+      await axios.get(`user/getAll/${userId}`);
+    } catch (error) {
+      return error;
+    }
+  }
+);

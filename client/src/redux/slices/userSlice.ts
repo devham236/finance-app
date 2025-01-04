@@ -5,6 +5,7 @@ import {
   googleSignIn,
   logoutUser,
   loginUser,
+  getAllUserData,
 } from "../thunks/userThunks";
 
 const userSlice = createSlice({
@@ -70,6 +71,19 @@ const userSlice = createSlice({
       state.error = "";
     });
     builder.addCase(logoutUser.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+
+    // Get all user data
+    builder.addCase(getAllUserData.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getAllUserData.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = "";
+    });
+    builder.addCase(getAllUserData.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });

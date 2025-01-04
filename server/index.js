@@ -14,6 +14,26 @@ const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
 
+app.get("/api/v1/user/getAll/:userId", async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const [allExpenses, allIncomes, allGoals] = await Promise.all([
+      ExpenseModel.find({ userId }),
+      IncomeModel.find({ userId }),
+      GoalModel.find({ userId }),
+    ]);
+    const allData = {
+      allExpenses,
+      allIncomes,
+      allGoals,
+    };
+    res.status(200).json(allData);
+  } catch (error) {
+    console.error("Error fetching queries:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.post("/api/v1/incomes/add", async (req, res) => {
   const { incomeInput } = req.body;
   try {
