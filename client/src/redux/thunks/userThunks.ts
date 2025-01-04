@@ -85,7 +85,8 @@ export const getAllUserData = createAsyncThunk(
   "user/getAllUserData",
   async (userId) => {
     try {
-      await axios.get(`user/getAll/${userId}`);
+      const res = await axios.get(`user/getAll/${userId}`);
+      console.log(res.data);
     } catch (error) {
       return error;
     }
