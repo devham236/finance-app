@@ -28,8 +28,10 @@ app.post("/api/v1/incomes/add", async (req, res) => {
   }
 });
 
-app.get("/api/v1/incomes/get", async (req, res) => {
-  const allIncomes = await IncomeModel.getIncomes();
+app.get("/api/v1/incomes/get/:userId", async (req, res) => {
+  const { userId } = req.params;
+  const allIncomes = await IncomeModel.getIncomes(userId);
+
   res.json({ data: allIncomes });
 });
 

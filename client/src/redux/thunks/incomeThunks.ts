@@ -16,11 +16,14 @@ export const addIncome = createAsyncThunk(
   }
 );
 
-export const getIncomes = createAsyncThunk("incomes/getIncomes", async () => {
-  try {
-    const { data } = await axios.get("/incomes/get");
-    return data;
-  } catch (error) {
-    return error;
+export const getIncomes = createAsyncThunk(
+  "incomes/getIncomes",
+  async ({ userId }) => {
+    try {
+      const { data } = await axios.get(`/incomes/get/${userId}`);
+      return data;
+    } catch (error) {
+      return error;
+    }
   }
-});
+);

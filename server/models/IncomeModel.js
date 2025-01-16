@@ -47,9 +47,9 @@ incomeSchema.statics.addIncome = async function (incomeInput) {
   }
 };
 
-incomeSchema.statics.getIncomes = async function () {
+incomeSchema.statics.getIncomes = async function (userId) {
   try {
-    const incomeList = await this.find();
+    const incomeList = await this.find({ userId });
     if (incomeList.length > 0) {
       return incomeList;
     } else {
