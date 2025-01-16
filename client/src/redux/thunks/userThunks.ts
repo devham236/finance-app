@@ -80,15 +80,3 @@ export const logoutUser = createAsyncThunk("user/signoutUser", async () => {
     return error;
   }
 });
-
-export const getAllUserData = createAsyncThunk(
-  "user/getAllUserData",
-  async (userId) => {
-    try {
-      const res = await axios.get(`user/getAll/${userId}`);
-      console.log(res.data);
-    } catch (error) {
-      return error;
-    }
-  }
-);
