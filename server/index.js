@@ -51,10 +51,8 @@ app.post("/api/v1/expenses/add", async (req, res) => {
 
 app.get("/api/v1/expenses/get/:userId", async (req, res) => {
   const { userId } = req.params;
-  console.log(userId);
 
   const allExpenses = await ExpenseModel.getExpenses(userId);
-  console.log(allExpenses);
 
   res.json({ data: allExpenses });
 });
@@ -85,8 +83,10 @@ app.post("/api/v1/goals/add", async (req, res) => {
   }
 });
 
-app.get("/api/v1/goals/get", async (req, res) => {
-  const allGoals = await GoalModel.getGoals();
+app.get("/api/v1/goals/get/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  const allGoals = await GoalModel.getGoals(userId);
   res.json({ data: allGoals });
 });
 

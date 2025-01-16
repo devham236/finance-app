@@ -16,14 +16,17 @@ export const addGoal = createAsyncThunk(
   }
 );
 
-export const getGoals = createAsyncThunk("goals/getGoals", async () => {
-  try {
-    const { data } = await axios.get("/goals/get");
-    return data;
-  } catch (error) {
-    return error;
+export const getGoals = createAsyncThunk(
+  "goals/getGoals",
+  async ({ userId }) => {
+    try {
+      const { data } = await axios.get(`/goals/get/${userId}`);
+      return data;
+    } catch (error) {
+      return error;
+    }
   }
-});
+);
 
 export const deleteGoal = createAsyncThunk("goals/delete", async (id) => {
   try {

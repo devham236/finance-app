@@ -5,7 +5,6 @@ const goalSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
     },
     description: {
       type: String,
@@ -18,7 +17,6 @@ const goalSchema = new mongoose.Schema(
     achieved: {
       type: Boolean,
       required: true,
-      unique: false,
     },
   },
   {
@@ -46,9 +44,9 @@ goalSchema.statics.addGoal = async function (goalObject) {
   }
 };
 
-goalSchema.statics.getGoals = async function () {
+goalSchema.statics.getGoals = async function (userId) {
   try {
-    const goalsList = await this.find();
+    const goalsList = await this.find({ userId });
     if (goalsList.length > 0) {
       return goalsList;
     }

@@ -20,7 +20,7 @@ const Goals = () => {
   };
 
   useEffect(() => {
-    dispatch(getGoals());
+    dispatch(getGoals({ userId: userData.id }));
   }, []);
 
   return (
@@ -34,7 +34,7 @@ const Goals = () => {
         </button>
       </div>
       <div className="w-full mt-2 flex flex-col">
-        {goalsData?.map((goal: GoalType, index) => (
+        {goalsData?.map((goal: GoalType, index: number) => (
           <Goal goal={goal} key={index} />
         ))}
       </div>
