@@ -5,17 +5,14 @@ const expenseSchema = new mongoose.Schema(
     label: {
       type: String,
       required: true,
-      unique: true,
     },
     expense: {
       type: Number,
       required: true,
-      unique: false,
     },
     color: {
       type: String,
       required: true,
-      unique: false,
     },
     userId: {
       type: String,
@@ -47,9 +44,9 @@ expenseSchema.statics.addExpense = async function (expenseInput) {
   }
 };
 
-expenseSchema.statics.getExpenses = async function () {
+expenseSchema.statics.getExpenses = async function (userId) {
   try {
-    const expensesList = await this.find();
+    const expensesList = await this.find({ userId });
     if (expensesList.length > 0) {
       return expensesList;
     } else {

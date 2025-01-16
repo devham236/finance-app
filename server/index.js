@@ -49,8 +49,13 @@ app.post("/api/v1/expenses/add", async (req, res) => {
   }
 });
 
-app.get("/api/v1/expenses/get", async (req, res) => {
-  const allExpenses = await ExpenseModel.getExpenses();
+app.get("/api/v1/expenses/get/:userId", async (req, res) => {
+  const { userId } = req.params;
+  console.log(userId);
+
+  const allExpenses = await ExpenseModel.getExpenses(userId);
+  console.log(allExpenses);
+
   res.json({ data: allExpenses });
 });
 

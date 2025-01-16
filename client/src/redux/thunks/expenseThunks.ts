@@ -19,9 +19,9 @@ export const addExpense = createAsyncThunk(
 
 export const getExpenses = createAsyncThunk(
   "expenses/getExpenses",
-  async () => {
+  async ({ userId }) => {
     try {
-      const { data } = await axios.get("/expenses/get");
+      const { data } = await axios.get(`/expenses/get/${userId}`);
       return data;
     } catch (error) {
       return error;
