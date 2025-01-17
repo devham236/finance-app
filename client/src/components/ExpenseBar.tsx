@@ -15,10 +15,10 @@ const ExpenseBar = ({ expense }) => {
     <div className="w-full mb-4">
       <div className="w-full flex items-center justify-between">
         <p className="mb-1">
-          {expensePercentage}% {expense.label}
+          {expense.expense}€ {expense.label}
         </p>
         <p className=" text-container_color_light dark:text-container_color_dark hover:text-text_color_light dark:hover:text-text_color_dark">
-          {expense.expense}€
+          {expensePercentage}%
         </p>
       </div>
       <div className="w-full h-[7px] bg-container_color_light dark:bg-container_color_dark rounded-full">
