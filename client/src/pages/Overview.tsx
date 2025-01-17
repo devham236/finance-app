@@ -1,4 +1,3 @@
-import React from "react";
 import DoughnutChart from "../sections/DoughnutChart";
 import BarChart from "../sections/BarChart";
 import LineChart from "../sections/LineChart";
