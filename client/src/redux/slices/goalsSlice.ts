@@ -23,7 +23,12 @@ const goalsSlice = createSlice({
     builder.addCase(addGoal.fulfilled, (state, action) => {
       state.loading = false;
       state.error = "";
-      state.goalsData = [...state.goalsData, action.payload];
+
+      if (state.goalsData) {
+        state.goalsData = [...state.goalsData, action.payload];
+      } else {
+        state.goalsData = [action.payload];
+      }
     });
     builder.addCase(addGoal.rejected, (state, action) => {
       state.loading = false;
