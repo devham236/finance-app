@@ -44,7 +44,7 @@ const EntryForm = ({ entry }: { entry: string }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
-      <div className="w-[400px] p-[1.5rem] bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark shadow-md rounded-md text-text_color_light dark:text-text_color_dark">
+      <div className="w-[400px] p-[1.5rem] bg-item_color_light dark:bg-item_color_dark shadow-md rounded-md text-text_color_light dark:text-text_color_dark">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold">Add {entry}</h2>
           <span
