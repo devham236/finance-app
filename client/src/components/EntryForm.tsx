@@ -48,7 +48,7 @@ const EntryForm = ({ entry }: { entry: string }) => {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold">Add {entry}</h2>
           <span
-            className="material-symbols-rounded font-bold"
+            className="material-symbols-rounded font-bold cursor-pointer"
             onClick={() => dispatch(closeForm())}
           >
             close
