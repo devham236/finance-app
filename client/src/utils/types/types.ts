@@ -14,6 +14,7 @@ export type UserData = {
   email: string | null;
   photoUrl: string | null;
   id: string | null;
+  createdAt: string | null;
 };
 
 export type NewIncome = {

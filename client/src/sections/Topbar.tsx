@@ -1,15 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../redux/slices/darkmodeSlice";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import AuthForm from "../components/AuthForm";
 import AuthenticatedUser from "../components/AuthenticatedUser";
+import { getFullYearFromTimeStamp } from "../utils/helpers/methods";
 
 const Topbar = () => {
-  const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const { userData } = useSelector((state: any) => state.user);
+  const [currentYear, setCurrentYear] = useState(() =>
+    getFullYearFromTimeStamp(userData.createdAt)
+  );
+  const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const { showForm } = useSelector((state: any) => state.authForm);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(currentYear);
+  }, []);
 
   return (
     <div className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">

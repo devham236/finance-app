@@ -7,7 +7,6 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth, googleProvider } from "../../configs/firebaseConfig.js";
-import axios from "../../configs/axiosConfig.js";
 
 export const createUser = createAsyncThunk(
   "user/signinUser",
@@ -18,11 +17,13 @@ export const createUser = createAsyncThunk(
         inputObject.email,
         inputObject.password
       );
+
       return <UserData>{
         displayName: data.user.displayName,
         email: data.user.email,
         photoUrl: data.user.photoURL,
         id: data.user.uid,
+        createdAt: data.user.reloadUserInfo.createdAt,
       };
     } catch (error) {
       return rejectWithValue(error);
@@ -45,6 +46,7 @@ export const loginUser = createAsyncThunk(
         email: data.user.email,
         photoUrl: data.user.photoURL,
         id: data.user.uid,
+        createdAt: data.user.reloadUserInfo.createdAt,
       };
     } catch (error) {
       return error;
@@ -60,6 +62,7 @@ export const googleSignIn = createAsyncThunk("user/googleSignIn", async () => {
       email: data.user.email,
       photoUrl: data.user.photoURL,
       id: data.user.uid,
+      createdAt: data.user.reloadUserInfo.createdAt,
     };
   } catch (error) {
     return error;
