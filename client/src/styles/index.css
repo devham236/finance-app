@@ -41,6 +41,6 @@
       }
 
     .grid-item{
-        @apply w-full h-full bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark rounded-md p-[1.5rem]
+        @apply w-full h-full bg-item_color_light dark:bg-item_color_dark rounded-md p-[1.5rem]
     }
 }

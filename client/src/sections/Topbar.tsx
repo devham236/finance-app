@@ -21,7 +21,7 @@ const Topbar = () => {
             <select
               name=""
               id="month-picker"
-              className="mr-5 bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark py-1 px-2 appearance-none rounded-md"
+              className="mr-5 bg-item_color_light dark:bg-item_color_dark py-1 px-2 appearance-none rounded-md"
             >
               <option value="January">January</option>
               <option value="February">February</option>
@@ -44,7 +44,7 @@ const Topbar = () => {
             <select
               name=""
               id="year-picker"
-              className="w-[79px] bg-sidebar_item_color_light rounded-md dark:bg-sidebar_item_color_dark p-1 appearance-none py-1 px-2"
+              className="w-[79px] bg-item_color_light rounded-md dark:bg-item_color_dark p-1 appearance-none py-1 px-2"
             >
               <option value="2024">2024</option>
               <option value="2023">2023</option>
@@ -57,7 +57,7 @@ const Topbar = () => {
         </div>
         {/*Darkmode Toggle*/}
         <div
-          className="mr-20 cursor-pointer bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center justify-between px-1 py-1 rounded-[20px] relative"
+          className="mr-20 cursor-pointer bg-item_color_light dark:bg-item_color_dark flex items-center justify-between px-1 py-1 rounded-[20px] relative"
           onClick={() => dispatch(toggleDarkMode())}
         >
           <span className="material-symbols-rounded mr-1">light_mode</span>
@@ -71,7 +71,7 @@ const Topbar = () => {
         {/*User Icon and Auth Form*/}
         {userData?.photoUrl ? (
           <div
-            className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center rounded-full relative w-[32px] h-[32px] cursor-pointer"
+            className="text-text_color_light dark:text-text_color_dark bg-item_color_light dark:bg-item_color_dark flex items-center rounded-full relative w-[32px] h-[32px] cursor-pointer"
             onClick={() => dispatch(toggleAuthForm(true))}
           >
             <img
@@ -83,7 +83,7 @@ const Topbar = () => {
           </div>
         ) : (
           <div
-            className="text-text_color_light dark:text-text_color_dark bg-sidebar_item_color_light dark:bg-sidebar_item_color_dark flex items-center p-1 rounded-full w-[32px] h-[32px] cursor-pointer relative"
+            className="text-text_color_light dark:text-text_color_dark bg-item_color_light dark:bg-item_color_dark flex items-center p-1 rounded-full w-[32px] h-[32px] cursor-pointer relative"
             onClick={() => dispatch(toggleAuthForm(true))}
           >
             <span className={`material-symbols-rounded`}>account_circle</span>

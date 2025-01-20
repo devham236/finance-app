@@ -23,7 +23,7 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="w-[500px] bg-sidebar_item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
+    <div className="w-[500px] bg-item_color_light dark:bg-body_color_dark rounded-md p-[1.5rem] text-text_color_light dark:text-text_color_dark">
       <h2 className="text-xl font-bold mb-4">Authenticate</h2>
       <div className="flex flex-col mb-2">
         <input
