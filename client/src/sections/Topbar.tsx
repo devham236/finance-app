@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../redux/slices/darkmodeSlice";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import AuthForm from "../components/AuthForm";
 import AuthenticatedUser from "../components/AuthenticatedUser";
+import { useEffect, useState } from "react";
 import { getFullYearFromTimeStamp } from "../utils/helpers/methods";
 
 const Topbar = () => {
+  const [passedYears, setPassedYears] = useState<number[]>([]);
   const { userData } = useSelector((state: any) => state.user);
-  const [currentYear, setCurrentYear] = useState(() =>
-    getFullYearFromTimeStamp(userData.createdAt)
-  );
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const { showForm } = useSelector((state: any) => state.authForm);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(currentYear);
+    const startYear = getFullYearFromTimeStamp(userData.createdAt);
+    const currentYear = new Date().getFullYear();
+    let years = [];
+    for (let i = startYear; i <= currentYear; i++) {
+      years.push(i);
+    }
+    setPassedYears(years);
   }, []);
 
   return (
@@ -50,13 +54,16 @@ const Topbar = () => {
           </div>
           <div className="relative">
             <select
+              defaultValue={new Date().getFullYear()}
               name=""
               id="year-picker"
               className="w-[79px] bg-item_color_light rounded-md dark:bg-item_color_dark p-1 appearance-none py-1 px-2"
             >
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
+              {passedYears.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
             </select>
             <span className="material-symbols-rounded absolute top-1/2 right-[2px] transform -translate-y-1/2 font-bold text-green_color">
               keyboard_arrow_down
