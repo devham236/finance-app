@@ -8,7 +8,7 @@ const Trends = () => {
         <div className="flex items-center">
           <p className="text-2xl font-bold mr-2">25%</p>
           <div className="bg-green_color flex items-center justify-center w-7 h-7 rounded-full">
-            <span className="material-symbols-rounded rounded-full text-xl font-bold text-sidebar_item_color_light">
+            <span className="material-symbols-rounded rounded-full text-xl font-bold text-item_color_light">
               arrow_upward
             </span>
           </div>
