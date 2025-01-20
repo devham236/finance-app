@@ -4,7 +4,7 @@ import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import AuthForm from "../components/AuthForm";
 import AuthenticatedUser from "../components/AuthenticatedUser";
 import { useEffect, useState } from "react";
-import { getFullYearFromTimeStamp } from "../utils/helpers/methods";
+import { getYearsFromTimeAccCreated } from "../utils/helpers/methods";
 
 const Topbar = () => {
   const [passedYears, setPassedYears] = useState<number[]>([]);
@@ -14,12 +14,7 @@ const Topbar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const startYear = getFullYearFromTimeStamp(userData.createdAt);
-    const currentYear = new Date().getFullYear();
-    let years = [];
-    for (let i = startYear; i <= currentYear; i++) {
-      years.push(i);
-    }
+    const years = getYearsFromTimeAccCreated(userData.createdAt);
     setPassedYears(years);
   }, []);
 
