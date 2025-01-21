@@ -4,7 +4,10 @@ import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import AuthForm from "../components/AuthForm";
 import AuthenticatedUser from "../components/AuthenticatedUser";
 import { useEffect, useState } from "react";
-import { getYearsFromTimeAccCreated } from "../utils/helpers/methods";
+import {
+  getMonthFromTimeStamp,
+  getYearsFromTimeAccCreated,
+} from "../utils/helpers/methods";
 
 const Topbar = () => {
   const [passedYears, setPassedYears] = useState<number[]>([]);
