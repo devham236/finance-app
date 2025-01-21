@@ -9,8 +9,10 @@ export const getFullYearFromTimeStamp = (timestamp: string): number => {
   return new Date(parseInt(timestamp, 10)).getFullYear();
 };
 
-export const getMonthFromTimeStamp = (timestamp: string): number => {
-  return new Date(parseInt(timestamp, 10)).getMonth();
+export const getMonthFromTimeStamp = (timestamp: string): string => {
+  return new Date(parseInt(timestamp, 10)).toLocaleString("en-US", {
+    month: "long",
+  });
 };
 
 export const getYearsFromTimeAccCreated = (timestamp: string): number[] => {
