@@ -13,7 +13,7 @@ const App = () => {
       }`}
     >
       <div className="w-full h-full flex items-center justify-center bg-body_color_light dark:bg-body_color_dark">
-        <div className="w-full h-full bg-container_color_light dark:bg-container_color_dark shadow-lg">
+        <div className="w-full h-full bg-container_color_light dark:bg-container_color_dark shadow-lg max-w-[1500px] max-h-[900px] rounded-xl">
           <Topbar />
           <div className="w-full h-[calc(100%-98px)] flex">
             <Sidebar />
