@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteGoal, updateAchieved } from "../redux/thunks/goalThunks";
 import { GoalPropsType } from "../utils/types/types";
