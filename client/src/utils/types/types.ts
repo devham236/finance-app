@@ -36,3 +36,12 @@ export type GoalType = {
   achieved: boolean;
   id: string;
 };
+
+// Component Prop Types
+export type ExpenseBarPropsType = {
+  expense: NewExpense;
+};
+
+export type GoalPropsType = {
+  goal: GoalType;
+};

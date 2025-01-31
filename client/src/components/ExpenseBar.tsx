@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { calcExpensePercentage } from "../utils/helpers/methods.ts";
 import { useSelector } from "react-redux";
+import { ExpenseBarPropsType } from "../utils/types/types.ts";
 
-const ExpenseBar = ({ expense }) => {
+const ExpenseBar = ({ expense }: ExpenseBarPropsType) => {
   const { totalExpenses } = useSelector((state: any) => state.expenses);
   const [expensePercentage, setExpensePercentage] = useState<string>();
 
