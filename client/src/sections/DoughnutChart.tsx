@@ -26,7 +26,7 @@ const DoughnutChart = () => {
 
   useEffect(() => {
     dispatch(getIncomes({ userId: userData.id }));
-  }, []);
+  }, [totalIncome]);
 
   return (
     <div className="grid-item flex flex-col items-center justify-between relative">
