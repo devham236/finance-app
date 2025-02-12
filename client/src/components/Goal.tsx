@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
-import { deleteGoal, updateAchieved } from "../redux/thunks/goalThunks";
+import {
+  deleteGoal,
+  updateAchieved,
+  updateTitleDesc,
+} from "../redux/thunks/goalThunks";
 import { GoalPropsType } from "../utils/types/types";
 
 const Goal = ({ goal }: GoalPropsType) => {
@@ -34,7 +38,10 @@ const Goal = ({ goal }: GoalPropsType) => {
         >
           delete
         </span>
-        <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">
+        <span
+          onClick={() => dispatch(updateTitleDesc(goal._id))}
+          className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200"
+        >
           edit
         </span>
       </div>

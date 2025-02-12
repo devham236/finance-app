@@ -4,6 +4,7 @@ import {
   deleteGoal,
   getGoals,
   updateAchieved,
+  updateTitleDesc,
 } from "../thunks/goalThunks";
 
 const goalsSlice = createSlice({
@@ -70,7 +71,7 @@ const goalsSlice = createSlice({
       state.error = action.error.message;
     });
 
-    // Update Goal
+    // Update Goal Achieved
     builder.addCase(updateAchieved.pending, (state) => {
       state.loading = true;
       state.error = "";
@@ -89,6 +90,21 @@ const goalsSlice = createSlice({
       };
     });
     builder.addCase(updateAchieved.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+
+    // Update Goal Title Description
+    builder.addCase(updateTitleDesc.pending, (state) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(updateTitleDesc.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = "";
+      console.log(action.payload);
+    });
+    builder.addCase(updateTitleDesc.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });

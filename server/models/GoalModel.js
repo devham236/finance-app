@@ -82,4 +82,24 @@ goalSchema.statics.updateAchieved = async function ({ _id, newValue }) {
   }
 };
 
+goalSchema.statics.updateTitleDesc = async function ({
+  _id,
+  newTitle,
+  newDesc,
+}) {
+  try {
+    const updatedGoal = await this.findByIdAndUpdate(
+      { _id },
+      {
+        title: newTitle,
+        description: newDesc,
+      },
+      { new: true }
+    );
+    return updatedGoal;
+  } catch (error) {
+    throw new Error("Unable to update goal.");
+  }
+};
+
 export const GoalModel = mongoose.model("goals", goalSchema);

@@ -38,11 +38,28 @@ export const deleteGoal = createAsyncThunk("goals/delete", async (id) => {
 });
 
 export const updateAchieved = createAsyncThunk(
-  "goals/update",
+  "goals/updateAchieved",
   async ({ id, newValue }) => {
     try {
-      const response = await axios.patch(`/goals/update/${id}`, { newValue });
+      const response = await axios.patch(`/goals/updateAchieved/${id}`, {
+        newValue,
+      });
       return response.data;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
+export const updateTitleDesc = createAsyncThunk(
+  "goals/updateTitleDesc",
+  async ({ id }) => {
+    try {
+      const response = await axios.patch(`/goals/updateTitleDesc/${id}`, {
+        newTitle: "lorem",
+        newDesc: "ipsum",
+      });
+      return response;
     } catch (error) {
       return error;
     }
