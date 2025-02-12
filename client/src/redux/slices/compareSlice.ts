@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const lineChartSlice = createSlice({
+const compareSlice = createSlice({
   name: "lineChart",
   initialState: {
     lineData: {
@@ -65,5 +65,5 @@ const lineChartSlice = createSlice({
   },
 });
 
-export const { addLinePoint } = lineChartSlice.actions;
-export default lineChartSlice.reducer;
+export const { addLinePoint } = compareSlice.actions;
+export default compareSlice.reducer;

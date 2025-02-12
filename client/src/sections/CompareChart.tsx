@@ -20,7 +20,7 @@ ChartJS.register(
 );
 
 const LineChart = () => {
-  const { lineData } = useSelector((state: any) => state.lineChart);
+  const { lineData } = useSelector((state: any) => state.compare);
   const config = { maintainAspectRatio: false };
 
   return (
