@@ -2,7 +2,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import React, { useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleEntryForm } from "../redux/slices/entryFormSlice";
+import { toggleEntryForm } from "../redux/slices/newEntrySlice";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import { getIncomes } from "../redux/thunks/incomeThunks";
 

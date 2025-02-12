@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const compareSlice = createSlice({
-  name: "lineChart",
+  name: "compare",
   initialState: {
     lineData: {
       labels: [

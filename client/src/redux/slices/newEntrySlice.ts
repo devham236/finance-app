@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const entryFormSlice = createSlice({
-  name: "entryForm",
+const newEntrySlice = createSlice({
+  name: "newEntry",
   initialState: { isOpen: false, entry: null },
   reducers: {
     toggleEntryForm: (state, action) => {
@@ -14,5 +14,5 @@ const entryFormSlice = createSlice({
   },
 });
 
-export const { toggleEntryForm, closeForm } = entryFormSlice.actions;
-export default entryFormSlice.reducer;
+export const { toggleEntryForm, closeForm } = newEntrySlice.actions;
+export default newEntrySlice.reducer;

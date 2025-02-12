@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Goal from "../components/Goal";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleEntryForm } from "../redux/slices/entryFormSlice";
+import { toggleEntryForm } from "../redux/slices/newEntrySlice";
 import { GoalType } from "../utils/types/types";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import { getGoals } from "../redux/thunks/goalThunks";

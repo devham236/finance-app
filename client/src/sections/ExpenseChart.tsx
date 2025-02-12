@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import ExpenseBar from "../components/ExpenseBar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
-import { toggleEntryForm } from "../redux/slices/entryFormSlice";
+import { toggleEntryForm } from "../redux/slices/newEntrySlice";
 import { getExpenses, deleteAllExpenses } from "../redux/thunks/expenseThunks";
 
 const BarChart = () => {

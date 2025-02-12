@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { closeForm } from "../redux/slices/entryFormSlice";
+import { closeForm } from "../redux/slices/newEntrySlice";
 import { useDispatch, useSelector } from "react-redux";
 import { addExpense } from "../redux/thunks/expenseThunks";
 import { addGoal } from "../redux/thunks/goalThunks";
 import { addIncome } from "../redux/thunks/incomeThunks";
 
-const EntryForm = ({ entry }: { entry: string }) => {
+const NewEntry = ({ entry }: { entry: string }) => {
   const [formData, setFormData] = useState(() => getInitialState(entry));
   const { userData } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
@@ -141,4 +141,4 @@ const EntryForm = ({ entry }: { entry: string }) => {
   );
 };
 
-export default EntryForm;
+export default NewEntry;

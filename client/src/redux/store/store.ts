@@ -6,7 +6,7 @@ import {
   persistedUserReducer,
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
-import entryFormReducer from "../slices/entryFormSlice";
+import newEntryReducer from "../slices/newEntrySlice";
 import compareSlice from "../slices/compareSlice";
 import expensesReducer from "../slices/expensesSlice";
 import incomeReducer from "../slices/incomeSlice";
@@ -19,7 +19,7 @@ export const store = configureStore({
     user: persistedUserReducer,
     authForm: authFormReducer,
     income: incomeReducer,
-    entryForm: entryFormReducer,
+    newEntry: newEntryReducer,
     expenses: expensesReducer,
     compare: compareSlice,
     goals: goalsReducer,
