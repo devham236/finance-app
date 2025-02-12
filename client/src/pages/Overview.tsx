@@ -1,6 +1,6 @@
 import DoughnutChart from "../sections/DoughnutChart";
 import BarChart from "../sections/BarChart";
-import LineChart from "../sections/LineChart";
+import CompareChart from "../sections/CompareChart";
 import Goals from "../sections/Goals";
 import Trends from "../sections/Trends";
 
@@ -10,7 +10,7 @@ const Overview = () => {
       <DoughnutChart />
       <BarChart />
       <Trends />
-      <LineChart />
+      <CompareChart />
       <Goals />
     </div>
   );
