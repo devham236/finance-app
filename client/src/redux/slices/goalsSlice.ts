@@ -102,7 +102,15 @@ const goalsSlice = createSlice({
     builder.addCase(updateTitleDesc.fulfilled, (state, action) => {
       state.loading = false;
       state.error = "";
-      console.log(action.payload);
+
+      const index = state.goalsData.findIndex(
+        (goal) => goal._id === action.payload._id
+      );
+      state.goalsData[index] = {
+        ...current(state.goalsData[index]),
+        title: action.payload.title,
+        description: action.payload.description,
+      };
     });
     builder.addCase(updateTitleDesc.rejected, (state, action) => {
       state.loading = false;
