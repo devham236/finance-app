@@ -16,7 +16,6 @@ const MainContent = () => {
         <Route path="/settings" element={<Settings />} />
       </Routes>
       {isOpen && <NewEntry entry={entry} />}
-      <EditGoal />
     </div>
   );
 };
