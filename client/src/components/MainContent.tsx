@@ -3,6 +3,7 @@ import Overview from "../pages/Overview";
 import Settings from "../pages/Settings";
 import { useSelector } from "react-redux";
 import NewEntry from "./NewEntry";
+import EditGoal from "./EditGoal";
 
 const MainContent = () => {
   const { isOpen, entry } = useSelector((state: any) => state.newEntry);
@@ -15,6 +16,7 @@ const MainContent = () => {
         <Route path="/settings" element={<Settings />} />
       </Routes>
       {isOpen && <NewEntry entry={entry} />}
+      <EditGoal />
     </div>
   );
 };
