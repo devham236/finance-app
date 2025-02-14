@@ -4,15 +4,15 @@ const editGoalSlice = createSlice({
   name: "editGoal",
   initialState: { editGoal: false, goal: null },
   reducers: {
-    toggleGoalForm: (state, action) => {
+    toggleEditGoalForm: (state, action) => {
       state.editGoal = !state.editGoal;
       state.goal = action.payload;
     },
-    closeForm: (state) => {
+    closeEditGoalForm: (state) => {
       state.editGoal = false;
     },
   },
 });
 
-export const { toggleGoalForm, closeForm } = editGoalSlice.actions;
+export const { toggleEditGoalForm, closeEditGoalForm } = editGoalSlice.actions;
 export default editGoalSlice.reducer;

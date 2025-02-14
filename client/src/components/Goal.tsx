@@ -5,6 +5,7 @@ import {
   updateTitleDesc,
 } from "../redux/thunks/goalThunks";
 import { GoalPropsType } from "../utils/types/types";
+import { toggleEditGoalForm } from "../redux/slices/editGoalSlice";
 
 const Goal = ({ goal }: GoalPropsType) => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Goal = ({ goal }: GoalPropsType) => {
       </div>
       <div className="flex items-center">
         <span
-          onClick={() => dispatch(updateTitleDesc(goal._id))}
+          onClick={() => dispatch(toggleEditGoalForm(goal))}
           className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200 mr-2 last:mr-0"
         >
           edit

@@ -7,6 +7,7 @@ import EditGoal from "./EditGoal";
 
 const MainContent = () => {
   const { isOpen, entry } = useSelector((state: any) => state.newEntry);
+  const { editGoal, goal } = useSelector((state: any) => state.editGoal);
 
   return (
     <div className="w-full h-full flex items-center justify-center text-text_color_light p-[1.5rem]">
@@ -16,6 +17,7 @@ const MainContent = () => {
         <Route path="/settings" element={<Settings />} />
       </Routes>
       {isOpen && <NewEntry entry={entry} />}
+      {editGoal && <EditGoal goal={goal} />}
     </div>
   );
 };

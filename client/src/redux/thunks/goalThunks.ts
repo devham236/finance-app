@@ -53,11 +53,11 @@ export const updateAchieved = createAsyncThunk(
 
 export const updateTitleDesc = createAsyncThunk(
   "goals/updateTitleDesc",
-  async (id) => {
+  async ({ id, newTitle, newDesc }) => {
     try {
       const response = await axios.patch(`/goals/updateTitleDesc/${id}`, {
-        newTitle: "lorem",
-        newDesc: "ipsum",
+        newTitle,
+        newDesc,
       });
       return response.data;
     } catch (error) {
