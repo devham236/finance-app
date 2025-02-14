@@ -33,16 +33,16 @@ const Goal = ({ goal }: GoalPropsType) => {
       </div>
       <div className="flex items-center">
         <span
-          onClick={() => dispatch(deleteGoal(goal._id))}
+          onClick={() => dispatch(updateTitleDesc(goal._id))}
           className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200 mr-2 last:mr-0"
         >
-          delete
+          edit
         </span>
         <span
-          onClick={() => dispatch(updateTitleDesc(goal._id))}
+          onClick={() => dispatch(deleteGoal(goal._id))}
           className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200"
         >
-          edit
+          delete
         </span>
       </div>
     </div>
