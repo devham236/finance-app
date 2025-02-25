@@ -7,7 +7,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="h-full text-center border-r-2 border-slate-50 dark:border-opacity-20 flex flex-col p-[1.5rem] text-text_color_light dark:text-text_color_dark relative">
+    <section className="h-full text-center border-r-2 border-slate-50 dark:border-opacity-20 flex flex-col p-[1.5rem] text-text_color_light dark:text-text_color_dark relative">
       <Link
         to={"/overview"}
         onClick={() => dispatch(setCurrentPath("/overview"))}
@@ -33,7 +33,7 @@ const Sidebar = () => {
         <span className="material-symbols-rounded mr-2">settings</span>
         <p>Settings</p>
       </Link>
-    </div>
+    </section>
   );
 };
 

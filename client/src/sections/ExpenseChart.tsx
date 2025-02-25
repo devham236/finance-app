@@ -25,7 +25,7 @@ const BarChart = () => {
   };
 
   return (
-    <div className="grid-item flex flex-col items-center justify-start relative">
+    <section className="grid-item flex flex-col items-center justify-start relative">
       <div className="flex items-center justify-between w-full mb-2">
         <h3 className="font-[600] self-start">Total Expenses</h3>
         <div className="flex items-center">
@@ -54,7 +54,7 @@ const BarChart = () => {
       </div>
       <div className="flex items-center justify-center"></div>
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold"></p>
-    </div>
+    </section>
   );
 };
 

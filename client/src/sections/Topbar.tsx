@@ -19,7 +19,7 @@ const Topbar = () => {
   }, []);
 
   return (
-    <div className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
+    <nav className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="text-green_color font-bold">Ruune</div>
       <div className="flex items-center">
         {/*Month and Year Picker*/}
@@ -114,7 +114,7 @@ const Topbar = () => {
           {userData?.id !== "" ? <AuthenticatedUser /> : <AuthForm />}
         </div>
       )}
-    </div>
+    </nav>
   );
 };
 

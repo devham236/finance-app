@@ -24,7 +24,7 @@ const Goals = () => {
   }, []);
 
   return (
-    <div className="grid-item flex flex-col">
+    <section className="grid-item flex flex-col">
       <div className="flex items-center justify-between">
         <h3 className="font-[600] self-start">Goals</h3>
         <button onClick={addData}>
@@ -38,7 +38,7 @@ const Goals = () => {
           <Goal goal={goal} key={index} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

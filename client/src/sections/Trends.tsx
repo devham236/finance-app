@@ -1,6 +1,6 @@
 const Trends = () => {
   return (
-    <div className="grid-item flex flex-col items-center justify-between">
+    <section className="grid-item flex flex-col items-center justify-between">
       <h3 className="font-[600] self-start">Trends</h3>
       <div className="border-2 border-container_color_light dark:border-container_color_dark flex flex-col items-center px-5 py-9 rounded-md">
         <div className="flex items-center">
@@ -14,7 +14,7 @@ const Trends = () => {
         <p>compared to last month</p>
       </div>
       <p>some info</p>
-    </div>
+    </section>
   );
 };
 

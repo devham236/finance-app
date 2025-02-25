@@ -29,7 +29,7 @@ const DoughnutChart = () => {
   }, [totalIncome]);
 
   return (
-    <div className="grid-item flex flex-col items-center justify-between relative">
+    <section className="grid-item flex flex-col items-center justify-between relative">
       <div className="flex items-center justify-between w-full">
         <h3 className="font-[600] self-start">Total Income</h3>
         <div className="flex items-center">
@@ -65,7 +65,7 @@ const DoughnutChart = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
