@@ -47,23 +47,6 @@ const Topbar = () => {
               keyboard_arrow_down
             </span>
           </div>
-          <div className="relative">
-            <select
-              defaultValue={new Date().getFullYear()}
-              name=""
-              id="year-picker"
-              className="w-[79px] bg-item_color_light rounded-md dark:bg-item_color_dark p-1 appearance-none py-1 px-2"
-            >
-              {passedYears.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-            <span className="material-symbols-rounded absolute top-1/2 right-[2px] transform -translate-y-1/2 font-bold text-green_color">
-              keyboard_arrow_down
-            </span>
-          </div>
         </div>
         {/*Darkmode Toggle*/}
         <div
