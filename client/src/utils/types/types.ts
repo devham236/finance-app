@@ -21,6 +21,7 @@ export type NewIncome = {
   income: number;
   label: string;
   color: string;
+  [key: string]: unknown;
 };
 
 export type NewExpense = {
@@ -28,6 +29,7 @@ export type NewExpense = {
   expense: number;
   label: string;
   color: string;
+  [key: string]: unknown;
 };
 
 export type GoalType = {
@@ -35,6 +37,7 @@ export type GoalType = {
   description: string;
   achieved: boolean;
   id: string;
+  [key: string]: unknown;
 };
 
 // Component Prop Types
