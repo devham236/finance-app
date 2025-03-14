@@ -6,7 +6,7 @@ import AuthenticatedUser from "../components/AuthenticatedUser";
 import { useEffect, useState } from "react";
 import { getYearsFromTimeAccCreated } from "../utils/helpers/methods";
 
-const Topbar = () => {
+const Navbar = () => {
   const [passedYears, setPassedYears] = useState<number[]>([]);
   const { userData } = useSelector((state: any) => state.user);
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
@@ -101,4 +101,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export default Navbar;
