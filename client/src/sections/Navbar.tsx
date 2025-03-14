@@ -3,51 +3,17 @@ import { toggleDarkMode } from "../redux/slices/darkmodeSlice";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 import AuthForm from "../components/AuthForm";
 import AuthenticatedUser from "../components/AuthenticatedUser";
-import { useEffect, useState } from "react";
-import { getYearsFromTimeAccCreated } from "../utils/helpers/methods";
 
 const Navbar = () => {
-  const [passedYears, setPassedYears] = useState<number[]>([]);
   const { userData } = useSelector((state: any) => state.user);
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const { showForm } = useSelector((state: any) => state.authForm);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const years = getYearsFromTimeAccCreated(userData.createdAt);
-    setPassedYears(years);
-  }, []);
-
   return (
     <nav className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <div className="text-green_color font-bold">Ruune</div>
       <div className="flex items-center">
-        {/*Month and Year Picker*/}
-        <div className="flex items-center mr-20 ">
-          <div className="relative">
-            <select
-              name=""
-              id="month-picker"
-              className="mr-5 bg-item_color_light dark:bg-item_color_dark py-1 px-2 appearance-none rounded-md"
-            >
-              <option value="January">January</option>
-              <option value="February">February</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-              <option value="May">May</option>
-              <option value="June">June</option>
-              <option value="July">July</option>
-              <option value="August">August</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-            </select>
-            <span className="material-symbols-rounded absolute top-1/2 right-[21px] transform -translate-y-1/2 font-bold text-green_color">
-              keyboard_arrow_down
-            </span>
-          </div>
-        </div>
         {/*Darkmode Toggle*/}
         <div
           className="mr-20 cursor-pointer bg-item_color_light dark:bg-item_color_dark flex items-center justify-between px-1 py-1 rounded-[20px] relative"
