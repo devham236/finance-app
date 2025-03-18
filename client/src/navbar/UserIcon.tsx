@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 
-const UserIcon = ({ children }: { children: ReactNode }) => {
+const UserIcon = () => {
   const { userData } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
 

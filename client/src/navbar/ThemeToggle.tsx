@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../redux/slices/darkmodeSlice";
 
-const ThemeToggle = ({ children }: { children: ReactNode }) => {
+const ThemeToggle = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
   const dispatch = useDispatch();
 

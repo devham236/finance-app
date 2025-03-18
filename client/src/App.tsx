@@ -1,7 +1,7 @@
-import Navbar from "./sections/Navbar";
 import Sidebar from "./sections/Sidebar";
 import MainContent from "./components/MainContent";
 import { useSelector } from "react-redux";
+import Navbar from "./navbar/Navbar";
 
 const App = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
