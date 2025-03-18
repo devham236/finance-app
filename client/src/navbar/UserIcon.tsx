@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleAuthForm } from "../redux/slices/authFormSlice";
 
-const UserIcon = () => {
+const UserIcon = ({ children }: { children: ReactNode }) => {
   const { userData } = useSelector((state: any) => state.user);
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const UserIcon = () => {
       className="text-text_color_light dark:text-text_color_dark bg-item_color_light dark:bg-item_color_dark flex items-center p-1 rounded-full w-[32px] h-[32px] cursor-pointer relative"
       onClick={() => dispatch(toggleAuthForm(true))}
     >
-      <span className={`material-symbols-rounded`}>account_circle</span>
+      {children}
       {userData?.id !== "" && (
         <div className="w-[10px] h-[10px] bg-green_color absolute top-0 right-[-2px] rounded-full"></div>
       )}
