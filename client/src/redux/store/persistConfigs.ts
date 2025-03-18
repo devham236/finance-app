@@ -5,11 +5,6 @@ export const persistDarkmodeConfig = {
   storage,
 };
 
-export const persistSidebarConfig = {
-  key: "sidebar",
-  storage,
-};
-
 export const persistUserConfig = {
   key: "user",
   storage,

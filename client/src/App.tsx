@@ -1,7 +1,8 @@
-import Sidebar from "./sections/Sidebar";
+import Sidebar from "./sidebar/Sidebar";
 import MainContent from "./components/MainContent";
 import { useSelector } from "react-redux";
 import Navbar from "./navbar/Navbar";
+import SidebarItem from "./sidebar/SidebarItem";
 
 const App = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
@@ -16,7 +17,16 @@ const App = () => {
         <div className="w-full h-full bg-container_color_light dark:bg-container_color_dark shadow-lg max-w-[1500px] max-h-[900px] rounded-xl">
           <Navbar />
           <div className="w-full h-[calc(100%-98px)] flex">
-            <Sidebar />
+            <Sidebar>
+              <SidebarItem path={"/overview"}>
+                <span className="material-symbols-rounded mr-2">grid_view</span>
+                <p>Overview</p>
+              </SidebarItem>
+              <SidebarItem path={"/settings"}>
+                <span className="material-symbols-rounded mr-2">settings</span>
+                <p>Settings</p>
+              </SidebarItem>
+            </Sidebar>
             <MainContent />
           </div>
         </div>

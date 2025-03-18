@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { PERSIST, persistStore } from "redux-persist";
 import {
   persistedDarkmodeReducer,
-  persistedSidebarReducer,
   persistedUserReducer,
 } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
@@ -12,10 +11,11 @@ import expensesReducer from "../slices/expensesSlice";
 import incomeReducer from "../slices/incomeSlice";
 import goalsReducer from "../slices/goalsSlice";
 import editGoalReducer from "../slices/editGoalSlice";
+import sidebarReducer from "../slices/sidebarSlice";
 
 export const store = configureStore({
   reducer: {
-    sidebar: persistedSidebarReducer,
+    sidebar: sidebarReducer,
     darkmode: persistedDarkmodeReducer,
     user: persistedUserReducer,
     authForm: authFormReducer,
