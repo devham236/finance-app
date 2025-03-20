@@ -1,7 +1,7 @@
 import React from "react";
 
-const Modal = () => {
+const NewEntry = () => {
   return <div></div>;
 };
 
-export default Modal;
+export default NewEntry;
