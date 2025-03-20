@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { closeEditGoalForm } from "../redux/slices/editGoalSlice";
 import { useDispatch } from "react-redux";
 import { updateTitleDesc } from "../redux/thunks/goalThunks";
+import { GoalType } from "../utils/types/types";
 
-const EditGoal = ({ goal }) => {
+const EditGoal = ({ goal }: { goal: GoalType }) => {
   const [newGoalInput, setNewGoalInput] = useState({
     newTitle: "",
     newDescription: "",
