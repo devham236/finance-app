@@ -8,7 +8,7 @@ const TimePicker = () => {
 
   useEffect(() => {
     const generateMonths = () => {
-      const creationDate = new Date(322472070);
+      const creationDate = new Date(Number(userData.createdAt));
       const currentDate = new Date();
       const monthList: string[] = [];
 
@@ -41,8 +41,8 @@ const TimePicker = () => {
 
   return (
     <div className="mr-20">
-      <label htmlFor="monthPicker">Select a month:</label>
       <select
+        className="bg-item_color_light dark:bg-item_color_dark p-1 rounded-md"
         id="monthPicker"
         value={selectedMonth}
         onChange={(e) => setSelectedMonth(e.target.value)}

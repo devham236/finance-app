@@ -8,7 +8,7 @@ const ThemeToggle = ({ children }: { children: ReactNode }) => {
 
   return (
     <div
-      className="mr-20 cursor-pointer bg-item_color_light dark:bg-item_color_dark flex items-center justify-between px-1 py-1 rounded-[20px] relative"
+      className="mr-20 cursor-pointer bg-item_color_light dark:bg-item_color_dark flex items-center justify-between p-1 rounded-[20px] relative"
       onClick={() => dispatch(toggleDarkMode())}
     >
       {children}
