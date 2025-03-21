@@ -5,7 +5,7 @@ const timePickerSlice = createSlice({
   initialState: { months: [], selectedMonth: "" },
   reducers: {
     setMonths: (state, action) => {
-      state.months = [...action.payload];
+      state.months = action.payload;
     },
     setSelectedMonth: (state, action) => {
       state.selectedMonth = action.payload;

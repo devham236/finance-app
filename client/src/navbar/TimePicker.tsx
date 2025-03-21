@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { generateMonths } from "../utils/helpers/methods";
+import { setMonths, setSelectedMonth } from "../redux/slices/timePickerSlice";
 
 const TimePicker = () => {
-  const [months, setMonths] = useState<string[]>([]);
-  const [selectedMonth, setSelectedMonth] = useState<string>("");
   const { userData } = useSelector((state: any) => state.user);
+  const { months, selectedMonth } = useSelector(
+    (state: any) => state.timePicker
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const monthList = generateMonths(userData.createdAt);
-    setMonths(monthList);
-    setSelectedMonth(monthList[monthList.length - 1]);
+
+    dispatch(setMonths(monthList));
+    dispatch(setSelectedMonth(monthList[monthList.length - 1]));
   }, [userData.createdAt]);
 
   return (
@@ -18,9 +22,9 @@ const TimePicker = () => {
       <select
         className="cursor-pointer bg-item_color_light dark:bg-item_color_dark p-1 rounded-md"
         value={selectedMonth}
-        onChange={(e) => setSelectedMonth(e.target.value)}
+        onChange={(e) => dispatch(setSelectedMonth(e.target.value))}
       >
-        {months.map((month, index) => (
+        {months?.map((month: string, index: number) => (
           <option key={index} value={month}>
             {month}
           </option>
