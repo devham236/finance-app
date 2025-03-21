@@ -12,6 +12,7 @@ import incomeReducer from "../slices/incomeSlice";
 import goalsReducer from "../slices/goalsSlice";
 import editGoalReducer from "../slices/editGoalSlice";
 import sidebarReducer from "../slices/sidebarSlice";
+import timePickerReducer from "../slices/timePickerSlice";
 
 export const store = configureStore({
   reducer: {
@@ -25,6 +26,7 @@ export const store = configureStore({
     compare: compareSlice,
     goals: goalsReducer,
     editGoal: editGoalReducer,
+    timePicker: timePickerReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
