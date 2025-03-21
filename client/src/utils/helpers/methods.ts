@@ -17,3 +17,31 @@ export const getInitialState = (entryType: string) => {
       return {};
   }
 };
+
+export const generateMonths = (timestamp: string) => {
+  const creationDate = new Date(Number(timestamp));
+  const currentDate = new Date();
+  const monthList: string[] = [];
+
+  let year = creationDate.getFullYear();
+  let month = creationDate.getMonth(); // 0 = January, 11 = December
+
+  while (
+    year < currentDate.getFullYear() ||
+    (year === currentDate.getFullYear() && month <= currentDate.getMonth())
+  ) {
+    const monthName = new Intl.DateTimeFormat("en-US", {
+      month: "short",
+    }).format(new Date(year, month));
+    monthList.push(`${monthName} - ${year}`);
+
+    // Move to the next month
+    month++;
+    if (month > 11) {
+      month = 0;
+      year++;
+    }
+  }
+
+  return monthList; // Default to latest month
+};

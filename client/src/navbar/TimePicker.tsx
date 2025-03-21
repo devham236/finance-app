@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { generateMonths } from "../utils/helpers/methods";
 
 const TimePicker = () => {
   const [months, setMonths] = useState<string[]>([]);
@@ -7,36 +8,9 @@ const TimePicker = () => {
   const { userData } = useSelector((state: any) => state.user);
 
   useEffect(() => {
-    const generateMonths = () => {
-      const creationDate = new Date(Number(userData.createdAt));
-      const currentDate = new Date();
-      const monthList: string[] = [];
-
-      let year = creationDate.getFullYear();
-      let month = creationDate.getMonth(); // 0 = January, 11 = December
-
-      while (
-        year < currentDate.getFullYear() ||
-        (year === currentDate.getFullYear() && month <= currentDate.getMonth())
-      ) {
-        const monthName = new Intl.DateTimeFormat("en-US", {
-          month: "short",
-        }).format(new Date(year, month));
-        monthList.push(`${monthName} - ${year}`);
-
-        // Move to the next month
-        month++;
-        if (month > 11) {
-          month = 0;
-          year++;
-        }
-      }
-
-      setMonths(monthList);
-      setSelectedMonth(monthList[monthList.length - 1]); // Default to latest month
-    };
-
-    generateMonths();
+    const monthList = generateMonths(userData.createdAt);
+    setMonths(monthList);
+    setSelectedMonth(monthList[monthList.length - 1]);
   }, [userData.createdAt]);
 
   return (
