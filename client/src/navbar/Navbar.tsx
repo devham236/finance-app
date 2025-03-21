@@ -2,12 +2,14 @@ import ThemeToggle from "./ThemeToggle";
 import UserIcon from "./UserIcon";
 import Auth from "./Auth";
 import Title from "./Title";
+import TimePicker from "./TimePicker";
 
 const Navbar = () => {
   return (
     <nav className="w-full p-8 border-b-2 relative border-slate-50 dark:border-opacity-20 flex items-center justify-between text-text_color_light dark:text-text_color_dark">
       <Title>Ruune</Title>
       <div className="flex items-center">
+        <TimePicker />
         <ThemeToggle>
           <span className="material-symbols-rounded mr-1">light_mode</span>
           <span className="material-symbols-rounded">dark_mode</span>
