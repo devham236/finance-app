@@ -31,6 +31,8 @@ app.post("/api/v1/incomes/add", async (req, res) => {
 
 app.get("/api/v1/incomes/get/:userId", async (req, res) => {
   const { userId } = req.params;
+  console.log(req.query);
+
   const allIncomes = await IncomeModel.getIncomes(userId);
 
   res.json({ data: allIncomes });
