@@ -14,6 +14,7 @@ const server = http.createServer(app);
 app.use(cors());
 app.use(express.json());
 
+// Income
 app.post("/api/v1/incomes/add", async (req, res) => {
   const { incomeInput } = req.body;
   try {
@@ -35,6 +36,7 @@ app.get("/api/v1/incomes/get/:userId", async (req, res) => {
   res.json({ data: allIncomes });
 });
 
+//Expenses
 app.post("/api/v1/expenses/add", async (req, res) => {
   const { expenseInput } = req.body;
   try {
@@ -72,6 +74,7 @@ app.delete("/api/v1/expenses/deleteAll/:userId", async (req, res) => {
   }
 });
 
+//Goals
 app.post("/api/v1/goals/add", async (req, res) => {
   const { goalObject } = req.body;
   try {

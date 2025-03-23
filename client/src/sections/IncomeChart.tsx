@@ -13,6 +13,7 @@ const DoughnutChart = () => {
     (state: any) => state.income
   );
   const { userData } = useSelector((state: any) => state.user);
+  const { selectedMonth } = useSelector((state: any) => state.timePicker);
   const config = {};
   const dispatch = useDispatch();
 
@@ -26,7 +27,8 @@ const DoughnutChart = () => {
 
   useEffect(() => {
     dispatch(getIncomes({ userId: userData.id }));
-  }, [totalIncome]);
+    console.log(selectedMonth);
+  }, [totalIncome, selectedMonth]);
 
   return (
     <section className="grid-item flex flex-col items-center justify-between relative">
