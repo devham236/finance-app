@@ -18,7 +18,7 @@ const ExpenseBar = ({ expense }: ExpenseBarPropsType) => {
         <p className="mb-1">
           {expense.expense}€ {expense.label}
         </p>
-        <p className=" text-container_color_light dark:text-container_color_dark hover:text-text_color_light dark:hover:text-text_color_dark">
+        <p className=" text-container_color_light dark:text-container_color_dark hover:text-text_color_light dark:hover:text-text_color_dark duration-200 cursor-default">
           {expensePercentage}%
         </p>
       </div>
