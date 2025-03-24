@@ -48,8 +48,6 @@ incomeSchema.statics.addIncome = async function (incomeInput) {
 };
 
 incomeSchema.statics.getIncomes = async function (userId, dateRange) {
-  console.log(dateRange);
-
   try {
     const incomeList = await this.find({ userId, createdAt: dateRange });
     if (incomeList.length > 0) {
