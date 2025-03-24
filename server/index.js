@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import { ExpenseModel } from "./models/ExpenseModel.js";
 import { GoalModel } from "./models/GoalModel.js";
 import { IncomeModel } from "./models/IncomeModel.js";
+import { genDateRange } from "./middleware/dateRange.js";
 dotenv.config();
 
 const app = express();
@@ -29,13 +30,17 @@ app.post("/api/v1/incomes/add", async (req, res) => {
   }
 });
 
-app.get("/api/v1/incomes/get/:userId", async (req, res) => {
+app.get("/api/v1/incomes/get/:userId", genDateRange, async (req, res) => {
   const { userId } = req.params;
-  console.log(req.query);
+  const { dateRange } = req;
 
-  const allIncomes = await IncomeModel.getIncomes(userId);
+  try {
+    const allIncomes = await IncomeModel.getIncomes(userId, dateRange);
 
-  res.json({ data: allIncomes });
+    res.json({ data: allIncomes });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch incomes." });
+  }
 });
 
 //Expenses
