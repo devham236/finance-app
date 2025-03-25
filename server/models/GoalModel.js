@@ -44,9 +44,9 @@ goalSchema.statics.addGoal = async function (goalObject) {
   }
 };
 
-goalSchema.statics.getGoals = async function (userId) {
+goalSchema.statics.getGoals = async function (userId, dateRange) {
   try {
-    const goalsList = await this.find({ userId });
+    const goalsList = await this.find({ userId, createdAt: dateRange });
     if (goalsList.length > 0) {
       return goalsList;
     }

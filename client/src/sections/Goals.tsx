@@ -8,8 +8,9 @@ import { getGoals } from "../redux/thunks/goalThunks";
 
 const Goals = () => {
   const { userData } = useSelector((state: any) => state.user);
-  const dispatch = useDispatch();
   const { goalsData } = useSelector((state: any) => state.goals);
+  const { selectedMonth } = useSelector((state: any) => state.timePicker);
+  const dispatch = useDispatch();
 
   const addData = () => {
     if (!userData || !userData.id) {
@@ -20,8 +21,8 @@ const Goals = () => {
   };
 
   useEffect(() => {
-    dispatch(getGoals({ userId: userData.id }));
-  }, []);
+    dispatch(getGoals({ userId: userData.id, selectedMonth: selectedMonth }));
+  }, [selectedMonth]);
 
   return (
     <section className="grid-item flex flex-col">

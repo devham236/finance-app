@@ -97,10 +97,11 @@ app.post("/api/v1/goals/add", async (req, res) => {
   }
 });
 
-app.get("/api/v1/goals/get/:userId", async (req, res) => {
+app.get("/api/v1/goals/get/:userId", genDateRange, async (req, res) => {
   const { userId } = req.params;
+  const { dateRange } = req;
 
-  const allGoals = await GoalModel.getGoals(userId);
+  const allGoals = await GoalModel.getGoals(userId, dateRange);
   res.json({ data: allGoals });
 });
 

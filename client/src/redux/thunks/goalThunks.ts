@@ -18,10 +18,17 @@ export const addGoal = createAsyncThunk(
 
 export const getGoals = createAsyncThunk(
   "goals/getGoals",
-  async ({ userId }) => {
+  async ({
+    userId,
+    selectedMonth,
+  }: {
+    userId: number;
+    selectedMonth: string;
+  }) => {
     try {
-      const { data } = await axios.get(`/goals/get/${userId}`);
-
+      const { data } = await axios.get(`/goals/get/${userId}`, {
+        params: { selectedMonth },
+      });
       return data.data;
     } catch (error) {
       return error;
