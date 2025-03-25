@@ -44,7 +44,7 @@ const goalsSlice = createSlice({
     builder.addCase(getGoals.fulfilled, (state, action) => {
       state.loading = false;
       state.error = "";
-      state.goalsData = action.payload.data;
+      state.goalsData = action.payload;
     });
     builder.addCase(getGoals.rejected, (state, action) => {
       state.loading = false;

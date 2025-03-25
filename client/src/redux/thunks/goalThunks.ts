@@ -21,7 +21,8 @@ export const getGoals = createAsyncThunk(
   async ({ userId }) => {
     try {
       const { data } = await axios.get(`/goals/get/${userId}`);
-      return data;
+
+      return data.data;
     } catch (error) {
       return error;
     }
