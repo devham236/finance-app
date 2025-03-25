@@ -44,9 +44,11 @@ expenseSchema.statics.addExpense = async function (expenseInput) {
   }
 };
 
-expenseSchema.statics.getExpenses = async function (userId) {
+expenseSchema.statics.getExpenses = async function (userId, dateRange) {
+  console.log(dateRange);
+
   try {
-    const expensesList = await this.find({ userId });
+    const expensesList = await this.find({ userId, createdAt: dateRange });
     if (expensesList.length > 0) {
       return expensesList;
     } else {

@@ -58,12 +58,16 @@ app.post("/api/v1/expenses/add", async (req, res) => {
   }
 });
 
-app.get("/api/v1/expenses/get/:userId", async (req, res) => {
+app.get("/api/v1/expenses/get/:userId", genDateRange, async (req, res) => {
   const { userId } = req.params;
+  const { dateRange } = req;
 
-  const allExpenses = await ExpenseModel.getExpenses(userId);
-
-  res.json({ data: allExpenses });
+  try {
+    const allExpenses = await ExpenseModel.getExpenses(userId, dateRange);
+    res.json({ data: allExpenses });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch expenses." });
+  }
 });
 
 app.delete("/api/v1/expenses/deleteAll/:userId", async (req, res) => {

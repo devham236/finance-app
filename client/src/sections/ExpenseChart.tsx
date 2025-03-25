@@ -10,11 +10,14 @@ const BarChart = () => {
     (state: any) => state.expenses
   );
   const { userData } = useSelector((state: any) => state.user);
+  const { selectedMonth } = useSelector((state: any) => state.timePicker);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getExpenses({ userId: userData.id }));
-  }, [totalExpenses]);
+    dispatch(
+      getExpenses({ userId: userData.id, selectedMonth: selectedMonth })
+    );
+  }, [totalExpenses, selectedMonth]);
 
   const addData = () => {
     if (!userData || !userData.id) {
