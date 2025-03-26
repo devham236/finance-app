@@ -68,6 +68,7 @@ const userSlice = createSlice({
       state.loading = false;
       state.userData = action.payload;
       state.error = "";
+      console.log(action.payload);
     });
     builder.addCase(logoutUser.rejected, (state, action) => {
       state.loading = false;
