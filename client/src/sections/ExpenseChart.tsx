@@ -17,7 +17,7 @@ const BarChart = () => {
     dispatch(
       getExpenses({
         userId: userData.id,
-        selectedMonth: selectedMonth ? selectedMonth : "Mar - 2025",
+        selectedMonth: selectedMonth,
       })
     );
   }, [totalExpenses, selectedMonth]);

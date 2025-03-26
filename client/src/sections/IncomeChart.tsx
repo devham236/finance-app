@@ -29,7 +29,7 @@ const DoughnutChart = () => {
     dispatch(
       getIncomes({
         userId: userData.id,
-        selectedMonth: selectedMonth ? selectedMonth : "Mar - 2025",
+        selectedMonth: selectedMonth,
       })
     );
   }, [totalIncome, selectedMonth]);

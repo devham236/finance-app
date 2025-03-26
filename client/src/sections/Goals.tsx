@@ -24,7 +24,7 @@ const Goals = () => {
     dispatch(
       getGoals({
         userId: userData.id,
-        selectedMonth: selectedMonth ? selectedMonth : "Mar - 2025",
+        selectedMonth: selectedMonth,
       })
     );
   }, [selectedMonth]);
