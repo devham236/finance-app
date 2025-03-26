@@ -8,7 +8,7 @@ import { genDateRange } from "../middleware/dateRange.js";
 
 const expenseRouter = express.Router();
 
-expenseRouter.post("/expenses/add", addExpense);
+expenseRouter.post("/add", addExpense);
 expenseRouter.get("/get/:userId", genDateRange, getExpenses);
 expenseRouter.delete("/deleteAll/:userId", deleteAllExpenses);
 
