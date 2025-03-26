@@ -3,10 +3,10 @@ import cors from "cors";
 import http from "http";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import { ExpenseModel } from "./models/ExpenseModel.js";
 import { GoalModel } from "./models/GoalModel.js";
 import { genDateRange } from "./middleware/dateRange.js";
 import incomeRouter from "./routes/incomeRoutes.js";
+import expenseRouter from "./routes/expenseRouter.js";
 dotenv.config();
 
 const app = express();
@@ -16,48 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/incomes", incomeRouter);
-
-//Expenses
-app.post("/api/v1/expenses/add", async (req, res) => {
-  const { expenseInput } = req.body;
-  try {
-    if (!expenseInput || !expenseInput.expense || !expenseInput.label) {
-      return res.status(400).json({ message: "Invalid expense data!" });
-    }
-    const newExpense = await ExpenseModel.addExpense(expenseInput);
-    res.status(201).json(newExpense);
-  } catch (error) {
-    console.error("Error adding expense:", error);
-    res.status(500).json({ message: "Internal Server error" });
-  }
-});
-
-app.get("/api/v1/expenses/get/:userId", genDateRange, async (req, res) => {
-  const { userId } = req.params;
-  const { dateRange } = req;
-
-  try {
-    const allExpenses = await ExpenseModel.getExpenses(userId, dateRange);
-    res.json({ data: allExpenses });
-  } catch (error) {
-    res.status(500).json({ error: "Failed to fetch expenses." });
-  }
-});
-
-app.delete("/api/v1/expenses/deleteAll/:userId", async (req, res) => {
-  const { userId } = req.params;
-  try {
-    if (!userId) {
-      res.status(400).json({ message: "Invalid user id" });
-    }
-    const response = await ExpenseModel.deleteAllExpenses(userId);
-    res.status(200).json({
-      message: `${response.deletedCount} expenses deleted successfully`,
-    });
-  } catch (error) {
-    console.error("Error adding expense:", error);
-  }
-});
+app.use("/api/v1/expenses", expenseRouter);
 
 //Goals
 app.post("/api/v1/goals/add", async (req, res) => {

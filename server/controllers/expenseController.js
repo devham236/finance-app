@@ -1,4 +1,4 @@
-import { ExpenseModel } from "../models/ExpenseModel";
+import { ExpenseModel } from "../models/ExpenseModel.js";
 
 export const addExpense = async (req, res) => {
   const { expenseInput } = req.body;
@@ -23,5 +23,20 @@ export const getExpenses = async (req, res) => {
     res.json({ data: allExpenses });
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch expenses." });
+  }
+};
+
+export const deleteAllExpenses = async (req, res) => {
+  const { userId } = req.params;
+  try {
+    if (!userId) {
+      res.status(400).json({ message: "Invalid user id" });
+    }
+    const response = await ExpenseModel.deleteAllExpenses(userId);
+    res.status(200).json({
+      message: `${response.deletedCount} expenses deleted successfully`,
+    });
+  } catch (error) {
+    console.error("Error adding expense:", error);
   }
 };
