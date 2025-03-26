@@ -1,8 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { genCurrentMonth } from "../../utils/helpers/methods";
+
+const currentMonth = genCurrentMonth();
 
 const timePickerSlice = createSlice({
   name: "timePicker",
-  initialState: { months: [], selectedMonth: "" },
+  initialState: { months: [], selectedMonth: currentMonth },
   reducers: {
     setMonths: (state, action) => {
       state.months = action.payload;

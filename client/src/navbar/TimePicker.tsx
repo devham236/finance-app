@@ -14,7 +14,6 @@ const TimePicker = () => {
     if (!userData?.createdAt) return;
     const monthList = generateMonths(userData.createdAt);
     dispatch(setMonths(monthList));
-    dispatch(setSelectedMonth(monthList[monthList.length - 1]));
   }, [userData?.createdAt]);
 
   return (

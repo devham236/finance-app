@@ -45,3 +45,14 @@ export const generateMonths = (timestamp: string) => {
 
   return monthList; // Default to latest month
 };
+
+export const genCurrentMonth = () => {
+  const fullYear = new Date().getFullYear();
+  const month = new Date().getMonth();
+
+  const monthName = Intl.DateTimeFormat("en-US", {
+    month: "short",
+  }).format(new Date(fullYear, month));
+
+  return `${monthName} - ${fullYear}`;
+};
