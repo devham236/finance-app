@@ -67,10 +67,9 @@ const incomeSlice = createSlice({
     builder.addCase(getIncomes.fulfilled, (state, action) => {
       state.loading = true;
       state.error = "";
+      state.incomeArray = action.payload;
 
-      state.incomeArray = action.payload.data;
-
-      const totalIncome = action.payload.data.reduce((prev, curr) => {
+      const totalIncome = action.payload.reduce((prev, curr) => {
         return prev + curr.income;
       }, 0);
       state.totalIncome = totalIncome;
@@ -79,7 +78,7 @@ const incomeSlice = createSlice({
       const allColors: string[] = [];
       const allLabels: string[] = [];
 
-      action.payload.data.forEach(({ income, color, label }) => {
+      action.payload.forEach(({ income, color, label }) => {
         allIncomes.push(income);
         allColors.push(color);
         allLabels.push(label);
@@ -99,7 +98,7 @@ const incomeSlice = createSlice({
     });
     builder.addCase(getIncomes.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.error.message;
+      state.error = action.payload as string;
     });
   },
 });

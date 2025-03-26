@@ -18,21 +18,26 @@ export const addIncome = createAsyncThunk(
 
 export const getIncomes = createAsyncThunk(
   "incomes/getIncomes",
-  async ({
-    userId,
-    selectedMonth,
-  }: {
-    userId: number;
-    selectedMonth: string;
-  }) => {
+  async (
+    {
+      userId,
+      selectedMonth,
+    }: {
+      userId: number;
+      selectedMonth: string;
+    },
+    { rejectWithValue }
+  ) => {
     try {
       const { data } = await axios.get(`/incomes/get/${userId}`, {
         params: { selectedMonth },
       });
 
-      return data;
+      return data.data;
     } catch (error) {
-      return error;
+      return rejectWithValue(
+        error.response?.data?.error || "Failed to fetch income."
+      );
     }
   }
 );

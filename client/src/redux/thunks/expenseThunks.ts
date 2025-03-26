@@ -19,14 +19,16 @@ export const addExpense = createAsyncThunk(
 
 export const getExpenses = createAsyncThunk(
   "expenses/getExpenses",
-  async ({ userId, selectedMonth }) => {
+  async ({ userId, selectedMonth }, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/expenses/get/${userId}`, {
         params: { selectedMonth },
       });
       return data;
     } catch (error) {
-      return error;
+      return rejectWithValue(
+        error.response?.data?.error || "Failed to fetch expenses."
+      );
     }
   }
 );

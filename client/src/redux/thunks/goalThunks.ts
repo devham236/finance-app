@@ -18,13 +18,16 @@ export const addGoal = createAsyncThunk(
 
 export const getGoals = createAsyncThunk(
   "goals/getGoals",
-  async ({
-    userId,
-    selectedMonth,
-  }: {
-    userId: number;
-    selectedMonth: string;
-  }) => {
+  async (
+    {
+      userId,
+      selectedMonth,
+    }: {
+      userId: number;
+      selectedMonth: string;
+    },
+    { rejectWithValue }
+  ) => {
     try {
       const { data } = await axios.get(`/goals/get/${userId}`, {
         params: { selectedMonth },
@@ -75,6 +78,3 @@ export const updateTitleDesc = createAsyncThunk(
     }
   }
 );
-function rejectWithValue(arg0: any): any {
-  throw new Error("Function not implemented.");
-}

@@ -51,7 +51,7 @@ const expensesSlice = createSlice({
     });
     builder.addCase(getExpenses.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.error.message;
+      state.error = action.payload as string;
     });
 
     // Delete All Expenses
