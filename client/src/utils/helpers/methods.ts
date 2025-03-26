@@ -18,7 +18,7 @@ export const getInitialState = (entryType: string) => {
   }
 };
 
-export const generateMonths = (timestamp: string) => {
+export const generateMonths = (timestamp: string): string[] => {
   const creationDate = new Date(Number(timestamp));
   const currentDate = new Date();
   const monthList: string[] = [];
@@ -43,10 +43,10 @@ export const generateMonths = (timestamp: string) => {
     }
   }
 
-  return monthList; // Default to latest month
+  return monthList;
 };
 
-export const genCurrentMonth = () => {
+export const genCurrentMonth = (): string => {
   const fullYear = new Date().getFullYear();
   const month = new Date().getMonth();
 
