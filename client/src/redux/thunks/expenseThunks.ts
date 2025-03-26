@@ -19,7 +19,10 @@ export const addExpense = createAsyncThunk(
 
 export const getExpenses = createAsyncThunk(
   "expenses/getExpenses",
-  async ({ userId, selectedMonth }, { rejectWithValue }) => {
+  async (
+    { userId, selectedMonth }: { userId: number; selectedMonth: string },
+    { rejectWithValue }
+  ) => {
     try {
       const { data } = await axios.get(`/expenses/get/${userId}`, {
         params: { selectedMonth },
