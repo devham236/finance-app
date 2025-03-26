@@ -31,7 +31,9 @@ export const getGoals = createAsyncThunk(
       });
       return data.data;
     } catch (error) {
-      return error;
+      return rejectWithValue(
+        error.response?.data?.error || "Failed to fetch goals."
+      );
     }
   }
 );
@@ -73,3 +75,6 @@ export const updateTitleDesc = createAsyncThunk(
     }
   }
 );
+function rejectWithValue(arg0: any): any {
+  throw new Error("Function not implemented.");
+}

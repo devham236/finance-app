@@ -11,11 +11,11 @@ const TimePicker = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (!userData?.createdAt) return;
     const monthList = generateMonths(userData.createdAt);
-
     dispatch(setMonths(monthList));
     dispatch(setSelectedMonth(monthList[monthList.length - 1]));
-  }, [userData.createdAt]);
+  }, [userData?.createdAt]);
 
   return (
     <div className="mr-20">
