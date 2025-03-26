@@ -21,7 +21,12 @@ const Goals = () => {
   };
 
   useEffect(() => {
-    dispatch(getGoals({ userId: userData.id, selectedMonth: selectedMonth }));
+    dispatch(
+      getGoals({
+        userId: userData.id,
+        selectedMonth: selectedMonth ? selectedMonth : "Mar - 2025",
+      })
+    );
   }, [selectedMonth]);
 
   return (

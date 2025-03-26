@@ -26,7 +26,12 @@ const DoughnutChart = () => {
   };
 
   useEffect(() => {
-    dispatch(getIncomes({ userId: userData.id, selectedMonth: selectedMonth }));
+    dispatch(
+      getIncomes({
+        userId: userData.id,
+        selectedMonth: selectedMonth ? selectedMonth : "Mar - 2025",
+      })
+    );
   }, [totalIncome, selectedMonth]);
 
   return (
