@@ -14,7 +14,11 @@ const userSlice = createSlice({
     loading: false,
     error: "",
   },
-  reducers: {},
+  reducers: {
+    setUser: (state, action) => {
+      state.userData = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     // Email and Password sign up
     builder.addCase(createUser.pending, (state) => {
@@ -68,7 +72,6 @@ const userSlice = createSlice({
       state.loading = false;
       state.userData = action.payload;
       state.error = "";
-      console.log(action.payload);
     });
     builder.addCase(logoutUser.rejected, (state, action) => {
       state.loading = false;
@@ -77,4 +80,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { setUser } = userSlice.actions;
 export default userSlice.reducer;

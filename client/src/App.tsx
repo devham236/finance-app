@@ -1,11 +1,37 @@
 import Sidebar from "./sidebar/Sidebar";
 import MainContent from "./components/MainContent";
-import { useSelector } from "react-redux";
 import Navbar from "./navbar/Navbar";
 import SidebarItem from "./sidebar/SidebarItem";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./configs/firebaseConfig.js";
+import { logoutUser } from "./redux/thunks/userThunks";
+import { setUser } from "./redux/slices/userSlice.js";
 
 const App = () => {
   const { isDarkMode } = useSelector((state: any) => state.darkmode);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(
+          setUser({
+            displayName: user.displayName,
+            email: user.email,
+            photoUrl: user.photoURL,
+            id: user.uid,
+            createdAt: user.reloadUserInfo.createdAt,
+          })
+        );
+      } else {
+        dispatch(logoutUser());
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <main
