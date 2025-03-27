@@ -20,7 +20,7 @@ const BarChart = () => {
         selectedMonth: selectedMonth,
       })
     );
-  }, [totalExpenses, selectedMonth]);
+  }, [totalExpenses, selectedMonth, userData]);
 
   const addData = () => {
     if (!userData || !userData.id) {

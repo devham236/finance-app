@@ -27,7 +27,7 @@ const Goals = () => {
         selectedMonth: selectedMonth,
       })
     );
-  }, [selectedMonth]);
+  }, [selectedMonth, userData]);
 
   return (
     <section className="grid-item flex flex-col">

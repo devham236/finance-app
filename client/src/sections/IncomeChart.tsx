@@ -32,7 +32,7 @@ const DoughnutChart = () => {
         selectedMonth: selectedMonth,
       })
     );
-  }, [totalIncome, selectedMonth]);
+  }, [totalIncome, selectedMonth, userData]);
 
   return (
     <section className="grid-item flex flex-col items-center justify-between relative">
