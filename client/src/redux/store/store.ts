@@ -1,9 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { PERSIST, persistStore } from "redux-persist";
-import {
-  persistedDarkmodeReducer,
-  persistedUserReducer,
-} from "./persistReducers";
+import { persistedDarkmodeReducer } from "./persistReducers";
 import authFormReducer from "../slices/authFormSlice";
 import newEntryReducer from "../slices/newEntrySlice";
 import compareSlice from "../slices/compareSlice";
@@ -13,12 +10,13 @@ import goalsReducer from "../slices/goalsSlice";
 import editGoalReducer from "../slices/editGoalSlice";
 import sidebarReducer from "../slices/sidebarSlice";
 import timePickerReducer from "../slices/timePickerSlice";
+import userReducer from "../slices/userSlice";
 
 export const store = configureStore({
   reducer: {
     sidebar: sidebarReducer,
     darkmode: persistedDarkmodeReducer,
-    user: persistedUserReducer,
+    user: userReducer,
     authForm: authFormReducer,
     income: incomeReducer,
     newEntry: newEntryReducer,
