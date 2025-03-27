@@ -5,7 +5,7 @@ const incomeSchema = new mongoose.Schema(
     label: {
       type: String,
       required: true,
-      unique: true,
+      unique: false,
     },
     income: {
       type: Number,
