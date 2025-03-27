@@ -3,7 +3,6 @@ import cors from "cors";
 import http from "http";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-
 import incomeRouter from "./routes/incomeRoutes.js";
 import expenseRouter from "./routes/expenseRouter.js";
 import goalRouter from "./routes/goalRoutes.js";
