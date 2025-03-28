@@ -53,22 +53,6 @@ const expensesSlice = createSlice({
       state.loading = false;
       state.error = action.payload as string;
     });
-
-    // Delete All Expenses
-    builder.addCase(deleteAllExpenses.pending, (state) => {
-      state.loading = true;
-      state.error = "";
-    });
-    builder.addCase(deleteAllExpenses.fulfilled, (state) => {
-      state.loading = true;
-      state.error = "";
-      state.barData = [];
-      state.totalExpenses = 0;
-    });
-    builder.addCase(deleteAllExpenses.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.error.message;
-    });
   },
 });
 

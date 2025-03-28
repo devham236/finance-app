@@ -35,16 +35,6 @@ const BarChart = () => {
       <div className="flex items-center justify-between w-full mb-2">
         <h3 className="font-[600] self-start">Total Expenses</h3>
         <div className="flex items-center">
-          {totalExpenses > 0 && (
-            <button
-              onClick={() => dispatch(deleteAllExpenses(userData.id))}
-              className="mr-2"
-            >
-              <span className="material-symbols-rounded opacity-50 hover:opacity-100 duration-200">
-                autorenew
-              </span>
-            </button>
-          )}
           <button onClick={addData}>
             <span className="material-symbols-rounded text-green_color">
               add_circle
