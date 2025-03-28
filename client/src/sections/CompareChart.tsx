@@ -23,6 +23,8 @@ const LineChart = () => {
   const { lineData } = useSelector((state: any) => state.compare);
   const config = { maintainAspectRatio: false };
 
+  console.log(lineData);
+
   return (
     <section className="grid-item col-span-2">
       <div className="flex items-center justify-between">
