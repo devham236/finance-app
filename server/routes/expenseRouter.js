@@ -1,9 +1,5 @@
 import express from "express";
-import {
-  addExpense,
-  deleteAllExpenses,
-  getExpenses,
-} from "../controllers/expenseController.js";
+import { addExpense, getExpenses } from "../controllers/expenseController.js";
 import { genDateRange } from "../middleware/dateRange.js";
 
 const expenseRouter = express.Router();

@@ -19,7 +19,7 @@ const TimePicker = () => {
   return (
     <div className="mr-20">
       <select
-        className="cursor-pointer bg-item_color_light dark:bg-item_color_dark p-1 rounded-md"
+        className="cursor-pointer bg-item_color_light dark:bg-item_color_dark p-1 rounded-md focus:outline-none"
         value={selectedMonth}
         onChange={(e) => dispatch(setSelectedMonth(e.target.value))}
       >
