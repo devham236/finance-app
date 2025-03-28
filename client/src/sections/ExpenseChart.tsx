@@ -52,7 +52,9 @@ const BarChart = () => {
           </button>
         </div>
       </div>
-      <p className="self-start text-2xl font-bold mb-4">{totalExpenses}€</p>
+      <p className="self-start text-2xl font-bold mb-4">
+        {totalExpenses > 0 ? `${totalExpenses}€` : "Loading..."}
+      </p>
       <div className="flex flex-col items-center justify-start w-full h-full">
         {barData?.data?.map((bar) => (
           <ExpenseBar expense={bar} key={bar._id} />
