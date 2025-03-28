@@ -9,7 +9,7 @@ import { getIncomes } from "../redux/thunks/incomeThunks";
 ChartJS.register(ArcElement, Tooltip);
 
 const DoughnutChart = () => {
-  const { doughnutData, totalIncome } = useSelector(
+  const { doughnutData, totalIncome, loading } = useSelector(
     (state: any) => state.income
   );
   const { userData } = useSelector((state: any) => state.user);

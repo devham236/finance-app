@@ -65,7 +65,7 @@ const incomeSlice = createSlice({
       state.error = "";
     });
     builder.addCase(getIncomes.fulfilled, (state, action) => {
-      state.loading = true;
+      state.loading = false;
       state.error = "";
       state.incomeArray = action.payload;
 
