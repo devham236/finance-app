@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // get all incomes or total income and extract the month, when the entry was created
+// do the same for expenses
 
 const compareSlice = createSlice({
   name: "compare",
