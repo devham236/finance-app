@@ -49,7 +49,7 @@ const DoughnutChart = () => {
       <div className="w-52 h-52 relative">
         <Doughnut data={doughnutData} options={config}></Doughnut>
         <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold">
-          {totalIncome > 0 ? `${totalIncome}€` : "Loading"}
+          {totalIncome}€
         </p>
       </div>
       <div className="flex items-center justify-center">
