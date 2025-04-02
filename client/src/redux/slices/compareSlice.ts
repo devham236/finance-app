@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getBoth } from "../thunks/compareThunks";
 
 // get all incomes or total income and extract the month, when the entry was created
 // do the same for expenses
@@ -65,6 +66,11 @@ const compareSlice = createSlice({
         ],
       };
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getBoth.pending, (state, action) => {});
+    builder.addCase(getBoth.fulfilled, (state, action) => {});
+    builder.addCase(getBoth.rejected, (state, action) => {});
   },
 });
 

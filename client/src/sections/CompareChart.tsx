@@ -7,8 +7,10 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import { useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getBoth } from "../redux/thunks/compareThunks";
 
 ChartJS.register(
   LineElement,
@@ -21,7 +23,13 @@ ChartJS.register(
 
 const LineChart = () => {
   const { lineData } = useSelector((state: any) => state.compare);
+  const { selectedMonth } = useSelector((state: any) => state.timePicker);
   const config = { maintainAspectRatio: false };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBoth(selectedMonth));
+  }, []);
 
   return (
     <section className="grid-item col-span-2">
