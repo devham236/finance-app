@@ -69,7 +69,9 @@ const compareSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getBoth.pending, (state, action) => {});
-    builder.addCase(getBoth.fulfilled, (state, action) => {});
+    builder.addCase(getBoth.fulfilled, (state, action) => {
+      console.log(action.payload);
+    });
     builder.addCase(getBoth.rejected, (state, action) => {});
   },
 });
