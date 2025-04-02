@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import incomeRouter from "./routes/incomeRoutes.js";
 import expenseRouter from "./routes/expenseRouter.js";
 import goalRouter from "./routes/goalRoutes.js";
+import bothRouter from "./routes/bothRoutes.js";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use("/api/v1/incomes", incomeRouter);
 app.use("/api/v1/expenses", expenseRouter);
 app.use("/api/v1/goals", goalRouter);
+app.use("/api/v1/both", bothRouter);
 
 mongoose
   .connect(process.env.MONGO_URL)
