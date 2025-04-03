@@ -25,48 +25,18 @@ const compareSlice = createSlice({
       datasets: [
         {
           label: "Income",
-          data: <any>[
-            2050, 2050, 2050, 2050, 2050, 2250, 2250, 2250, 2250, 2250, 2250,
-            2250,
-          ],
+          data: <any>[2050, 2050, 2050],
           borderColor: "#3e9c35",
         },
         {
           label: "Expenses",
-          data: <any>[
-            1200, 1300, 1500, 1100, 1700, 1200, 1300, 1500, 1100, 1700, 1400,
-            1600,
-          ],
+          data: <any>[1200, 1300, 1500],
           borderColor: "#bf3232",
         },
       ],
     },
   },
-  reducers: {
-    addLinePoint: (state, action) => {
-      const { expenses, incomes } = action.payload;
-      const reducedExpenses = expenses.reduce((curr, prev) => {
-        return prev + curr;
-      }, 0);
-      const reducedIncomes = incomes.reduce((curr, prev) => {
-        return prev + curr;
-      }, 0);
-
-      state.lineData = {
-        ...state.lineData,
-        datasets: [
-          {
-            ...state.lineData.datasets[0],
-            data: [...state.lineData.datasets[0].data, reducedIncomes],
-          },
-          {
-            ...state.lineData.datasets[1],
-            data: [...state.lineData.datasets[1].data, reducedExpenses],
-          },
-        ],
-      };
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getBoth.pending, (state, action) => {});
     builder.addCase(getBoth.fulfilled, (state, action) => {
@@ -77,11 +47,23 @@ const compareSlice = createSlice({
       const totalIncome = income.reduce((acc, prev) => {
         return acc + prev.income;
       }, 0);
-      console.log(totalIncome);
+
+      state.lineData = {
+        ...state.lineData,
+        datasets: [
+          {
+            ...state.lineData.datasets[0],
+            data: [...state.lineData.datasets[0].data, totalIncome],
+          },
+          {
+            ...state.lineData.datasets[1],
+            data: [...state.lineData.datasets[1].data, totalExpenses],
+          },
+        ],
+      };
     });
     builder.addCase(getBoth.rejected, (state, action) => {});
   },
 });
 
-export const { addLinePoint } = compareSlice.actions;
 export default compareSlice.reducer;
