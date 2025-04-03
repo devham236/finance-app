@@ -8,7 +8,7 @@ export const getBoth = async (req, res) => {
   try {
     const allExpenses = await ExpenseModel.getExpenses(userId, dateRange);
     const allIncomes = await IncomeModel.getIncomes(userId, dateRange);
-    res.json({ expensesData: allExpenses, incomeData: allIncomes });
+    res.json({ expenses: allExpenses, income: allIncomes });
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch expenses." });
   }
