@@ -71,7 +71,13 @@ const compareSlice = createSlice({
     builder.addCase(getBoth.pending, (state, action) => {});
     builder.addCase(getBoth.fulfilled, (state, action) => {
       const { expenses, income } = action.payload;
-      console.log(action.payload);
+      const totalExpenses = expenses.reduce((curr, prev) => {
+        return prev + curr;
+      }, 0);
+      const totalIncome = income.reduce((curr, prev) => {
+        return prev + curr;
+      }, 0);
+      console.log(totalExpenses);
     });
     builder.addCase(getBoth.rejected, (state, action) => {});
   },
