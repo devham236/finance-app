@@ -77,7 +77,7 @@ const compareSlice = createSlice({
       const totalIncome = income.reduce((curr, prev) => {
         return prev + curr;
       }, 0);
-      console.log(totalExpenses);
+      console.log(action.payload);
     });
     builder.addCase(getBoth.rejected, (state, action) => {});
   },

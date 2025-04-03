@@ -6,9 +6,14 @@ export const getBoth = async (req, res) => {
   const { dateRange } = req;
 
   try {
-    const allExpenses = await ExpenseModel.getExpenses(userId, dateRange);
-    const allIncomes = await IncomeModel.getIncomes(userId, dateRange);
-    res.json({ expenses: allExpenses, income: allIncomes });
+    const [allExpenses, allIncomes] = await Promise.all([
+      ExpenseModel.getExpenses(userId, dateRange),
+      IncomeModel.getIncomes(userId, dateRange),
+    ]);
+
+    if (allExpenses.length > 0 && allIncomes.length > 0) {
+      res.json({ expenses: allExpenses, income: allIncomes });
+    }
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch expenses." });
   }
