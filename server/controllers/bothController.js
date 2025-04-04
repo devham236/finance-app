@@ -3,7 +3,6 @@ import { IncomeModel } from "../models/IncomeModel.js";
 
 export const getBoth = async (req, res) => {
   const { userId } = req.params;
-  const { dateRange } = req;
 
   try {
     const [allExpenses, allIncomes] = await Promise.all([
