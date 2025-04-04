@@ -7,8 +7,8 @@ export const getBoth = async (req, res) => {
 
   try {
     const [allExpenses, allIncomes] = await Promise.all([
-      ExpenseModel.getExpenses(userId, dateRange),
-      IncomeModel.getIncomes(userId, dateRange),
+      ExpenseModel.getExpenses(userId),
+      IncomeModel.getIncomes(userId),
     ]);
 
     if (allExpenses.length > 0 && allIncomes.length > 0) {
