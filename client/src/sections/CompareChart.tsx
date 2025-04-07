@@ -25,12 +25,14 @@ const LineChart = () => {
   const { lineData } = useSelector((state: any) => state.compare);
   const { selectedMonth } = useSelector((state: any) => state.timePicker);
   const { userData } = useSelector((state: any) => state.user);
+  const { totalExpenses } = useSelector((state: any) => state.expenses);
+  const { totalIncome } = useSelector((state: any) => state.income);
   const config = { maintainAspectRatio: false };
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBoth({ userId: userData.id, selectedMonth }));
-  }, [userData]);
+  }, [userData, totalExpenses, totalIncome]);
 
   return (
     <section className="grid-item col-span-2">
