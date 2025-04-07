@@ -39,7 +39,6 @@ const compareSlice = createSlice({
     builder.addCase(getBoth.pending, (state, action) => {});
     builder.addCase(getBoth.fulfilled, (state, action) => {
       const { expenses, income } = action.payload;
-      console.log(action.payload);
 
       const expenseResult = getMonthlySums(expenses, "expense");
       const incomeResult = getMonthlySums(income, "income");
