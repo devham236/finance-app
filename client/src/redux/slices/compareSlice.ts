@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getBoth } from "../thunks/compareThunks";
-
-// get all incomes or total income and extract the month, when the entry was created
-// do the same for expenses
+import { getMonthlySums } from "../../utils/helpers/methods";
 
 const compareSlice = createSlice({
   name: "compare",
@@ -25,12 +23,12 @@ const compareSlice = createSlice({
       datasets: [
         {
           label: "Income",
-          data: <any>[2050, 2050, 2050],
+          data: <any>[],
           borderColor: "#3e9c35",
         },
         {
           label: "Expenses",
-          data: <any>[1200, 1300, 1500],
+          data: <any>[],
           borderColor: "#bf3232",
         },
       ],
@@ -43,23 +41,19 @@ const compareSlice = createSlice({
       const { expenses, income } = action.payload;
       console.log(action.payload);
 
-      const totalExpenses = expenses.reduce((acc, prev) => {
-        return acc + prev.expense;
-      }, 0);
-      const totalIncome = income.reduce((acc, prev) => {
-        return acc + prev.income;
-      }, 0);
+      const expenseResult = getMonthlySums(expenses, "expense");
+      const incomeResult = getMonthlySums(income, "income");
 
       state.lineData = {
         ...state.lineData,
         datasets: [
           {
             ...state.lineData.datasets[0],
-            data: [...state.lineData.datasets[0].data, totalIncome],
+            data: incomeResult.data,
           },
           {
             ...state.lineData.datasets[1],
-            data: [...state.lineData.datasets[1].data, totalExpenses],
+            data: expenseResult.data,
           },
         ],
       };
