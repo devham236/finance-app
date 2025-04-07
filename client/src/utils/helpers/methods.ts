@@ -56,3 +56,26 @@ export const genCurrentMonth = (): string => {
 
   return `${monthName} - ${fullYear}`;
 };
+
+export function getMonthlySums<T extends { createdAt: string }>(
+  entries: T[],
+  valueKey: keyof T
+): { data: number[]; latestMonthIndex: number } {
+  const monthlySums = new Array(12).fill(0);
+  let latestMonth = 0;
+
+  entries.forEach((entry) => {
+    const date = new Date(entry.createdAt);
+    const month = date.getMonth(); // 0 to 11
+    monthlySums[month] += Number(entry[valueKey]) || 0;
+
+    if (month > latestMonth) {
+      latestMonth = month;
+    }
+  });
+
+  return {
+    data: monthlySums.slice(0, latestMonth + 1),
+    latestMonthIndex: latestMonth,
+  };
+}
